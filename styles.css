@@ -1,5 +1,5 @@
-.navbar {
-  background: #ffb777; }
+.navbar, * {
+  background: #ff98b5; }
 
 .content {
   overflow-x: hidden;
@@ -16,10 +16,10 @@
   width: 100%;
   opacity: 0;
   transition: 0.5s ease;
-  background-color: #a496d9; }
+  background: #ff98b5; }
 
 .overlay-text {
-  color: white;
+  color: #6d59b5;;
   font-size: 20px;
   position: absolute;
   top: 50%;
