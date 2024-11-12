@@ -6,10 +6,10 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <!--https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css-->
   </head>
-  <body>
+  <body onload="loadingLoader()" style="margin:0;">
+    <div id="loader"></div>
     <nav class="navbar navbar-expand-sm navbar-dark" id="primary_nav_wrap">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="#">Love & DeepSpace</a>
+      <div class="container-fluid"><div style="display:none;" id="mainContent" class="animate-left">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -35,11 +35,11 @@
             </li>
           </ul>
         </div>
-      </div>
+      </div></div>
     </nav>
     <div class="content">
     <!--Project Grid--><div class="container__numbers">
-    <div id="project-grid">
+    <div id="project-grid"><div style="display:none;" id="photos" class="animate-bottom">
         <div class="row">
           <div id="project-grid-item" class="box filter zayne name col-lg-3 col-md-4 mb-12 mb-md-0 ">
             <a href="#">
@@ -281,7 +281,7 @@
                             <div class="overlay-text">Sylus Pose Side to Side</div>
                           </div>
                         </div>
-        </div>
+                      </div><!--row--></div><!--animation bottom-->
       </div></div>
     <!--End of Project Grid-->
     </div>

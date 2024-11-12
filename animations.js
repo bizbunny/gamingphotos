@@ -1,3 +1,4 @@
+//sorting animations----------------------------------------------------------------------------
 $(document).ready(function(){
   $(".button").click(function(){
       var value = $(this).attr("data-filter");
@@ -15,3 +16,15 @@ $(document).ready(function(){
       })
   })
 })
+//Loader----------------------------------------------------------------------------
+var Loader;
+
+function loadingLoader() {
+  Loader = setTimeout(showPage, 3000);
+}
+
+function showPage() {
+  document.getElementById("loader").style.display = "none";
+  document.getElementById("mainContent").style.display = "block";
+  document.getElementById("photos").style.display = "block";
+}
