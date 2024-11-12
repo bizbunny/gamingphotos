@@ -1,5 +1,5 @@
-.navbar {
-  background: #ffb777;
+.navbar, * {
+  background: #f18eca;
 }
 .content {
   overflow-x: hidden;
@@ -18,7 +18,7 @@
   transition: 0.5s ease;
   background-color: #a496d9;
 }
-.overlay-text {
+.overlay-text, .modal-btn {
   color: white;
   font-size: 20px;
   position: absolute;
@@ -47,3 +47,172 @@
   width: 100%;
 }
 /*end of project grid*/
+
+
+/* Center the loader */
+#loader {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 1;
+  width: 120px;
+  height: 120px;
+  margin: -76px 0 0 -76px;
+  border: 50px solid #c0b7e5;
+  border-radius: 50%;
+  border-top: 50px solid #6d59b5;
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
+}
+
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Add animation to "page content" */
+.animate-left {
+  position: relative;
+  -webkit-animation-name: animateleft;
+  -webkit-animation-duration: 1s;
+  animation-name: animateleft;
+  animation-duration: 1s
+}
+
+@-webkit-keyframes animateleft {
+  from { left:-100px; opacity:0 } 
+  to { left:0px; opacity:1 }
+}
+
+@keyframes animateleft{ 
+  from{ left:-100px; opacity:0 } 
+  to{ left:0; opacity:1 }
+}
+
+/* Add animation to "page content" */
+.animate-bottom {
+  position: relative;
+  -webkit-animation-name: animatebottom;
+  -webkit-animation-duration: 1s;
+  animation-name: animatebottom;
+  animation-duration: 1s
+}
+
+@-webkit-keyframes animatebottom {
+  from { bottom:-100px; opacity:0 } 
+  to { bottom:0px; opacity:1 }
+}
+
+@keyframes animatebottom { 
+  from{ bottom:-100px; opacity:0 } 
+  to{ bottom:0; opacity:1 }
+}
+
+/*___________________________________*/
+$white: #fcf7fb;
+/*--- MODAL ---*/
+.modal {
+  height:100%;
+  display: none;
+  position: absolute;
+  z-index: 1;
+  padding: 100px 15px;
+  left: 0;
+  top: 0;
+  overflow-y:scroll;
+  background-color: rgba(0, 0, 0, 0.55);
+  /*black with low opacity*/
+}
+
+.modal-btn,
+.proj_outsideLink {
+  padding: 6px 12px;
+  background-color:#a496d9;
+  border: none;
+}
+
+.modal-btn:hover,
+.proj_outsideLink:hover {
+  /*background-color:pink;*/
+  text-decoration: underline;
+  font-weight: 600;
+}
+
+.modal-content {
+  position: relative;
+  background-color: $white;
+  margin: 5px auto;
+  padding: 0;
+  border: 1px solid #888;
+  width: 80%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  -webkit-animation-name: animatetop;
+  -webkit-animation-duration: 0.4s;
+  animation-name: animatetop;
+  animation-duration: 0.4s;
+}
+
+.modal-body {
+  display: grid;
+  grid-template-columns: auto auto auto;
+}
+
+.modal-img {
+  width: 100%;
+  height: auto;
+  
+  object-fit: cover;
+  transform: scale(1);
+  transition: all 0.3s ease-in-out;
+}
+
+.modal-img:hover {
+  transform: scale(1.05);
+}
+
+/*modal body captions*/
+.mbc_container {
+  overflow: hidden;
+  cursor: pointer;
+  width: inherit;
+  height: 100%;
+}
+/*-- modal content --*/
+.modal-header {
+  padding: 2px 16px;
+  color: #efd9fc;
+  background-color: #7b4899;
+}
+
+.modal-body {
+  padding: 2px 16px;
+}
+
+.modal-footer {
+  padding: 2px 16px;
+  color: #efd9fc;
+  background-color: #7b4899;
+}
+.mbc_container:hover .mbc_content-hover {
+  display: block;
+}
+
+.mbc_content {
+  display: none;
+}
+
+.mbc_content-hover {
+  z-index: 1;
+  position: absolute;
+  white-space: nowrap;
+  display: none;
+  padding: 1rem;
+  background: $white;
+  font-weight: 400;
+}
+/*--- END OF MODAL ---*/
