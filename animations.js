@@ -19,15 +19,15 @@ $(document).ready(function(){
 //Loader & modal images----------------------------------------------------------------------------
 var Loader;
 let mArray = {//modal data
-  m39: ["modal39", "./static/loveanddeepspace/Paper173138605713.png"],
-  m40: ["modal40", "./static/loveanddeepspace/Paper173138605914.png"],
-  m41: ["modal41", "./static/loveanddeepspace/Paper173138606215.png"],
-  m42: ["modal42", "./static/loveanddeepspace/Paper173138606717.png"],
-  m43: ["modal43", "./static/loveanddeepspace/Paper173138683718.png"],
-  m44: ["modal44", "./static/loveanddeepspace/Paper173138705720.png"], 
-  m45: ["modal45", "./static/loveanddeepspace/Paper173138690519.png"], 
-  m46: ["modal46", "./static/loveanddeepspace/Paper173138716121.png"], 
-  m47: ["modal47", "./static/loveanddeepspace/Paper173138722222.png"]};
+  m39: ["modal39", "./static/loveanddeepspace/Paper173138605713.png", "Zayne Background Photo Pose"],
+  m40: ["modal40", "./static/loveanddeepspace/Paper173138605914.png", "Zayne Megaphone"],
+  m41: ["modal41", "./static/loveanddeepspace/Paper173138606215.png", "MC Megaphone"],
+  m42: ["modal42", "./static/loveanddeepspace/Paper173138606717.png", "Xavier in Café"],
+  m43: ["modal43", "./static/loveanddeepspace/Paper173138683718.png", "Xavier Collage 2"],
+  m44: ["modal44", "./static/loveanddeepspace/Paper173138705720.png", "MC megaphone with Bear Ears"], 
+  m45: ["modal45", "./static/loveanddeepspace/Paper173138690519.png", "Xavier megaphone"], 
+  m46: ["modal46", "./static/loveanddeepspace/Paper173138716121.png", "Xavier Photo Pose with Dog Ear Stickers"], 
+  m47: ["modal47", "./static/loveanddeepspace/Paper173138722222.png","Xavier with Close up MC Pose"]};
 
 function loadingLoader() {
   Loader = setTimeout(showPage, 3000);
@@ -43,7 +43,7 @@ for ( let key in mArray){//displays the modals
   document.getElementById(key).innerHTML='<div class="modal" id="'+mArray[key][0]+'"><div class="modal-content"><div class="modal-body"><figure class="mbc_container"><img src="'+mArray[key][1]+'" /></figure></div></div></div>';
 }
 
-//--- MODAL FUNCTIONS ---//
+//--------------------------------------------------------------- MODAL FUNCTIONS --------------------------------------------------------------------------------------------//
 var modals = document.querySelectorAll(".modal");
 var modalbtn = document.querySelectorAll("button.modal-btn");
 var spans = document.getElementsByClassName("close");
