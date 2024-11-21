@@ -70,8 +70,10 @@ let mArray = {//modal data
   m46: ["modal46", "./static/loveanddeepspace/Paper173138716121.png", "Xavier Photo Pose with Dog Ear Stickers"], 
   m47: ["modal47", "./static/loveanddeepspace/Paper173138722222.png","Xavier with Close up MC Pose"],
   m48: ["modal48", "./static/loveanddeepspace/Paper17314694021.png", "Cat Zayne 1"],
-  m49: ["modal49", "./static/loveanddeepspace/Paper17314694249.png", "Cat Xavier 1"]};
-
+  m49: ["modal49", "./static/loveanddeepspace/Paper17314694249.png", "Cat Xavier 1"],
+  m50: ["modal50", "./static/loveanddeepspace/Paper173154100512.png", "MC Newspaper"]
+};
+let modalT= '';
 let modalL= '';
 function loadingLoader() {
   Loader = setTimeout(showPage, 3000);
@@ -82,8 +84,12 @@ function showPage() {
   document.getElementById("photos").style.display = "block";
 }
 for ( let key in mArray){//creates all the modals
+  if(key=='m50'){
+    modalT = mArray[key][2];
+  }
   modalL+='<div class="modal" id="'+mArray[key][0]+'"><div class="modal-content"><div class="modal-body"><figure class="mbc_container"><img src="'+mArray[key][1]+'" /></figure></div></div></div>';
 }
+console.log(modalT);
 document.getElementById("modalL").innerHTML=modalL;//displays the modals
 //--------------------------------------------------------------- MODAL FUNCTIONS --------------------------------------------------------------------------------------------//
 var modals = document.querySelectorAll(".modal");
