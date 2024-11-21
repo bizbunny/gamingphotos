@@ -16,6 +16,9 @@ $(document).ready(function(){
       })
   })
 })
+//CSS----------------------------------------------------------------------------
+(
+)();
 //Loader & modal images----------------------------------------------------------------------------
 var Loader;
 let mArray = {//modal data
@@ -66,7 +69,8 @@ let mArray = {//modal data
   m45: ["modal45", "./static/loveanddeepspace/Paper173138690519.png", "Xavier megaphone"], 
   m46: ["modal46", "./static/loveanddeepspace/Paper173138716121.png", "Xavier Photo Pose with Dog Ear Stickers"], 
   m47: ["modal47", "./static/loveanddeepspace/Paper173138722222.png","Xavier with Close up MC Pose"],
-  m48: ["modal48", "./static/loveanddeepspace/Paper17314694021.png", "Cat Zayne 1"]};
+  m48: ["modal48", "./static/loveanddeepspace/Paper17314694021.png", "Cat Zayne 1"],
+  m49: ["modal49", "./static/loveanddeepspace/Paper17314694249.png", "Cat Xavier 1"]};
 
 let modalL= '';
 function loadingLoader() {
