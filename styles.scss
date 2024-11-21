@@ -216,24 +216,3 @@ $white: #fcf7fb;
   font-weight: 400;
 }
 /*--- END OF MODAL ---*/
-/*--------------------------------------Responsive------------------------------------------------------*/
-
-@media (max-width: 1440px) {
-  .mbc_container {
-    object-fit: contain;
-    width: auto;
-    height: 450px; 
-  }
-}
-@media (max-width: 768px) {
-  .mbc_container {
-    width: inherit;
-    height: 410px; 
-  }
-}
-@media (max-width: 414px) {
-  .mbc_container {
-    width: inherit;
-    height: 350px; 
-  }
-}
