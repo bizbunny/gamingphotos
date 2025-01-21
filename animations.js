@@ -93,7 +93,18 @@ for ( let key in mArray){//creates all the modals
   if(key=='m50'){
     modalT = mArray[key][2];
   }
-  modalL+='<div class="modal" id="'+mArray[key][0]+'"><div class="modal-content"><div class="modal-body"><figure class="mbc_container"><img src="'+mArray[key][1]+'" /></figure></div></div></div>';
+  modalL += `
+  <div class="modal" id="${mArray[key][0]}">
+    <div class="modal-content">
+      <div class="modal-body">
+        <figure class="mbc_container">
+          <img src="${mArray[key][1]}" />
+        </figure>
+      </div>
+    </div>
+  </div>
+`;
+
 }
 console.log(modalT);
 document.getElementById("modalL").innerHTML=modalL;//displays the modals
@@ -101,6 +112,14 @@ document.getElementById("modalL").innerHTML=modalL;//displays the modals
 var modals = document.querySelectorAll(".modal");
 var modalbtn = document.querySelectorAll("button.modal-btn");
 var spans = document.getElementsByClassName("close");
+for(var i = 0; i < spans.length; i++){
+  spans[i].onclick = function(){
+    for(var index = 0; index < modals.length; index++){
+      modals[index].style.display = "none";
+    }
+  }
+}
+
 
 //user clicks project card, open modal
 for(var i = 0;i <modalbtn.length ;i++){
@@ -112,13 +131,11 @@ for(var i = 0;i <modalbtn.length ;i++){
 }
 
 //user clicks close to close modal
-for(vari=0;i<spans.length;i++){
+for(var i = 0; i < spans.length; i++){
   spans[i].onclick = function(){
-    for(var index in modals){
-      if(typeof modals[index].style !== "undefined"){
-        modals[index].style.display = "none";
-      }
-    }//end of for loop
+    for(var index = 0; index < modals.length; index++){
+      modals[index].style.display = "none";
+    }
   }//end of anon func
 }//end of outer loop
 
