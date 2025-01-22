@@ -16,6 +16,7 @@ $(document).ready(function() {
     $(this).addClass("active"); // Add 'active' class to the clicked button
   });
 });
+//Grid images ------------------------------------------------------------------------------------
 
 //Loader & modal images----------------------------------------------------------------------------
 var Loader;
