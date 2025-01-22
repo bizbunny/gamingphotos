@@ -1,24 +1,22 @@
 //sorting animations----------------------------------------------------------------------------
-$(document).ready(function(){
-  $(".button").click(function(){
-      var value = $(this).attr("data-filter");
-      if (value == "all")
-      {
-          $(".filter").slideDown("1000");//).show("1000") other option
-      }
-      else
-      {
-          $(".filter").not("."+value).slideUp("1000");//).hide("1000") other option
-          $(".filter").filter("."+value).slideDown("1000");//).show("1000") other option
-      }
-      $("ul .button").click(function(){
-          $(this).addClass('active')
-      })
-  })
-})
-//CSS----------------------------------------------------------------------------
-(
-)();
+// Sorting animations
+$(document).ready(function() {
+  $(".button").click(function() {
+    var value = $(this).attr("data-filter");
+    
+    if (value == "all") {
+      $(".filter").slideDown("1000"); // Shows all elements
+    } else {
+      $(".filter").not("." + value).slideUp("1000"); // Hides unmatched elements
+      $(".filter").filter("." + value).slideDown("1000"); // Shows matched elements
+    }
+
+    // Update active class
+    $(".button").removeClass("active"); // Remove 'active' class from all buttons
+    $(this).addClass("active"); // Add 'active' class to the clicked button
+  });
+});
+
 //Loader & modal images----------------------------------------------------------------------------
 var Loader;
 let mArray = {//modal data
@@ -95,8 +93,10 @@ for ( let key in mArray){//creates all the modals
   }
   modalL += `
   <div class="modal" id="${mArray[key][0]}">
-    <div class="modal-content">
+  <button class="modal-btn" href="${mArray[key][0]}">Open Modal</button>  
+  <div class="modal-content">
       <div class="modal-body">
+      <span class="close">&times;</span>
         <figure class="mbc_container">
           <img src="${mArray[key][1]}" />
         </figure>
@@ -107,7 +107,7 @@ for ( let key in mArray){//creates all the modals
 
 }
 console.log(modalT);
-document.getElementById("modalL").innerHTML=modalL;//displays the modals
+document.getElementById("modalL").innerHTML = modalL;//displays the modals
 //--------------------------------------------------------------- MODAL FUNCTIONS --------------------------------------------------------------------------------------------//
 var modals = document.querySelectorAll(".modal");
 var modalbtn = document.querySelectorAll("button.modal-btn");
@@ -123,11 +123,11 @@ for(var i = 0; i < spans.length; i++){
 
 //user clicks project card, open modal
 for(var i = 0;i <modalbtn.length ;i++){
-  modalbtn[i].onclick = function(e){
+  modalbtn[i].onclick = function (e) {
     e.preventDefault();
     var modal = document.querySelector(e.target.getAttribute("href"));
     modal.style.display = "block";
-  }
+  };//Does the ; need to be here?
 }
 
 //user clicks close to close modal
