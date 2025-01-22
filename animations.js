@@ -70,11 +70,11 @@ let mArray = {//modal data
   m48: ["modal48", "./static/loveanddeepspace/Paper17314694021.png", "Cat Zayne 1"],
   m49: ["modal49", "./static/loveanddeepspace/Paper17314694249.png", "Cat Xavier 1"],
   m50: ["modal50", "./static/loveanddeepspace/Paper173154100512.png", "MC Newspaper"],
-  m51: ["modal51", "./static/loveanddeepspace/Paper173146942610", "Cat Xavier 2"],
-  m52: ["modal52", "./static/loveanddeepspace/Paper17315402294", "Cat Rafayel"],
-  m53: ["modal53", "./static/loveanddeepspace/Paper17315402465", "Cat Café"],
-  m54: ["modal54", "./static/loveanddeepspace/Paper173154092711", "Maid Rafayel"],
-  m55: ["modal55", "./static/loveanddeepspace/Paper17314716528", "Cat Sylus"]
+  m51: ["modal51", "./static/loveanddeepspace/Paper173146942610.png", "Cat Xavier 2"],
+  m52: ["modal52", "./static/loveanddeepspace/Paper17315402294.png", "Cat Rafayel"],
+  m53: ["modal53", "./static/loveanddeepspace/Paper17315402465.png", "Cat Café"],
+  m54: ["modal54", "./static/loveanddeepspace/Paper173154092711.png", "Maid Rafayel"],
+  m55: ["modal55", "./static/loveanddeepspace/Paper17314716528.png", "Cat Sylus"]
 
 };
 let modalT= '';
