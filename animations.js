@@ -20,6 +20,7 @@ $(document).ready(function() {
 
 //Loader & modal images----------------------------------------------------------------------------
 var Loader;
+//Refactor as this? : { id: "Zayne1", src: "./static/loveanddeepspace/Paper17288440731.png", modal: "modal1", label: "Zayne Collage", data: "zayne collage" },
 let mArray = {//modal data
   m1: ["modal1", "./static/loveanddeepspace/Paper17288440731.png", "Zayne Collage"],
   m2: ["modal2", "./static/loveanddeepspace/Paper17292167252.png", "Rafayel Strawberry Head"],
