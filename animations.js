@@ -68,14 +68,37 @@ let mArray = [
   { id: "Zayne13", src: "./static/loveanddeepspace/Paper17314694021.png", modal: "modal48", label: "Cat Zayne 1", data: "zayne cat" },
   { id: "Xavier13", src: "./static/loveanddeepspace/Paper17314694249.png", modal: "modal49", label: "Cat Xavier 1", data: "xavier cat" },
   { id: "MC8", src: "./static/loveanddeepspace/Paper173154100512.png", modal: "modal50", label: "MC Newspaper", data: "mc" },
-  { id: "Xavier14", src: "./static/loveanddeepspace/Paper173146942610.png", modal: "modal51", label: "Cat Xaver 12", data: "xavier cat" },
+  { id: "Xavier14", src: "./static/loveanddeepspace/Paper173146942610.png", modal: "modal51", label: "Cat Xaver 2", data: "xavier cat" },
   { id: "Rafayel6", src: "./static/loveanddeepspace/Paper17315402294.png", modal: "modal52", label: "Cat Rafayel", data: "rafayel cat" },
   { id: "Cat Café", src: "./static/loveanddeepspace/Paper17315402465.png", modal: "modal53", label: "Cat Café", data: "bg" },
   { id: "Rafayel7", src: "./static/loveanddeepspace/Paper173154092711.png", modal: "modal54", label: "Maid Rafayel", data: "rafayel" },
-  { id: "Sylus12", src: "./static/loveanddeepspace/Paper17314716528.png", modal: "modal55", label: "Cat Sylus", data: "sylus" },
+  { id: "Sylus12", src: "./static/loveanddeepspace/Paper17314716528.png", modal: "modal55", label: "Cat Sylus", data: "sylus cat" },
+  { id: "Rafayel18", src: "./static/loveanddeepspace/Paper173154120614.png", modal: "modal56", label: "Pouty Rafayel", data: "rafayel"},
+  { id: "Rafayel19", src: "./static/loveanddeepspace/Paper173154110813.png", modal: "modal57", label: "Silly Stickers Rafayel", data: "rafayel"},
+  { id: "Rafayel20", src: "./static/loveanddeepspace/Paper173154092110.png", modal: "modal58", label: "Rafayel Collage", data: "rafayel collage"},
+  { id: "Sylus13", src: "./static/loveanddeepspace/Paper17315402638.png", modal: "modal59", label: "Cat Sylus Annoyed", data: "sylus cat"},
+  { id: "Sylus14", src: "./static/loveanddeepspace/Paper17315402587.png", modal: "modal60", label: "Cat Sylus smirk", data: "sylus cat"},
+  { id: "Sylus15", src: "./static/loveanddeepspace/Paper17315402546.png", modal: "modal61", label: "Cat Sylus lean in", data: "sylus cat"},
+  { id: "Rafayel21", src: "./static/loveanddeepspace/Paper17315402263.png", modal: "modal62", label: "Cat Rafayel Smile", data: "rafayel cat"},
+  { id: "Rafayel22", src: "./static/loveanddeepspace/Paper17315402222.png", modal: "modal63", label: "Cat Rafayel in thought", data: "rafayel cat"},
+  { id: "Rafayel23", src: "./static/loveanddeepspace/Paper17315402171.png", modal: "modal64", label: "Cat Rafayel to the side", data: "rafayel cat"},
+  { id: "Sylus16", src: "./static/loveanddeepspace/Paper17314716549.png", modal: "modal65", label: "Cat Sylus lean in 2", data: "sylus cat"},
+  { id: "Sylus17", src: "./static/loveanddeepspace/Paper17314716497.png", modal: "modal66", label: "Cat Sylus in thought", data: "sylus cat"},
+  { id: "Sylus18", src: "./static/loveanddeepspace/Paper17314716466.png", modal: "modal67", label: "Cat Sylus standing", data: "sylus cat"},
+  { id: "Sylus19", src: "./static/loveanddeepspace/Paper17314716445.png", modal: "modal68", label: "Cat Sylus neutral?", data: "sylus cat"},
+  { id: "Sylus20", src: "./static/loveanddeepspace/Paper17314716414.png", modal: "modal69", label: "Cat Sylus hand up", data: "sylus cat"},
+  { id: "Zayne14", src: "./static/loveanddeepspace/Paper17314694062.png", modal: "modal70", label: "Cat Zayne 2", data: "zayne cat"},
+  { id: "Zayne15", src: "./static/loveanddeepspace/Paper17314694083.png", modal: "modal71", label: "Cat Zayne 3", data: "zayne cat"},
+  { id: "Zayne16", src: "./static/loveanddeepspace/Paper17314694104.png", modal: "modal72", label: "Cat Zayne 4", data: "zayne cat"},
+  { id: "Zayne17", src: "./static/loveanddeepspace/Paper17314694125.png", modal: "modal73", label: "Cat Zayne 5", data: "zayne cat"},
+  { id: "Zayne18", src: "./static/loveanddeepspace/Paper17314694156.png", modal: "modal74", label: "Cat Zayne 6", data: "zayne cat"},
+  { id: "Zayne19", src: "./static/loveanddeepspace/Paper17314694177.png", modal: "modal75", label: "Cat Zayne 7", data: "zayne cat"},
+  { id: "Zayne20", src: "./static/loveanddeepspace/Paper17314694218.png", modal: "modal76", label: "Cat Zayne 8", data: "zayne cat"},
+  { id: "Sylus21", src: "./static/loveanddeepspace/Paper17314716372.png", modal: "modal77", label: "Cat Sylus Upset", data: "sylus cat"},
+  { id: "Sylus22", src: "./static/loveanddeepspace/Paper17314716393.png", modal: "modal78", label: "Cat Sylus hand up 2", data: "sylus cat"}
   // Add all other items here...
 ];
-
+//template: { id: "", src: "./static/loveanddeepspace/.png", modal: "modal80", label: "", data: ""},
 let modalT = '';
 let modalL = '';
 
