@@ -1,4 +1,3 @@
-//sorting animations----------------------------------------------------------------------------
 // Sorting animations
 $(document).ready(function() {
   $(".button").click(function() {
@@ -16,136 +15,146 @@ $(document).ready(function() {
     $(this).addClass("active"); // Add 'active' class to the clicked button
   });
 });
-//Grid images ------------------------------------------------------------------------------------
 
-//Loader & modal images----------------------------------------------------------------------------
-var Loader;
-//Refactor as this? : { id: "Zayne1", src: "./static/loveanddeepspace/Paper17288440731.png", modal: "modal1", label: "Zayne Collage", data: "zayne collage" },
-let mArray = {//modal data
-  m1: ["modal1", "./static/loveanddeepspace/Paper17288440731.png", "Zayne Collage"],
-  m2: ["modal2", "./static/loveanddeepspace/Paper17292167252.png", "Rafayel Strawberry Head"],
-  m3: ["modal3", "./static/loveanddeepspace/Paper17292167773.png", "Rafayel Wand"],
-  m4: ["modal4", "./static/loveanddeepspace/Paper17292168134.png", "Rafayel Glasses"],
-  m5: ["modal5", "./static/loveanddeepspace/Paper17292181731.png", "Zayne Thinking"],
-  m6: ["modal6", "./static/loveanddeepspace/Paper17292181832.png", "MC Wand"],
-  m7: ["modal7", "./static/loveanddeepspace/Paper17292181953.png", "Zayne Posing"],
-  m8: ["modal8", "./static/loveanddeepspace/Paper17292182044.png", "Zayne Collage 2"],
-  m9: ["modal9", "./static/loveanddeepspace/Paper17311247121.png", "Rafayel Costume"],
-  m10: ["modal10", "./static/loveanddeepspace/Paper17311248072.png", "MC Glasses with Dog Face Sticker"],
-  m11: ["modal11", "./static/loveanddeepspace/Paper17311249413.png", "Rafayel Meme"],
-  m12: ["modal12", "./static/loveanddeepspace/Paper17311251665.png", "Sylus Collage"],
-  m13: ["modal13", "./static/loveanddeepspace/Paper17311254646.png", "MC Wand"],
-  m14: ["modal14", "./static/loveanddeepspace/Paper17311256267.png", "Sylus Pose & Point"],
-  m15: ["modal15", "./static/loveanddeepspace/Paper17311257548.png", "Sylus Pose & Smirk"],
-  m16: ["modal16", "./static/loveanddeepspace/Paper17312828791.png", "Zayne Working"],
-  m17: ["modal17", "./static/loveanddeepspace/Paper17312828943.png", "Zayne Standing Pose with Snowglobe"],
-  m18: ["modal18", "./static/loveanddeepspace/Paper17312828984.png", "Zayne Standing Pose Glasses"],
-  m19: ["modal19", "./static/loveanddeepspace/Paper17312830256.png", "Sylus Standing Pose"],
-  m20: ["modal20", "./static/loveanddeepspace/Paper17312830677.png", "Zayne Standing Pose Umbrella"],
-  m21: ["modal21", "./static/loveanddeepspace/Paper17312830768.png", "Zayne Closer"],
-  m22: ["modal22", "./static/loveanddeepspace/Paper17312830869.png", "Sylus Come Closer"],
-  m23: ["modal23", "./static/loveanddeepspace/Paper173128310410.png", "Sylus Wand"],
-  m24: ["modal24", "./static/loveanddeepspace/Paper173128312511.png", "Zayne Standing Pose Glasses & Flowers"],
-  m25: ["modal25", "./static/loveanddeepspace/Paper173128314612.png", "Sylus Pose"],
-  m26: ["modal26", "./static/loveanddeepspace/Paper173128365413.png", "Sylus Collage 2"],
-  m27: ["modal27", "./static/loveanddeepspace/Paper173128368714.png", "Sylus Pose Music Album"],
-  m28: ["modal28", "./static/loveanddeepspace/Paper173128382915.png", "MC Glasses with Food Stickers"],
-  m29: ["modal29", "./static/loveanddeepspace/Paper173128396416.png", "Sylus Pose with Hands"],
-  m30: ["modal30", "./static/loveanddeepspace/Paper173128404517.png", "Sylus Pose Side to Side"],
-  m31: ["modal31", "./static/loveanddeepspace/Paper17313856361.png", "Xavier Bunny 1"],
-  m32: ["modal32", "./static/loveanddeepspace/Paper17313857243.png", "Xavier Bunny 2"],
-  m33: ["modal33", "./static/loveanddeepspace/Paper17313857885.png", "Xavier Bunny 3"],
-  m34: ["modal34", "./static/loveanddeepspace/Paper17313860127.png", "Xavier Standing Pose"],
-  m35: ["modal35", "./static/loveanddeepspace/Paper17313860389.png", "Xavier Hmpf Pose"],
-  m36: ["modal36", "./static/loveanddeepspace/Paper173138604310.png", "MC Glasses"],
-  m37: ["modal37", "./static/loveanddeepspace/Paper173138604911.png", "Xavier Rectangle Pose"],
-  m38: ["modal38", "./static/loveanddeepspace/Paper173138605312.png", "Xavier Collage"],
-  m39: ["modal39", "./static/loveanddeepspace/Paper173138605713.png", "Zayne Background Photo Pose"],
-  m40: ["modal40", "./static/loveanddeepspace/Paper173138605914.png", "Zayne Megaphone"],
-  m41: ["modal41", "./static/loveanddeepspace/Paper173138606215.png", "MC Megaphone"],
-  m42: ["modal42", "./static/loveanddeepspace/Paper173138606717.png", "Xavier in Café"],
-  m43: ["modal43", "./static/loveanddeepspace/Paper173138683718.png", "Xavier Collage 2"],
-  m44: ["modal44", "./static/loveanddeepspace/Paper173138705720.png", "MC megaphone with Bear Ears"], 
-  m45: ["modal45", "./static/loveanddeepspace/Paper173138690519.png", "Xavier megaphone"], 
-  m46: ["modal46", "./static/loveanddeepspace/Paper173138716121.png", "Xavier Photo Pose with Dog Ear Stickers"], 
-  m47: ["modal47", "./static/loveanddeepspace/Paper173138722222.png","Xavier with Close up MC Pose"],
-  m48: ["modal48", "./static/loveanddeepspace/Paper17314694021.png", "Cat Zayne 1"],
-  m49: ["modal49", "./static/loveanddeepspace/Paper17314694249.png", "Cat Xavier 1"],
-  m50: ["modal50", "./static/loveanddeepspace/Paper173154100512.png", "MC Newspaper"],
-  m51: ["modal51", "./static/loveanddeepspace/Paper173146942610.png", "Cat Xavier 2"],
-  m52: ["modal52", "./static/loveanddeepspace/Paper17315402294.png", "Cat Rafayel"],
-  m53: ["modal53", "./static/loveanddeepspace/Paper17315402465.png", "Cat Café"],
-  m54: ["modal54", "./static/loveanddeepspace/Paper173154092711.png", "Maid Rafayel"],
-  m55: ["modal55", "./static/loveanddeepspace/Paper17314716528.png", "Cat Sylus"]
+// Modal data
+let mArray = [
+  { id: "Zayne1", src: "./static/loveanddeepspace/Paper17288440731.png", modal: "modal1", label: "Zayne Collage", data: "zayne collage" },
+  { id: "Rafayel1", src: "./static/loveanddeepspace/Paper17292167252.png", modal: "modal2", label: "Rafayel Strawberry Head", data: "rafayel" },
+  { id: "Rafayel2", src: "./static/loveanddeepspace/Paper17292167773.png", modal: "modal3", label: "Rafayel Wand", data: "rafayel" },
+  { id: "Rafayel3", src: "./static/loveanddeepspace/Paper17292168134.png", modal: "modal4", label: "Rafayel Glasses", data: "rafayel" },
+  { id: "Zayne2", src: "./static/loveanddeepspace/Paper17292181731.png", modal: "modal5", label: "Zayne Thinking", data: "zayne" },
+  { id: "MC1", src: "./static/loveanddeepspace/Paper17292181832.png", modal: "modal6", label: "MC Wand", data: "mc" },
+  { id: "Zayne3", src: "./static/loveanddeepspace/Paper17292181953.png", modal: "modal7", label: "Zayne Posing", data: "zayne" },
+  { id: "Zayne4", src: "./static/loveanddeepspace/Paper17292182044.png", modal: "modal8", label: "Zayne Collage 2", data: "zayne collage" },
+  { id: "Rafayel4", src: "./static/loveanddeepspace/Paper17311247121.png", modal: "modal9", label: "Zayne Collage 2", data: "rafayel" },
+  { id: "MC2", src: "./static/loveanddeepspace/Paper17311248072.png", modal: "modal10", label: "MC Glasses with Dog Face Sticker", data: "mc" },
+  { id: "Rafayel5", src: "./static/loveanddeepspace/Paper17311249413.png", modal: "modal11", label: "Rafayel Meme", data: "rafayel" },
+  { id: "Sylus1", src: "./static/loveanddeepspace/Paper17311251665.png", modal: "modal12", label: "Sylus Collage", data: "sylus collage" },
+  { id: "MC3", src: "./static/loveanddeepspace/Paper17311254646.png", modal: "modal13", label: "MC Wand", data: "mc" },
+  { id: "Sylus2", src: "./static/loveanddeepspace/Paper17311256267.png", modal: "modal14", label: "Sylus Pose & Point", data: "sylus" },
+  { id: "Sylus3", src: "./static/loveanddeepspace/Paper17311257548.png", modal: "modal15", label: "Sylus Pose & Smirk", data: "sylus" },
+  { id: "Zayne5", src: "./static/loveanddeepspace/Paper17312828791.png", modal: "modal16", label: "Zayne Working", data: "zayne" },
+  { id: "Zayne6", src: "./static/loveanddeepspace/Paper17312828943.png", modal: "modal17", label: "Zayne Standing Pose with Snowglobe", data: "zayne" },
+  { id: "Zayne7", src: "./static/loveanddeepspace/Paper17312828984.png", modal: "modal18", label: "Zayne Standing Pose Glasses", data: "zayne" },
+  { id: "Sylus4", src: "./static/loveanddeepspace/Paper17312830256.png", modal: "modal19", label: "Sylus Standing Pose", data: "sylus" },
+  { id: "Zayne8", src: "./static/loveanddeepspace/Paper17312830677.png", modal: "modal20", label: "Zayne Standing Pose Umbrella", data: "zayne" },
+  { id: "Zayne9", src: "./static/loveanddeepspace/Paper17312830768.png", modal: "modal21", label: "Zayne Closer", data: "zayne" },
+  { id: "Sylus5", src: "./static/loveanddeepspace/Paper17312830869.png", modal: "modal22", label: "Sylus Come Closer", data: "sylus" },
+  { id: "Sylus6", src: "./static/loveanddeepspace/Paper173128310410.png", modal: "modal23", label: "Sylus Wand", data: "sylus" },
+  { id: "Zayne10", src: "./static/loveanddeepspace/Paper173128312511.png", modal: "modal24", label: "Sylus Poses", data: "zayne" },
+  { id: "Sylus7", src: "./static/loveanddeepspace/Paper173128314612.png", modal: "modal25", label: "Sylus Pose", data: "sylus" },
+  { id: "Sylus8", src: "./static/loveanddeepspace/Paper173128365413.png", modal: "modal26", label: "Sylus Collage 2", data: "sylus" },
+  { id: "Sylus9", src: "./static/loveanddeepspace/Paper173128368714.png", modal: "modal27", label: "Sylus Pose Music Album", data: "sylus" },
+  { id: "MC4", src: "./static/loveanddeepspace/Paper173128382915.png", modal: "modal28", label: "MC Glasses with Food Stickers", data: "mc" },
+  { id: "Sylus10", src: "./static/loveanddeepspace/Paper173128396416.png", modal: "modal29", label: "Sylus Pose with Hands", data: "sylus" },
+  { id: "Sylus11", src: "./static/loveanddeepspace/Paper173128404517.png", modal: "modal30", label: "Sylus Pose Side to Side", data: "sylus" },
+  { id: "Xavier1", src: "./static/loveanddeepspace/Paper17313856361.png", modal: "modal31", label: "Xavier Bunny 1", data: "xavier" },
+  { id: "Xavier2", src: "./static/loveanddeepspace/Paper17313857243.png", modal: "modal32", label: "Xavier Bunny 2", data: "xavier" },
+  { id: "Xavier3", src: "./static/loveanddeepspace/Paper17313857885.png", modal: "modal33", label: "Xavier Bunny 3", data: "xavier" },
+  { id: "Xavier4", src: "./static/loveanddeepspace/Paper17313860127.png", modal: "modal34", label: "Xavier Standing Pose", data: "xavier" },
+  { id: "Xavier5", src: "./static/loveanddeepspace/Paper17313860389.png", modal: "modal35", label: "Xavier Hmpf Pose", data: "xavier" },
+  { id: "MC5", src: "./static/loveanddeepspace/Paper173138604310.png", modal: "modal36", label: "MC Glasses", data: "mc" },
+  { id: "Xavier6", src: "./static/loveanddeepspace/Paper173138604911.png", modal: "modal37", label: "Xavier Rectangle Pose", data: "xavier" },
+  { id: "Xavier7", src: "./static/loveanddeepspace/Paper173138605312.png", modal: "modal38", label: "Xavier Collage", data: "xavier collage" },
+  { id: "Zayne11", src: "./static/loveanddeepspace/Paper173138605713.png", modal: "modal39", label: "Zayne Background Photo Pose", data: "zayne" },
+  { id: "Zayne12", src: "./static/loveanddeepspace/Paper173138605914.png", modal: "modal40", label: "Zayne megaphone", data: "zayne" },
+  { id: "MC6", src: "./static/loveanddeepspace/Paper173138606215.png", modal: "modal41", label: "MC megaphone", data: "mc" },
+  { id: "Xavier8", src: "./static/loveanddeepspace/Paper173138606717.png", modal: "modal42", label: "Xavier in Café", data: "xavier" },
+  { id: "Xavier9", src: "./static/loveanddeepspace/Paper173138683718.png", modal: "modal43", label: "Xavier Collage 2", data: "xavier collage" },
+  { id: "MC7", src: "./static/loveanddeepspace/Paper173138705720.png", modal: "modal44", label: "MC megaphone with Bear Ears", data: "mc" },
+  { id: "Xavier10", src: "./static/loveanddeepspace/Paper173138690519.png", modal: "modal45", label: "Xavier megaphone", data: "xavier" },
+  { id: "Xavier11", src: "./static/loveanddeepspace/Paper173138716121.png", modal: "modal46", label: "Xavier Photo Pose with Dog Ear Stickers", data: "xavier" },
+  { id: "Xavier12", src: "./static/loveanddeepspace/Paper173138722222.png", modal: "modal47", label: "Xavier with Close up MC Pose", data: "xavier" },
+  { id: "Zayne13", src: "./static/loveanddeepspace/Paper17314694021.png", modal: "modal48", label: "Cat Zayne 1", data: "zayne cat" },
+  { id: "Xavier13", src: "./static/loveanddeepspace/Paper17314694249.png", modal: "modal49", label: "Cat Xavier 1", data: "xavier cat" },
+  { id: "MC8", src: "./static/loveanddeepspace/Paper173154100512.png", modal: "modal50", label: "MC Newspaper", data: "mc" },
+  { id: "Xavier14", src: "./static/loveanddeepspace/Paper173146942610.png", modal: "modal51", label: "Cat Xaver 12", data: "xavier cat" },
+  { id: "Rafayel6", src: "./static/loveanddeepspace/Paper17315402294.png", modal: "modal52", label: "Cat Rafayel", data: "rafayel cat" },
+  { id: "Cat Café", src: "./static/loveanddeepspace/Paper17315402465.png", modal: "modal53", label: "Cat Café", data: "bg" },
+  { id: "Rafayel7", src: "./static/loveanddeepspace/Paper173154092711.png", modal: "modal54", label: "Maid Rafayel", data: "rafayel" },
+  { id: "Sylus12", src: "./static/loveanddeepspace/Paper17314716528.png", modal: "modal55", label: "Cat Sylus", data: "sylus" },
+  // Add all other items here...
+];
 
-};
-let modalT= '';
-let modalL= '';
+let modalT = '';
+let modalL = '';
+
 function loadingLoader() {
   Loader = setTimeout(showPage, 3000);
 }
+
 function showPage() {
   document.getElementById("loader").style.display = "none";
   document.getElementById("mainContent").style.display = "block";
   document.getElementById("photos").style.display = "block";
 }
-for ( let key in mArray){//creates all the modals
-  if(key=='m50'){
-    modalT = mArray[key][2];
-  }
-  modalL += `
-  <div class="modal" id="${mArray[key][0]}">
-  <button class="modal-btn" href="${mArray[key][0]}">Open Modal</button>  
-  <div class="modal-content">
-      <div class="modal-body">
-      <span class="close">&times;</span>
-        <figure class="mbc_container">
-          <img src="${mArray[key][1]}" />
-        </figure>
-      </div>
-    </div>
-  </div>
-`;
 
+// Generate grid items and modals
+function generateGridItems() {
+  let gridItems = '';
+  mArray.forEach(item => {
+    gridItems += `
+      <div id="project-grid-item" class="box filter ${item.data} name col-lg-3 col-md-4 mb-12 mb-md-0">
+        <a href="#">
+          <img class="project-grid-item-img" src="${item.src}" alt="" id="${item.id}"/>
+        </a>
+        <div class="overlay">
+          <div class="overlay-text"><button class="modal-btn" href="#${item.modal}">${item.label}</button></div>
+        </div>
+      </div>
+    `;
+  });
+  document.getElementById("project-grid-items").innerHTML = gridItems;
 }
-console.log(modalT);
-document.getElementById("modalL").innerHTML = modalL;//displays the modals
-//--------------------------------------------------------------- MODAL FUNCTIONS --------------------------------------------------------------------------------------------//
+
+function generateModals() {
+  mArray.forEach(item => {
+    modalL += `
+      <div class="modal" id="${item.modal}">
+        <button class="modal-btn" href="${item.modal}">Open Modal</button>  
+        <div class="modal-content">
+          <div class="modal-body">
+            <span class="close">&times;</span>
+            <figure class="mbc_container">
+              <img src="${item.src}" />
+            </figure>
+          </div>
+        </div>
+      </div>
+    `;
+  });
+  document.getElementById("modalL").innerHTML = modalL;
+}
+
+loadingLoader();
+generateGridItems();
+generateModals();
+
+// Modal functions
 var modals = document.querySelectorAll(".modal");
 var modalbtn = document.querySelectorAll("button.modal-btn");
 var spans = document.getElementsByClassName("close");
-for(var i = 0; i < spans.length; i++){
-  spans[i].onclick = function(){
-    for(var index = 0; index < modals.length; index++){
+
+for (var i = 0; i < spans.length; i++) {
+  spans[i].onclick = function() {
+    for (var index = 0; index < modals.length; index++) {
       modals[index].style.display = "none";
     }
   }
 }
 
-
-//user clicks project card, open modal
-for(var i = 0;i <modalbtn.length ;i++){
+for (var i = 0; i < modalbtn.length; i++) {
   modalbtn[i].onclick = function (e) {
     e.preventDefault();
     var modal = document.querySelector(e.target.getAttribute("href"));
     modal.style.display = "block";
-  };//Does the ; need to be here?
+  };
 }
 
-//user clicks close to close modal
-for(var i = 0; i < spans.length; i++){
-  spans[i].onclick = function(){
-    for(var index = 0; index < modals.length; index++){
-      modals[index].style.display = "none";
-    }
-  }//end of anon func
-}//end of outer loop
-
-//user clicks outside modal, close too
-window.onclick = function(event){
-  if(event.target.classList.contains("modal")){
-    for(var index in modals){
-      if(typeof modals[index].style !== "undefined"){
+window.onclick = function(event) {
+  if (event.target.classList.contains("modal")) {
+    for (var index in modals) {
+      if (typeof modals[index].style !== "undefined") {
         modals[index].style.display = "none";
       }
     }
