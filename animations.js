@@ -14,6 +14,24 @@ $(document).ready(function() {
     $(".button").removeClass("active"); // Remove 'active' class from all buttons
     $(this).addClass("active"); // Add 'active' class to the clicked button
   });
+
+  // Handle dropdown item clicks
+  $(".dropdown-item").click(function() {
+    var value = $(this).attr("data-filter");
+    
+    if (value === "all") {
+      $(".filter").slideDown("1000"); // Show all elements
+    } else {
+      $(".filter").not("." + value).slideUp("1000"); // Hide unmatched elements
+      $(".filter").filter("." + value).slideDown("1000"); // Show matched elements
+    }
+  
+    // Update active class
+    $(".button").removeClass("active"); // Remove 'active' class from all buttons
+    $(".dropdown-item").removeClass("active"); // Remove 'active' class from dropdown items
+    $(this).addClass("active"); // Add 'active' class to the clicked dropdown item
+  });
+  
 });
 
 // Modal data

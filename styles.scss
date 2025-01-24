@@ -216,8 +216,7 @@ $white: #fcf7fb;
   font-weight: 400;
 }
 /*--- END OF MODAL ---*/
-/*---Drop down menu---*/
-/* Dropdown menu */
+/*---------Drop down menu---------*/
 .dropdown-menu {
   display: none;
   position: absolute;
@@ -244,6 +243,11 @@ $white: #fcf7fb;
 .dropdown:hover .dropdown-menu {
   display: block;
 }
+.dropdown-item.active {
+  background-color: #f1f1f1;
+  color: #f18eca;
+}
+
 /*--------------------------------------Responsive------------------------------------------------------*/
 
 @media (max-width: 1440px) {
