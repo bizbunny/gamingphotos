@@ -1,19 +1,22 @@
 // Sorting animations
 $(document).ready(function() {
   $(".button").click(function() {
-    var value = $(this).attr("data-filter");
-    
-    if (value == "all") {
-      $(".filter").slideDown("1000"); // Shows all elements
-    } else {
-      $(".filter").not("." + value).slideUp("1000"); // Hides unmatched elements
-      $(".filter").filter("." + value).slideDown("1000"); // Shows matched elements
-    }
+    var value = $(this).attr("data-filter"); // Get the selected filtervar value = $(this).attr("data-filter");
+    console.log("Filtering by:", value); // Debugging: Log the filter value
 
-    // Update active class
-    $(".button").removeClass("active"); // Remove 'active' class from all buttons
-    $(this).addClass("active"); // Add 'active' class to the clicked button
-  });
+  // Apply filtering logic
+  if (value === "all") {
+    $(".filter").slideDown("1000"); // Show all elements
+  } else {
+    $(".filter").not("." + value).slideUp("1000"); // Hide unmatched elements
+    $(".filter").filter("." + value).slideDown("1000"); // Show matched elements
+  }
+
+  // Update active class
+  $(".dropdown-item").removeClass("active"); // Remove 'active' class from all dropdown items
+  $(this).addClass("active"); // Add 'active' class to the selected item
+
+});
 
   // Handle dropdown item clicks
   $(".dropdown-item").click(function() {
@@ -88,7 +91,7 @@ let mArray = [
   { id: "MC8", src: "./static/loveanddeepspace/Paper173154100512.png", modal: "modal50", label: "MC Newspaper", data: "mc" },
   { id: "Xavier14", src: "./static/loveanddeepspace/Paper173146942610.png", modal: "modal51", label: "Cat Xaver 2", data: "xavier cat" },
   { id: "Rafayel6", src: "./static/loveanddeepspace/Paper17315402294.png", modal: "modal52", label: "Cat Rafayel", data: "rafayel cat" },
-  { id: "Cat Café", src: "./static/loveanddeepspace/Paper17315402465.png", modal: "modal53", label: "Cat Café", data: "bg" },
+  { id: "CatCafé", src: "./static/loveanddeepspace/Paper17315402465.png", modal: "modal53", label: "Cat Café", data: "bg" },
   { id: "Rafayel7", src: "./static/loveanddeepspace/Paper173154092711.png", modal: "modal54", label: "Maid Rafayel", data: "rafayel" },
   { id: "Sylus12", src: "./static/loveanddeepspace/Paper17314716528.png", modal: "modal55", label: "Cat Sylus", data: "sylus cat" },
   { id: "Rafayel18", src: "./static/loveanddeepspace/Paper173154120614.png", modal: "modal56", label: "Pouty Rafayel", data: "rafayel"},
@@ -143,7 +146,12 @@ let mArray = [
   { id: "Zayne22", src: "./static/loveanddeepspace/Paper17376023708.png", modal: "modal105", label: "Zayne Wave", data: "zayne"},
   { id: "Caleb5", src: "./static/loveanddeepspace/Paper17376443371.png", modal: "modal106", label: "Caleb Hands", data: "caleb"},
   { id: "Sylus31", src: "./static/loveanddeepspace/Paper173233242410.png", modal: "modal107", label: "Sylus Flowers", data: "sylus"},
-  { id: "MC12", src: "./static/loveanddeepspace/Paper173233243711.png", modal: "modal108", label: "MC Guns", data: "mc"}
+  { id: "MC12", src: "./static/loveanddeepspace/Paper173233243711.png", modal: "modal108", label: "MC Guns", data: "mc"},
+  { id: "Caleb6", src: "./static/loveanddeepspace/Paper17377382667.png", modal: "modal09", label: "Caleb lean in", data: "caleb"},
+  { id: "NewYear", src: "./static/loveanddeepspace/Paper17377382205.png", modal: "modal110", label: "Lunar New Year 2025 Deco", data: "bg"},
+  { id: "Caleb7", src: "./static/loveanddeepspace/Paper17377382164.png", modal: "modal111", label: "Caleb Lunar New Year 2025", data: "caleb"},
+  { id: "Caleb8", src: "./static/loveanddeepspace/Paper17377382133.png", modal: "modal112", label: "Caleb Café Lunar New Year 2025", data: "caleb"},
+  { id: "Caleb9", src: "./static/loveanddeepspace/Paper17377381891.png", modal: "modal113", label: "Caleb Outside", data: "caleb"}
   // Add all other items here...
 ];
 //template: { id: "", src: "./static/loveanddeepspace/.png", modal: "modal80", label: "", data: ""},

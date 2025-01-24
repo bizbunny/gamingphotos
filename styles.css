@@ -213,32 +213,40 @@
 
 /*--- END OF MODAL ---*/
 /*---------Drop down menu---------*/
+/* Dropdown menu */
 .dropdown-menu {
   display: none;
   position: absolute;
   background-color: #f18eca;
+  /* Ensure this matches the navbar color */
   border-radius: 5px;
   min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1; }
 
-.dropdown-menu .dropdown-item {
-  color: white;
+.dropdown-menu #dropdown-item {
+  color: #f18eca;
+  /* Text color */
   padding: 12px 16px;
   text-decoration: none;
   display: block; }
 
-.dropdown-menu .dropdown-item:hover {
-  background-color: #f1f1f1;
-  border-radius: 5px;
-  color: #f18eca; }
+/* Hover effect for dropdown items */
+.dropdown-menu #dropdown-item:hover {
+  background-color: #f18eca;
+  /* Keep the same background color on hover */
+  color: white;
+  /* Change text color on hover if needed */ }
 
+/* Show dropdown menu on hover */
 .dropdown:hover .dropdown-menu {
   display: block; }
 
-.dropdown-item.active {
-  background-color: #f1f1f1;
-  color: #f18eca; }
+/* Active dropdown item */
+#dropdown-item.active {
+  background-color: #f18eca;
+  /* Ensure active items have the same background color */
+  color: white; }
 
 /*--------------------------------------Responsive------------------------------------------------------*/
 @media (max-width: 1440px) {
@@ -250,7 +258,9 @@
 @media (max-width: 768px) {
   .mbc_container {
     width: inherit;
-    height: 410px; } }
+    height: 410px; }
+  .dropdown-menu {
+    width: 90%; } }
 
 @media (max-width: 414px) {
   .mbc_container {
