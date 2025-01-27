@@ -247,7 +247,7 @@ $white: #fcf7fb;
 }
 
 /* Active dropdown item */
-#dropdown-item.active {
+.dropdown-item.active {
   background-color: #f18eca; /* Ensure active items have the same background color */
   color: white;
 }
