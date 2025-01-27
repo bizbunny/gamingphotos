@@ -21,7 +21,8 @@ $(document).ready(function() {
   // Handle dropdown item clicks
   $(".dropdown-item").click(function() {
     var value = $(this).attr("data-filter");
-    
+    console.log("Dropdown item clicked. Filtering by:", value); // Debugging
+
     if (value === "all") {
       $(".filter").slideDown("1000"); // Show all elements
     } else {
@@ -86,7 +87,7 @@ let mArray = [
   { id: "Xavier10", src: "./static/loveanddeepspace/Paper173138690519.png", modal: "modal45", label: "Xavier megaphone", data: "xavier" },
   { id: "Xavier11", src: "./static/loveanddeepspace/Paper173138716121.png", modal: "modal46", label: "Xavier Photo Pose with Dog Ear Stickers", data: "xavier" },
   { id: "Xavier12", src: "./static/loveanddeepspace/Paper173138722222.png", modal: "modal47", label: "Xavier with Close up MC Pose", data: "xavier" },
-  { id: "Zayne13", src: "./static/loveanddeepspace/Paper17314694021.png", modal: "modal48", label: "Cat Zayne 1", data: "zayne cat" },
+  { id: "Zayne13", src: "./static/loveanddeepspace/Paper17314694021.png", modal: "modal48", label: "Cat Zayne 1", data: "cat zayne zcat" },
   { id: "Xavier13", src: "./static/loveanddeepspace/Paper17314694249.png", modal: "modal49", label: "Cat Xavier 1", data: "xavier cat" },
   { id: "MC8", src: "./static/loveanddeepspace/Paper173154100512.png", modal: "modal50", label: "MC Newspaper", data: "mc" },
   { id: "Xavier14", src: "./static/loveanddeepspace/Paper173146942610.png", modal: "modal51", label: "Cat Xaver 2", data: "xavier cat" },
@@ -108,13 +109,13 @@ let mArray = [
   { id: "Sylus18", src: "./static/loveanddeepspace/Paper17314716466.png", modal: "modal67", label: "Cat Sylus standing", data: "sylus cat"},
   { id: "Sylus19", src: "./static/loveanddeepspace/Paper17314716445.png", modal: "modal68", label: "Cat Sylus neutral?", data: "sylus cat"},
   { id: "Sylus20", src: "./static/loveanddeepspace/Paper17314716414.png", modal: "modal69", label: "Cat Sylus hand up", data: "sylus cat"},
-  { id: "Zayne14", src: "./static/loveanddeepspace/Paper17314694062.png", modal: "modal70", label: "Cat Zayne 2", data: "zayne cat"},
-  { id: "Zayne15", src: "./static/loveanddeepspace/Paper17314694083.png", modal: "modal71", label: "Cat Zayne 3", data: "zayne cat"},
-  { id: "Zayne16", src: "./static/loveanddeepspace/Paper17314694104.png", modal: "modal72", label: "Cat Zayne 4", data: "zayne cat"},
-  { id: "Zayne17", src: "./static/loveanddeepspace/Paper17314694125.png", modal: "modal73", label: "Cat Zayne 5", data: "zayne cat"},
-  { id: "Zayne18", src: "./static/loveanddeepspace/Paper17314694156.png", modal: "modal74", label: "Cat Zayne 6", data: "zayne cat"},
-  { id: "Zayne19", src: "./static/loveanddeepspace/Paper17314694177.png", modal: "modal75", label: "Cat Zayne 7", data: "zayne cat"},
-  { id: "Zayne20", src: "./static/loveanddeepspace/Paper17314694218.png", modal: "modal76", label: "Cat Zayne 8", data: "zayne cat"},
+  { id: "Zayne14", src: "./static/loveanddeepspace/Paper17314694062.png", modal: "modal70", label: "Cat Zayne 2", data: "cat zayne zcat"},
+  { id: "Zayne15", src: "./static/loveanddeepspace/Paper17314694083.png", modal: "modal71", label: "Cat Zayne 3", data: "cat zayne zcat"},
+  { id: "Zayne16", src: "./static/loveanddeepspace/Paper17314694104.png", modal: "modal72", label: "Cat Zayne 4", data: "cat zayne zcat"},
+  { id: "Zayne17", src: "./static/loveanddeepspace/Paper17314694125.png", modal: "modal73", label: "Cat Zayne 5", data: "cat zayne zcat"},
+  { id: "Zayne18", src: "./static/loveanddeepspace/Paper17314694156.png", modal: "modal74", label: "Cat Zayne 6", data: "cat zayne zcat"},
+  { id: "Zayne19", src: "./static/loveanddeepspace/Paper17314694177.png", modal: "modal75", label: "Cat Zayne 7", data: "cat zayne zcat"},
+  { id: "Zayne20", src: "./static/loveanddeepspace/Paper17314694218.png", modal: "modal76", label: "Cat Zayne 8", data: "cat zayne zcat"},
   { id: "Sylus21", src: "./static/loveanddeepspace/Paper17314716372.png", modal: "modal77", label: "Cat Sylus Upset", data: "sylus cat"},
   { id: "Sylus22", src: "./static/loveanddeepspace/Paper17314716393.png", modal: "modal78", label: "Cat Sylus hand up 2", data: "sylus cat"},
   { id: "Xavier15", src: "./static/loveanddeepspace/Paper17317286101.png", modal: "modal79", label: "Cat Xavier 3", data: "xavier cat"},
@@ -151,7 +152,32 @@ let mArray = [
   { id: "NewYear", src: "./static/loveanddeepspace/Paper17377382205.png", modal: "modal110", label: "Lunar New Year 2025 Deco", data: "bg"},
   { id: "Caleb7", src: "./static/loveanddeepspace/Paper17377382164.png", modal: "modal111", label: "Caleb Lunar New Year 2025", data: "caleb"},
   { id: "Caleb8", src: "./static/loveanddeepspace/Paper17377382133.png", modal: "modal112", label: "Caleb Café Lunar New Year 2025", data: "caleb"},
-  { id: "Caleb9", src: "./static/loveanddeepspace/Paper17377381891.png", modal: "modal113", label: "Caleb Outside", data: "caleb"}
+  { id: "Caleb9", src: "./static/loveanddeepspace/Paper17377381891.png", modal: "modal113", label: "Caleb Outside", data: "caleb"},
+  { id: "Rafayel30", src: "./static/loveanddeepspace/Paper17378643811.png", modal: "modal114", label: "Rafayel Lunar New Year 2025", data: "rafayel"},
+  { id: "Caleb10", src: "./static/loveanddeepspace/Paper173786324516.png", modal: "modal115", label: "Caleb Memory 1", data: "caleb"},
+  { id: "Caleb11", src: "./static/loveanddeepspace/Paper173786324215.png", modal: "modal116", label: "Caleb Memory 2", data: "caleb"},
+  { id: "Linkon", src: "./static/loveanddeepspace/Paper173786324014.png", modal: "modal117", label: "Linkon Back Alley", data: "bg"},
+  { id: "Linkon2", src: "./static/loveanddeepspace/Paper173786323813.png", modal: "modal118", label: "Linkon City District", data: "bg"},
+  { id: "Caleb12", src: "./static/loveanddeepspace/Paper173786323512.png", modal: "modal119", label: "Caleb at his home", data: "caleb"},
+  { id: "Caleb13", src: "./static/loveanddeepspace/Paper173786323311.png", modal: "modal120", label: "Caleb at his home 2", data: "caleb"},
+  { id: "Caleb14", src: "./static/loveanddeepspace/Paper173786323010.png", modal: "modal121", label: "Caleb at his home 3", data: "caleb"},
+  { id: "Apartment", src: "./static/loveanddeepspace/Paper17378632229.png", modal: "modal122", label: "Caleb's Livingroom", data: "bg"},
+  { id: "Caleb15", src: "./static/loveanddeepspace/Paper17378632188.png", modal: "modal123", label: "Caleb in Uniform 1", data: "caleb"},
+  { id: "Caleb16", src: "./static/loveanddeepspace/Paper17378632157.png", modal: "modal124", label: "Caleb in Uniform 2", data: "caleb"},
+  { id: "Caleb17", src: "./static/loveanddeepspace/Paper17378632126.png", modal: "modal125", label: "Caleb in Uniform 3", data: "caleb"},
+  { id: "Caleb18", src: "./static/loveanddeepspace/Paper17378632095.png", modal: "modal126", label: "Caleb in Uniform 4", data: "caleb"},
+  { id: "Caleb19", src: "./static/loveanddeepspace/Paper17378631833.png", modal: "modal127", label: "Caleb in Uniform lean in", data: "caleb"},
+  { id: "Caleb20", src: "./static/loveanddeepspace/Paper17378631742.png", modal: "modal128", label: "Caleb in Uniform 5", data: "caleb"},
+  { id: "Caleb21", src: "./static/loveanddeepspace/Paper17378631441.png", modal: "modal129", label: "Caleb in Uniform 6", data: "caleb"},
+  { id: "Caleb22", src: "./static/loveanddeepspace/Paper17378468699.png", modal: "modal130", label: "Caleb Lunar New Year 2025 2", data: "caleb"},
+  { id: "Caleb23", src: "./static/loveanddeepspace/Paper17378467978.png", modal: "modal131", label: "Caleb Fireworks", data: "caleb"},
+  { id: "MC13", src: "./static/loveanddeepspace/Paper17378466447.png", modal: "modal132", label: "MC framing", data: "mc"},
+  { id: "Caleb24", src: "./static/loveanddeepspace/Paper17378465596.png", modal: "modal133", label: "Caleb Lunar New Year 2025 pose", data: "caleb"},
+  { id: "Caleb25", src: "./static/loveanddeepspace/Paper17378464155.png", modal: "modal134", label: "Caleb Collage 2", data: "caleb collage"},
+  { id: "Caleb26", src: "./static/loveanddeepspace/Paper17378457654.png", modal: "modal135", label: "Caleb lean in 2", data: "caleb"},
+  { id: "Caleb27", src: "./static/loveanddeepspace/Paper17378457603.png", modal: "modal136", label: "Caleb lean in 3", data: "caleb"},
+  { id: "NewYear2", src: "./static/loveanddeepspace/Paper17378457512.png", modal: "modal137", label: "Lantern Making Workshop", data: "bg"},
+  { id: "Caleb28", src: "./static/loveanddeepspace/Paper17378457471.png", modal: "modal138", label: "Caleb Lunar New Year 2025 3", data: "caleb"}
   // Add all other items here...
 ];
 //template: { id: "", src: "./static/loveanddeepspace/.png", modal: "modal80", label: "", data: ""},

@@ -222,23 +222,23 @@ $white: #fcf7fb;
   display: none;
   position: absolute;
   background-color: #f18eca; /* Ensure this matches the navbar color */
+  color: #f1f1f1;
   border-radius: 5px;
   min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
 }
 
-.dropdown-menu #dropdown-item {
-  color: #f18eca; /* Text color */
+.dropdown-menu .dropdown-item {
+  color: #f1f1f1;
   padding: 12px 16px;
   text-decoration: none;
   display: block;
 }
 
-/* Hover effect for dropdown items */
-.dropdown-menu #dropdown-item:hover {
-  background-color: #f18eca; /* Keep the same background color on hover */
-  color: white; /* Change text color on hover if needed */
+.dropdown-menu .dropdown-item:hover {
+  background-color: #f18eca;
+  color: #f1f1f1;
 }
 
 /* Show dropdown menu on hover */
