@@ -181,6 +181,14 @@ let mArray = [
   // Add all other items here...
 ];
 //template: { id: "", src: "./static/loveanddeepspace/.png", modal: "modal80", label: "", data: ""},
+
+/*
+$.get( "./data.json", function( data){ 
+  mArray = data; 
+  console.log(mArray); 
+});
+*/
+
 let modalT = '';
 let modalL = '';
 
