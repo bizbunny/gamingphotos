@@ -1,42 +1,101 @@
 // Sorting animations
 $(document).ready(function() {
-  $(".button").click(function() {
-    var value = $(this).attr("data-filter"); // Get the selected filtervar value = $(this).attr("data-filter");
-    console.log("Filtering by:", value); // Debugging: Log the filter value
+  let activeCharacterFilters = []; // Stores selected character filters (Zayne, Xavier, etc.)
+  let activeTypeFilter = null; // Stores the active type filter (solo, duo, etc.)
+  let activeCategoryFilter = null; // Stores the active category filter (portrait, snapshot)
 
-  // Apply filtering logic
-  if (value === "all") {
-    $(".filter").slideDown("1000"); // Show all elements
-  } else {
-    $(".filter").not("." + value).slideUp("1000"); // Hide unmatched elements
-    $(".filter").filter("." + value).slideDown("1000"); // Show matched elements
-  }
-
-  // Update active class
-  $(".dropdown-item").removeClass("active"); // Remove 'active' class from all dropdown items
-  $(this).addClass("active"); // Add 'active' class to the selected item
-
-});
-
-  // Handle dropdown item clicks
-  $(".dropdown-item").click(function() {
-    var value = $(this).attr("data-filter");
-    console.log("Dropdown item clicked. Filtering by:", value); // Debugging
+  $(".button, .dropdown-item").click(function() {
+    let value = $(this).attr("data-filter");
 
     if (value === "all") {
-      $(".filter").slideDown("1000"); // Show all elements
-    } else {
-      $(".filter").not("." + value).slideUp("1000"); // Hide unmatched elements
-      $(".filter").filter("." + value).slideDown("1000"); // Show matched elements
+      // Reset everything when "All" is clicked
+      activeCharacterFilters = [];
+      activeTypeFilter = null;
+      activeCategoryFilter = null;
+      $(".filter").slideDown("1000");
+      $(".button, .dropdown-item").removeClass("active");
+      $(this).addClass("active");
+    } 
+    // Handle type filters (Solo, Duo) - only one can be active at a time
+    else if (["solo", "duo"].includes(value)) {
+      if (activeTypeFilter !== value) {
+        activeTypeFilter = value;
+        $(".button[data-filter='solo'], .button[data-filter='duo']").removeClass("active"); // Remove previous type filter
+        $(this).addClass("active");
+      } else {
+        activeTypeFilter = null;
+        $(this).removeClass("active");
+      }
+    } 
+    // Handle category filters (Portrait, Snapshot) - only one can be active at a time
+    else if (["portrait", "snapshot"].includes(value)) {
+      if (activeCategoryFilter !== value) {
+        activeCategoryFilter = value;
+        $(".button[data-filter='portrait'], .button[data-filter='snapshot']").removeClass("active"); // Remove previous category filter
+        $(this).addClass("active");
+      } else {
+        activeCategoryFilter = null;
+        $(this).removeClass("active");
+      }
+    } 
+    // Handle character filters separately (Zayne, Xavier, etc.)
+    else {
+      if (activeCharacterFilters.includes(value)) {
+        activeCharacterFilters = activeCharacterFilters.filter(f => f !== value); // Remove from selection
+        $(this).removeClass("active");
+      } else {
+        activeCharacterFilters.push(value); // Add to selection
+        $(this).addClass("active");
+      }
     }
-  
-    // Update active class
-    $(".button").removeClass("active"); // Remove 'active' class from all buttons
-    $(".dropdown-item").removeClass("active"); // Remove 'active' class from dropdown items
-    $(this).addClass("active"); // Add 'active' class to the clicked dropdown item
+
+    // Filter logic based on active filters
+    $(".filter").each(function() {
+      let item = $(this);
+      let itemClasses = item.attr("class").split(" ");
+
+      let characterMatch = activeCharacterFilters.length === 0 || activeCharacterFilters.some(filter => itemClasses.includes(filter));
+      let typeMatch = !activeTypeFilter || itemClasses.includes(activeTypeFilter);
+      let categoryMatch = !activeCategoryFilter || itemClasses.includes(activeCategoryFilter);
+
+      if (characterMatch && typeMatch && categoryMatch) {
+        item.slideDown("1000");
+      } else {
+        item.slideUp("1000");
+      }
+    });
   });
-  
+  // Handle dropdown items the same way
+  $(".dropdown-item").click(function() {
+    let value = $(this).attr("data-filter");
+
+    if (activeFilters.includes(value)) {
+      activeFilters = activeFilters.filter(f => f !== value);
+      $(this).removeClass("active");
+    } else {
+      activeFilters.push(value);
+      $(this).addClass("active");
+    }
+
+    if (activeFilters.length === 0) {
+      $(".filter").slideDown("1000");
+    } else {
+      $(".filter").each(function() {
+        let item = $(this);
+        let itemClasses = item.attr("class").split(" ");
+
+        let isMatch = activeFilters.every(filter => itemClasses.includes(filter));
+
+        if (isMatch) {
+          item.slideDown("1000");
+        } else {
+          item.slideUp("1000");
+        }
+      });
+    }
+  });
 });
+
 
 // Modal data
 let mArray = [
@@ -207,7 +266,7 @@ function generateGridItems() {
   let gridItems = '';
   mArray.forEach(item => {
     gridItems += `
-      <div id="project-grid-item" class="box filter ${item.data} name col-lg-3 col-md-4 mb-12 mb-md-0">
+      <div id="project-grid-item" class="box filter ${item.data} name col-lg-3 col-md-4 col-sm-12 mb-12 mb-md-0">
         <a href="#">
           <img class="project-grid-item-img" src="${item.src}" alt="" id="${item.id}"/>
         </a>

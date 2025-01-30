@@ -247,10 +247,12 @@ $white: #fcf7fb;
 }
 
 /* Active dropdown item */
-.dropdown-item.active {
-  background-color: #f18eca; /* Ensure active items have the same background color */
-  color: white;
+.button.active, .dropdown-item.active {
+  background-color: #6d59b5 !important; /* Highlight active filters */
+  color: white !important;
+  border-radius: 5px;
 }
+
 
 /*--------------------------------------Responsive------------------------------------------------------*/
 
