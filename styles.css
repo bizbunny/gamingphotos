@@ -1,6 +1,14 @@
 .navbar, * {
   background: #f18eca; }
 
+.nav-link:hover {
+  background: #be3e8b;
+  border-radius: 5%; }
+
+.nav-link:active {
+  background: #be3e8b;
+  color: white; }
+
 .content {
   overflow-x: hidden;
   overflow-y: scroll; }
@@ -232,8 +240,8 @@
   display: block; }
 
 .dropdown-menu .dropdown-item:hover {
-  background-color: #f18eca;
-  color: #f1f1f1; }
+  background-color: #be3e8b;
+  color: #ffffff; }
 
 /* Show dropdown menu on hover */
 .dropdown:hover .dropdown-menu {
@@ -241,7 +249,7 @@
 
 /* Active dropdown item */
 .button.active, .dropdown-item.active {
-  background-color: #6d59b5 !important;
+  background-color: #be3e8b !important;
   /* Highlight active filters */
   color: white !important;
   border-radius: 5px; }
