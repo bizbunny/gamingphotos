@@ -1,64 +1,78 @@
 // Sorting animations
 $(document).ready(function() {
-  let activeCharacterFilters = []; // Stores selected character filters (Zayne, Xavier, etc.)
-  let activeTypeFilter = null; // Stores the active type filter (solo, duo, etc.)
-  let activeCategoryFilter = null; // Stores the active category filter (portrait, snapshot)
+  let activeCharacterFilter = null; // Only one character filter at a time
+  let activeTypeFilter = null; // Solo, Duo (only one at a time)
+  let activeCategoryFilter = null; // Portrait, Snapshot (only one at a time)
+  let activeAdditionalFilters = []; // Allows multiple additional filters like Cats, Collage, Backgrounds
 
   $(".button, .dropdown-item").click(function() {
     let value = $(this).attr("data-filter");
 
     if (value === "all") {
-      // Reset everything when "All" is clicked
-      activeCharacterFilters = [];
+      // Reset all filters
+      activeCharacterFilter = null;
       activeTypeFilter = null;
       activeCategoryFilter = null;
+      activeAdditionalFilters = [];
       $(".filter").slideDown("1000");
       $(".button, .dropdown-item").removeClass("active");
       $(this).addClass("active");
     } 
-    // Handle type filters (Solo, Duo) - only one can be active at a time
+    // Handle character filters (Only one can be active)
+    else if (["zayne", "xavier", "rafayel", "sylus", "caleb", "mc"].includes(value)) {
+      if (activeCharacterFilter !== value) {
+        activeCharacterFilter = value;
+        $(".button[data-filter='zayne'], .button[data-filter='xavier'], .button[data-filter='rafayel'], .button[data-filter='sylus'], .button[data-filter='caleb'], .button[data-filter='mc']").removeClass("active");
+        $(this).addClass("active");
+      } else {
+        activeCharacterFilter = null;
+        $(this).removeClass("active");
+      }
+    }
+    // Handle type filters (Solo, Duo – Only one can be active)
     else if (["solo", "duo"].includes(value)) {
       if (activeTypeFilter !== value) {
         activeTypeFilter = value;
-        $(".button[data-filter='solo'], .button[data-filter='duo']").removeClass("active"); // Remove previous type filter
+        $(".button[data-filter='solo'], .button[data-filter='duo']").removeClass("active");
         $(this).addClass("active");
       } else {
         activeTypeFilter = null;
         $(this).removeClass("active");
       }
     } 
-    // Handle category filters (Portrait, Snapshot) - only one can be active at a time
+    // Handle category filters (Portrait, Snapshot – Only one can be active)
     else if (["portrait", "snapshot"].includes(value)) {
       if (activeCategoryFilter !== value) {
         activeCategoryFilter = value;
-        $(".button[data-filter='portrait'], .button[data-filter='snapshot']").removeClass("active"); // Remove previous category filter
+        $(".button[data-filter='portrait'], .button[data-filter='snapshot']").removeClass("active");
         $(this).addClass("active");
       } else {
         activeCategoryFilter = null;
         $(this).removeClass("active");
       }
-    } 
-    // Handle character filters separately (Zayne, Xavier, etc.)
-    else {
-      if (activeCharacterFilters.includes(value)) {
-        activeCharacterFilters = activeCharacterFilters.filter(f => f !== value); // Remove from selection
+    }
+    // Handle additional filters (Cats, Backgrounds, Collage – Multiple can be active)
+    else if (["cat", "bg", "collage"].includes(value)) {
+      if (activeAdditionalFilters.includes(value)) {
+        activeAdditionalFilters = activeAdditionalFilters.filter(f => f !== value);
         $(this).removeClass("active");
       } else {
-        activeCharacterFilters.push(value); // Add to selection
+        activeAdditionalFilters.push(value);
         $(this).addClass("active");
       }
     }
 
-    // Filter logic based on active filters
+    // Filtering logic
     $(".filter").each(function() {
       let item = $(this);
       let itemClasses = item.attr("class").split(" ");
 
-      let characterMatch = activeCharacterFilters.length === 0 || activeCharacterFilters.some(filter => itemClasses.includes(filter));
+      let characterMatch = !activeCharacterFilter || itemClasses.includes(activeCharacterFilter);
       let typeMatch = !activeTypeFilter || itemClasses.includes(activeTypeFilter);
       let categoryMatch = !activeCategoryFilter || itemClasses.includes(activeCategoryFilter);
+      let additionalMatch = activeAdditionalFilters.length === 0 || activeAdditionalFilters.some(f => itemClasses.includes(f));
 
-      if (characterMatch && typeMatch && categoryMatch) {
+      if (characterMatch && typeMatch && categoryMatch && additionalMatch) {
         item.slideDown("1000");
       } else {
         item.slideUp("1000");
