@@ -31,7 +31,8 @@
   background-color: #a496d9;
 }
 .overlay-text, .modal-btn {
-  color: white;
+  color: white !important; /* Ensures text remains white */
+  background: transparent !important; /* Removes any background color */
   font-size: 20px;
   position: absolute;
   top: 50%;
@@ -40,6 +41,9 @@
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
   text-align: center;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
 }
 #project-grid {
   margin: 10rem 0rem;
@@ -127,6 +131,11 @@
 
 /*___________________________________*/
 $white: #fcf7fb;
+/*---Modal and related colors---*/
+.btn-primary{
+  background-color: transparent;
+  border: none;
+}
 /*--- MODAL ---*/
 .modal {
   height:100%;
@@ -167,6 +176,7 @@ $white: #fcf7fb;
   -webkit-animation-duration: 0.4s;
   animation-name: animatetop;
   animation-duration: 0.4s;
+  border-bottom: none !important;
 }
 
 .modal-body {
@@ -198,7 +208,8 @@ $white: #fcf7fb;
 .modal-header {
   padding: 2px 16px;
   color: #efd9fc;
-  background-color: #7b4899;
+  background-color: #f18eca;
+  border-bottom: none !important;
 }
 
 .modal-body {
