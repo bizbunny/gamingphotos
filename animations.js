@@ -1,69 +1,12 @@
 
 // Sorting animations
 $(document).ready(function() {
-  let activeCharacterFilter = null; // Only one character filter at a time
-  let activeTypeFilter = null; // Solo, Duo (only one at a time)
-  let activeCategoryFilter = null; // Portrait, Snapshot (only one at a time)
-  let activeAdditionalFilters = []; // Allows multiple additional filters like Cats, Collage, Backgrounds
+  let activeCharacterFilter = null;
+  let activeTypeFilter = null;
+  let activeCategoryFilter = null;
+  let activeAdditionalFilters = [];
 
-  $(".button, .dropdown-item").click(function() {
-    let value = $(this).attr("data-filter");
-
-    if (value === "all") {
-      // Reset all filters
-      activeCharacterFilter = null;
-      activeTypeFilter = null;
-      activeCategoryFilter = null;
-      activeAdditionalFilters = [];
-      $(".filter").slideDown("1000");
-      $(".button, .dropdown-item").removeClass("active");
-      $(this).addClass("active");
-    } 
-    // Handle character filters (Only one can be active)
-    else if (["zayne", "xavier", "rafayel", "sylus", "caleb", "mc"].includes(value)) {
-      if (activeCharacterFilter !== value) {
-        activeCharacterFilter = value;
-        $(".button[data-filter='zayne'], .button[data-filter='xavier'], .button[data-filter='rafayel'], .button[data-filter='sylus'], .button[data-filter='caleb'], .button[data-filter='mc']").removeClass("active");
-        $(this).addClass("active");
-      } else {
-        activeCharacterFilter = null;
-        $(this).removeClass("active");
-      }
-    }
-    // Handle type filters (Solo, Duo – Only one can be active)
-    else if (["solo", "duo"].includes(value)) {
-      if (activeTypeFilter !== value) {
-        activeTypeFilter = value;
-        $(".button[data-filter='solo'], .button[data-filter='duo']").removeClass("active");
-        $(this).addClass("active");
-      } else {
-        activeTypeFilter = null;
-        $(this).removeClass("active");
-      }
-    } 
-    // Handle category filters (Portrait, Snapshot – Only one can be active)
-    else if (["portrait", "snapshot", "capture"].includes(value)) {
-      if (activeCategoryFilter !== value) {
-        activeCategoryFilter = value;
-        $(".button[data-filter='portrait'], .button[data-filter='snapshot'], .button[data-filter='capture']").removeClass("active");
-        $(this).addClass("active");
-      } else {
-        activeCategoryFilter = null;
-        $(this).removeClass("active");
-      }
-    }
-    // Handle additional filters (Cats, Backgrounds, Collage – Multiple can be active)
-    else if (["cat", "bg", "collage"].includes(value)) {
-      if (activeAdditionalFilters.includes(value)) {
-        activeAdditionalFilters = activeAdditionalFilters.filter(f => f !== value);
-        $(this).removeClass("active");
-      } else {
-        activeAdditionalFilters.push(value);
-        $(this).addClass("active");
-      }
-    }
-
-    // Filtering logic
+  function applyFilters() {
     $(".filter").each(function() {
       let item = $(this);
       let itemClasses = item.attr("class").split(" ");
@@ -79,6 +22,42 @@ $(document).ready(function() {
         item.slideUp("1000");
       }
     });
+  }
+
+  $(".button, .dropdown-item").click(function() {
+    let value = $(this).attr("data-filter");
+
+    if (value === "all") {
+      activeCharacterFilter = null;
+      activeTypeFilter = null;
+      activeCategoryFilter = null;
+      activeAdditionalFilters = [];
+      $(".filter").slideDown("1000");
+      $(".button, .dropdown-item").removeClass("active");
+      $(this).addClass("active");
+    } else if (["zayne", "xavier", "rafayel", "sylus", "caleb", "mc"].includes(value)) {
+      activeCharacterFilter = activeCharacterFilter === value ? null : value;
+      $(".button[data-filter='zayne'], .button[data-filter='xavier'], .button[data-filter='rafayel'], .button[data-filter='sylus'], .button[data-filter='caleb'], .button[data-filter='mc']").removeClass("active");
+      if (activeCharacterFilter) $(this).addClass("active");
+    } else if (["solo", "duo"].includes(value)) {
+      activeTypeFilter = activeTypeFilter === value ? null : value;
+      $(".button[data-filter='solo'], .button[data-filter='duo']").removeClass("active");
+      if (activeTypeFilter) $(this).addClass("active");
+    } else if (["portrait", "snapshot", "capture"].includes(value)) {
+      activeCategoryFilter = activeCategoryFilter === value ? null : value;
+      $(".button[data-filter='portrait'], .button[data-filter='snapshot'], .button[data-filter='capture']").removeClass("active");
+      if (activeCategoryFilter) $(this).addClass("active");
+    } else if (["cat", "bg", "collage"].includes(value)) {
+      if (activeAdditionalFilters.includes(value)) {
+        activeAdditionalFilters = activeAdditionalFilters.filter(f => f !== value);
+        $(this).removeClass("active");
+      } else {
+        activeAdditionalFilters.push(value);
+        $(this).addClass("active");
+      }
+    }
+
+    applyFilters();
   });
   // Handle dropdown items the same way
   $(".dropdown-item").click(function() {
@@ -152,29 +131,8 @@ $.get( "./data.json", function( data){
   generateModals();
 });
 
-
 let modalT = '';
 let modalL = '';
-
-
-
-// Generate grid items and modals
-/* function generateGridItems() {
-  let gridItems = '';
-  mArray.forEach(item => {
-    gridItems += `
-      <div id="project-grid-item" class="box filter ${item.data} name col-lg-3 col-md-4 col-sm-12 mb-12 mb-md-0">
-        <a href="#">
-          <img class="project-grid-item-img" src="${item.src}" alt="" id="${item.id}"/>
-        </a>
-        <div class="overlay">
-          <div class="overlay-text"><button class="modal-btn" href="#${item.modal}">${item.label}</button></div>
-        </div>
-      </div>
-    `;
-  });
-  document.getElementById("project-grid-items").innerHTML = gridItems;
-} */
 
   function generateModals() {
     console.log("Generating modals..."); // Debugging
