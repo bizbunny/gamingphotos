@@ -1,34 +1,147 @@
 [
-    { "id": "Zayne1", "src": "./static/loveanddeepspace/Paper17288440731.png", "modal": "modal1", "label": "Zayne Collage", "data": "zayne collage snapshot" },
-    { "id": "Rafayel1", "src": "./static/loveanddeepspace/Paper17292167252.png", "modal": "modal2", "label": "Rafayel Strawberry Head", "data": "rafayel solo snapshot" },
-    { "id": "Rafayel2", "src": "./static/loveanddeepspace/Paper17292167773.png", "modal": "modal3", "label": "Rafayel Wand", "data": "rafayel solo snapshot" },
-    { "id": "Rafayel3", "src": "./static/loveanddeepspace/Paper17292168134.png", "modal": "modal4", "label": "Rafayel Glasses", "data": "rafayel solo snapshot" },
-    { "id": "Zayne2", "src": "./static/loveanddeepspace/Paper17292181731.png", "modal": "modal5", "label": "Zayne Thinking", "data": "zayne duo snapshot" },
-    { "id": "MC1", "src": "./static/loveanddeepspace/Paper17292181832.png", "modal": "modal6", "label": "MC Wand", "data": "mc solo snapshot" },
-    { "id": "Zayne3", "src": "./static/loveanddeepspace/Paper17292181953.png", "modal": "modal7", "label": "Zayne Posing", "data": "zayne solo snapshot" },
-    { "id": "Zayne4", "src": "./static/loveanddeepspace/Paper17292182044.png", "modal": "modal8", "label": "Zayne Collage 2", "data": "zayne collage snapshot" },
-    { "id": "Rafayel4", "src": "./static/loveanddeepspace/Paper17311247121.png", "modal": "modal9", "label": "Rafayel Prince", "data": "rafayel solo snapshot" },
-    { "id": "MC2", "src": "./static/loveanddeepspace/Paper17311248072.png", "modal": "modal10", "label": "MC Glasses with Dog Face Sticker", "data": "mc solo snapshot" },
-    { "id": "Rafayel5", "src": "./static/loveanddeepspace/Paper17311249413.png", "modal": "modal11", "label": "Rafayel Meme", "data": "rafayel duo snapshot" },
-    { "id": "Sylus1", "src": "./static/loveanddeepspace/Paper17311251665.png", "modal": "modal12", "label": "Sylus Collage", "data": "sylus collage snapshot" },
-    { "id": "MC3", "src": "./static/loveanddeepspace/Paper17311254646.png", "modal": "modal13", "label": "MC Wand", "data": "mc solo snapshot" },
-    { "id": "Sylus2", "src": "./static/loveanddeepspace/Paper17311256267.png", "modal": "modal14", "label": "Sylus Pose & Point", "data": "sylus duo snapshot" },
-    { "id": "Sylus3", "src": "./static/loveanddeepspace/Paper17311257548.png", "modal": "modal15", "label": "Sylus Pose & Smirk", "data": "sylus duo snapshot" },
-    { "id": "Zayne5", "src": "./static/loveanddeepspace/Paper17312828791.png", "modal": "modal16", "label": "Zayne Working", "data": "zayne solo capture" },
-    { "id": "Zayne6", "src": "./static/loveanddeepspace/Paper17312828943.png", "modal": "modal17", "label": "Zayne Standing Pose with Snowglobe", "data": "zayne solo portrait" },
-    { "id": "Zayne7", "src": "./static/loveanddeepspace/Paper17312828984.png", "modal": "modal18", "label": "Zayne Standing Pose Glasses", "data": "zayne duo portrait" },
-    { "id": "Sylus4", "src": "./static/loveanddeepspace/Paper17312830256.png", "modal": "modal19", "label": "Sylus Standing Pose", "data": "sylus duo portrait" },
-    { "id": "Zayne8", "src": "./static/loveanddeepspace/Paper17312830677.png", "modal": "modal20", "label": "Zayne Standing Pose Umbrella", "data": "zayne solo portrait" },
-    { "id": "Zayne9", "src": "./static/loveanddeepspace/Paper17312830768.png", "modal": "modal21", "label": "Zayne Closer", "data": "zayne solo capture" },
-    { "id": "Sylus5", "src": "./static/loveanddeepspace/Paper17312830869.png", "modal": "modal22", "label": "Sylus Come Closer", "data": "sylus solo capture" },
-    { "id": "Sylus6", "src": "./static/loveanddeepspace/Paper173128310410.png", "modal": "modal23", "label": "Sylus Wand", "data": "sylus solo snapshot" },
-    { "id": "Zayne10", "src": "./static/loveanddeepspace/Paper173128312511.png", "modal": "modal24", "label": "Zayne Pose with Sunglasses", "data": "zayne duo portrait" },
-    { "id": "Sylus7", "src": "./static/loveanddeepspace/Paper173128314612.png", "modal": "modal25", "label": "Sylus Pose", "data": "sylus solo snapshot" },
-    { "id": "Sylus8", "src": "./static/loveanddeepspace/Paper173128365413.png", "modal": "modal26", "label": "Sylus Collage 2", "data": "sylus snapshot" },
-    { "id": "Sylus9", "src": "./static/loveanddeepspace/Paper173128368714.png", "modal": "modal27", "label": "Sylus Pose Music Album", "data": "sylus solo snapshot" },
-    { "id": "MC4", "src": "./static/loveanddeepspace/Paper173128382915.png", "modal": "modal28", "label": "MC Glasses with Food Stickers", "data": "mc solo snapshot" },
-    { "id": "Sylus10", "src": "./static/loveanddeepspace/Paper173128396416.png", "modal": "modal29", "label": "Sylus Pose with Hands", "data": "sylus duo snapshot" },
-    { "id": "Sylus11", "src": "./static/loveanddeepspace/Paper173128404517.png", "modal": "modal30", "label": "Sylus Pose Side to Side", "data": "sylus duo snapshot" },
+    { 
+        "id": "Zayne1", 
+        "src": "./static/loveanddeepspace/Paper17288440731.png", 
+        "modal": "modal1", 
+        "label": "Zayne Collage", 
+        "data": "zayne collage snapshot" 
+    },
+    { 
+        "id": "Rafayel1", 
+        "src": "./static/loveanddeepspace/Paper17292167252.png", 
+        "modal": "modal2", 
+        "label": "Rafayel Strawberry Head", 
+        "data": "rafayel solo snapshot" },
+    { 
+        "id": "Rafayel2", 
+        "src": "./static/loveanddeepspace/Paper17292167773.png", 
+        "modal": "modal3", 
+        "label": "Rafayel Wand", 
+        "data": "rafayel solo snapshot" },
+    { 
+        "id": "Rafayel3", 
+        "src": "./static/loveanddeepspace/Paper17292168134.png", 
+        "modal": "modal4", 
+        "label": "Rafayel Glasses", 
+        "data": "rafayel solo snapshot" },
+    { 
+        "id": "Zayne2", 
+        "src": "./static/loveanddeepspace/Paper17292181731.png", 
+        "modal": "modal5", 
+        "label": "Zayne Thinking", 
+        "data": "zayne duo snapshot" },
+    { 
+        "id": "MC1", 
+        "src": "./static/loveanddeepspace/Paper17292181832.png", 
+        "modal": "modal6", 
+        "label": "MC Wand", 
+        "data": "mc solo snapshot" },
+    { 
+
+        "id": "Zayne3", 
+        "src": "./static/loveanddeepspace/Paper17292181953.png", 
+        "modal": "modal7", 
+        "label": "Zayne Posing", 
+        "data": "zayne solo snapshot" },
+    { 
+        "id": "Zayne4", 
+        "src": "./static/loveanddeepspace/Paper17292182044.png", 
+        "modal": "modal8", 
+        "label": "Zayne Collage 2", 
+        "data": "zayne collage snapshot" },
+    { 
+        "id": "Rafayel4", 
+        "src": "./static/loveanddeepspace/Paper17311247121.png", 
+        "modal": "modal9", 
+        "label": "Rafayel Prince", 
+        "data": "rafayel solo snapshot" },
+    { 
+        "id": "MC2", 
+        "src": "./static/loveanddeepspace/Paper17311248072.png", 
+        "modal": "modal10", 
+        "label": "MC Glasses with Dog Face Sticker", 
+        "data": "mc solo snapshot" },
+    { 
+        "id": "Rafayel5", 
+        "src": "./static/loveanddeepspace/Paper17311249413.png", 
+        "modal": "modal11", 
+        "label": "Rafayel Meme", 
+        "data": "rafayel duo snapshot" },
+    { 
+        "id": "Sylus1", 
+        "src": "./static/loveanddeepspace/Paper17311251665.png", 
+        "modal": "modal12", 
+        "label": "Sylus Collage", 
+        "data": "sylus collage snapshot" },
+    { 
+        "id": "MC3", 
+        "src": "./static/loveanddeepspace/Paper17311254646.png", 
+        "modal": "modal13", 
+        "label": "MC Wand", 
+        "data": "mc solo snapshot" },
+    { 
+        "id": "Sylus2", 
+        "src": "./static/loveanddeepspace/Paper17311256267.png", 
+        "modal": "modal14", 
+        "label": "Sylus Pose & Point", 
+        "data": "sylus duo snapshot" },
+    { 
+        "id": "Sylus3", 
+        "src": "./static/loveanddeepspace/Paper17311257548.png", 
+        "modal": "modal15", 
+        "label": "Sylus Pose & Smirk", 
+        "data": "sylus duo snapshot" },
+    { 
+        "id": "Zayne5", 
+        "src": "./static/loveanddeepspace/Paper17312828791.png", 
+        "modal": "modal16", 
+        "label": "Zayne Working", 
+        "data": "zayne solo capture" },
+    { 
+        "id": "Zayne6", 
+        "src": "./static/loveanddeepspace/Paper17312828943.png", 
+        "modal": "modal17", 
+        "label": "Zayne Standing Pose with Snowglobe", 
+        "data": "zayne solo portrait" },
+    { 
+        "id": "Zayne7", 
+        "src": "./static/loveanddeepspace/Paper17312828984.png", 
+        "modal": "modal18", 
+        "label": "Zayne Standing Pose Glasses", 
+        "data": "zayne duo portrait" },
+    { 
+        "id": "Sylus4", 
+        "src": "./static/loveanddeepspace/Paper17312830256.png", 
+        "modal": "modal19", 
+        "label": "Sylus Standing Pose", 
+        "data": "sylus duo portrait" },
+    { 
+        "id": "Zayne8", 
+        "src": "./static/loveanddeepspace/Paper17312830677.png", 
+        "modal": "modal20", 
+        "label": "Zayne Standing Pose Umbrella", 
+        "data": "zayne solo portrait" 
+    },
+    {
+         "id": "Zayne9", "src": "./static/loveanddeepspace/Paper17312830768.png", "modal": "modal21", "label": "Zayne Closer", "data": "zayne solo capture" },
+    {
+         "id": "Sylus5", "src": "./static/loveanddeepspace/Paper17312830869.png", "modal": "modal22", "label": "Sylus Come Closer", "data": "sylus solo capture" },
+    {
+         "id": "Sylus6", "src": "./static/loveanddeepspace/Paper173128310410.png", "modal": "modal23", "label": "Sylus Wand", "data": "sylus solo snapshot" },
+    {
+         "id": "Zayne10", "src": "./static/loveanddeepspace/Paper173128312511.png", "modal": "modal24", "label": "Zayne Pose with Sunglasses", "data": "zayne duo portrait" },
+    {
+         "id": "Sylus7", "src": "./static/loveanddeepspace/Paper173128314612.png", "modal": "modal25", "label": "Sylus Pose", "data": "sylus solo snapshot" },
+    {
+         "id": "Sylus8", "src": "./static/loveanddeepspace/Paper173128365413.png", "modal": "modal26", "label": "Sylus Collage 2", "data": "sylus snapshot" },
+    {
+         "id": "Sylus9", "src": "./static/loveanddeepspace/Paper173128368714.png", "modal": "modal27", "label": "Sylus Pose Music Album", "data": "sylus solo snapshot" },
+    {
+         "id": "MC4", "src": "./static/loveanddeepspace/Paper173128382915.png", "modal": "modal28", "label": "MC Glasses with Food Stickers", "data": "mc solo snapshot" },
+    {
+         "id": "Sylus10", "src": "./static/loveanddeepspace/Paper173128396416.png", "modal": "modal29", "label": "Sylus Pose with Hands", "data": "sylus duo snapshot" },
+    {
+         "id": "Sylus11", "src": "./static/loveanddeepspace/Paper173128404517.png", "modal": "modal30", "label": "Sylus Pose Side to Side", "data": "sylus duo snapshot" },
     { "id": "Xavier1", "src": "./static/loveanddeepspace/Paper17313856361.png", "modal": "modal31", "label": "Xavier Bunny 1", "data": "xavier solo portrait" },
     { "id": "Xavier2", "src": "./static/loveanddeepspace/Paper17313857243.png", "modal": "modal32", "label": "Xavier Bunny 2", "data": "xavier solo portrait" },
     { "id": "Xavier3", "src": "./static/loveanddeepspace/Paper17313857885.png", "modal": "modal33", "label": "Xavier Bunny 3", "data": "xavier solo portrait" },

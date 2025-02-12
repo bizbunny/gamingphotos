@@ -1,22 +1,64 @@
-
-// Sorting animations
 $(document).ready(function() {
   let activeCharacterFilter = null;
   let activeTypeFilter = null;
   let activeCategoryFilter = null;
   let activeAdditionalFilters = [];
 
+  let currentGame = 'loveanddeepspace'; // Default game
+
+  // Function to update filter visibility based on the selected game
+  function updateFiltersForGame(game) {
+    // Hide all filters first
+    $(".button").hide();
+
+    // Show the "All" filter (common for all games)
+    $(".button[data-filter='all']").show();
+
+    // Show filters specific to the selected game
+    if (game === 'loveanddeepspace') {
+      $(".button[data-game='loveanddeepspace']").show();
+    } else if (game === 'genshin') {
+      $(".button[data-game='genshin']").show();
+    } else if(game === 'hsr') {
+      $(".button[data-game='hsr']").show();
+    }
+  }
+
   function applyFilters() {
     $(".filter").each(function() {
       let item = $(this);
       let itemClasses = item.attr("class").split(" ");
 
+      //Love & Deepspace
       let characterMatch = !activeCharacterFilter || itemClasses.includes(activeCharacterFilter);
       let typeMatch = !activeTypeFilter || itemClasses.includes(activeTypeFilter);
       let categoryMatch = !activeCategoryFilter || itemClasses.includes(activeCategoryFilter);
       let additionalMatch = activeAdditionalFilters.length === 0 || activeAdditionalFilters.some(f => itemClasses.includes(f));
 
-      if (characterMatch && typeMatch && categoryMatch && additionalMatch) {
+      //Genshin Impact filters
+      let genshinMatch = true; // Default to true if no Genshin filters are active
+      if (currentGame === 'genshin') {
+        if (activeCharacterFilter === 'sqe' && !itemClasses.includes('sqe')) {
+          genshinMatch = false;
+        }
+        if (activeCharacterFilter === 'giscreenshot' && !itemClasses.includes('giscreenshot')) {
+          genshinMatch = false;
+        }
+      }
+
+      //Honkai Star Rail filters
+      let hsrMatch = true;
+      if (currentGame === 'hsr') {
+        if (activeCharacterFilter === 'cs' && !itemClasses.includes('cs')) {
+          hsrMatch = false;
+        }
+        if (activeCharacterFilter === 'hsrscreenshot' && !itemClasses.includes('hsrscreenshot')) {
+          hsrMatch = false;
+        }
+      }
+
+      // Combine all conditions
+      if (characterMatch && typeMatch && categoryMatch && additionalMatch && genshinMatch) {
         item.slideDown("1000");
       } else {
         item.slideUp("1000");
@@ -24,16 +66,56 @@ $(document).ready(function() {
     });
   }
 
-  $(".button, .dropdown-item").click(function() {
-    let value = $(this).attr("data-filter");
+   // Function to load game data and update filters
+   function loadGameData(game) {
+    let dataFile;
+    switch (game) {
+      case 'genshin':
+        dataFile = './data-gi.json';
+        break;
+      case 'hsr':
+        dataFile = './data-hsr.json';
+        break;
+      default:
+        dataFile = './data-lads.json';
+        break;
+    }
+    $.get(dataFile, function(data) {
+      mArray = data;
+      let grid = $("#project-grid-items");
+      grid.empty(); // Clear existing items
+      mArray.forEach(item => {
+        grid.append(`
+          <div id="project-grid-item" class="box filter ${item.data} name col-lg-3 col-md-4 mb-12 mb-md-0">
+            <a href="#">
+              <img class="project-grid-item-img" src="${item.src}" alt="" id="${item.id}"/>
+            </a>
+            <div class="overlay">
+              <div class="overlay-text">
+                <button class="modal-btn btn btn-primary" data-target="#${item.modal}">${item.label}</button>
+              </div>
+            </div>
+          </div>
+        `);
+      });
+      generateModals();
+      applyFilters();
+    });
 
+    // Update the filters for the selected game
+    updateFiltersForGame(game);
+  }
+
+  $(".button").click(function() {
+    let value = $(this).attr("data-filter");
+  
     if (value === "all") {
       activeCharacterFilter = null;
       activeTypeFilter = null;
       activeCategoryFilter = null;
       activeAdditionalFilters = [];
       $(".filter").slideDown("1000");
-      $(".button, .dropdown-item").removeClass("active");
+      $(".button").removeClass("active");
       $(this).addClass("active");
     } else if (["zayne", "xavier", "rafayel", "sylus", "caleb", "mc"].includes(value)) {
       activeCharacterFilter = activeCharacterFilter === value ? null : value;
@@ -55,45 +137,47 @@ $(document).ready(function() {
         activeAdditionalFilters.push(value);
         $(this).addClass("active");
       }
+    } else if (["sqe", "giscreenshot"].includes(value)) {
+      // Handle Genshin Impact filters
+      activeCharacterFilter = activeCharacterFilter === value ? null : value;
+      $(".button[data-filter='sqe'], .button[data-filter='giscreenshot']").removeClass("active");
+      if (activeCharacterFilter) $(this).addClass("active");
+    } else if(["cs", "hsrscreenshot"].includes(value)) {
+      activeCharacterFilter = activeCharacterFilter === value ? null : value;
+      $(".button[data-filter='cs'], button[data-filter='hsrscreenshot']").removeClass("active");
+      if (activeCharacterFilter) $(this).addClass("active");
     }
-
+  
     applyFilters();
   });
-  // Handle dropdown items the same way
-  $(".dropdown-item").click(function() {
-    let value = $(this).attr("data-filter");
 
-    if (activeFilters.includes(value)) {
-      activeFilters = activeFilters.filter(f => f !== value);
-      $(this).removeClass("active");
-    } else {
-      activeFilters.push(value);
-      $(this).addClass("active");
-    }
-
-    if (activeFilters.length === 0) {
-      $(".filter").slideDown("1000");
-    } else {
-      $(".filter").each(function() {
-        let item = $(this);
-        let itemClasses = item.attr("class").split(" ");
-
-        let isMatch = activeFilters.every(filter => itemClasses.includes(filter));
-
-        if (isMatch) {
-          item.slideDown("1000");
-        } else {
-          item.slideUp("1000");
-        }
-      });
-    }
+  // Handle dropdown selection
+  $(".dropdown-content a").click(function() {
+    let game = $(this).attr("href").replace("#", "");
+    currentGame = game;
+    loadGameData(game);
   });
 });
 
+function gameSort() {
+  document.getElementById("gameDropdown").classList.toggle("show");
+}
 
-// Modal data
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+
 let mArray = [];
-//template: { id: "", src: "./static/loveanddeepspace/.png", modal: "modal80", label: "", data: ""},
+
 function loadingLoader() {
   Loader = setTimeout(showPage, 3000);
 }
@@ -104,10 +188,8 @@ function showPage() {
   document.getElementById("photos").style.display = "block";
 }
 
-$.get( "./data.json", function( data){ 
-  mArray = data; 
-  console.log(mArray); 
-  // Inject images into the project grid
+$.get("./data.json", function(data) {
+  mArray = data;
   let grid = $("#project-grid-items");
   mArray.forEach(item => {
     grid.append(`
@@ -122,47 +204,37 @@ $.get( "./data.json", function( data){
         </div>
       </div>
     `);
-    
   });
-
-  // Show the photos section once loaded
-  $("#photos").fadeIn("1000");
-
   generateModals();
 });
 
-let modalT = '';
-let modalL = '';
+function generateModals() {
+  mArray.forEach(item => {
+    const modal = document.createElement('div');
+    modal.classList.add('modal', 'fade');
+    modal.id = item.modal;
+    modal.setAttribute('tabindex', '-1');
+    modal.setAttribute('role', 'dialog');
 
-  function generateModals() {
-    console.log("Generating modals..."); // Debugging
-    mArray.forEach(item => {
-      const modal = document.createElement('div');
-      modal.classList.add('modal', 'fade');
-      modal.id = item.modal;
-      modal.setAttribute('tabindex', '-1');
-      modal.setAttribute('role', 'dialog');
-  
-      modal.innerHTML = `
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title">${item.label}</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span>&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              <img src="${item.src}" class="img-fluid"/>
-            </div>
+    modal.innerHTML = `
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">${item.label}</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span>&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <img src="${item.src}" class="img-fluid"/>
           </div>
         </div>
-      `;
-  
-      document.body.appendChild(modal);
-    });
-  }
-  
+      </div>
+    `;
+
+    document.body.appendChild(modal);
+  });
+}
 
 loadingLoader();
 //generateGridItems();
