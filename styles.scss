@@ -275,6 +275,10 @@ $white: #fcf7fb;
   text-decoration: none;
   display: block;
 }
+.dropdown-content a.active {
+  background-color: #be3e8b !important;
+  color: white !important;
+}
 
 .dropdown a:hover {background-color: #ddd;}
 

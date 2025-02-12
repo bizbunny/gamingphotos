@@ -12,5 +12,19 @@
       "modal": "modal2",
       "label": "Discussion with Jade",
       "data": "hsrscreenshot"
+    },
+    {
+      "id": "HSR3",
+      "src": "./static/honkaistarrail/hsrdrprimitivesins.png",
+      "modal": "modal3",
+      "label": "Dr. Primitive Sins",
+      "data": "cs"
+    },
+    {
+      "id": "HSR4",
+      "src": "./static/honkaistarrail/hsrNinjaCapital.png",
+      "modal": "modal4",
+      "label": "Ninja Capital",
+      "data": "cs"
     }
   ]

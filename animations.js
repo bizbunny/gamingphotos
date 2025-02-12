@@ -4,7 +4,7 @@ $(document).ready(function() {
   let activeCategoryFilter = null;
   let activeAdditionalFilters = [];
 
-  let currentGame = 'loveanddeepspace'; // Default game
+  let currentGame = 'nogame'; // Default game is now 'nogame
 
   // Function to update filter visibility based on the selected game
   function updateFiltersForGame(game) {
@@ -19,10 +19,30 @@ $(document).ready(function() {
       $(".button[data-game='loveanddeepspace']").show();
     } else if (game === 'genshin') {
       $(".button[data-game='genshin']").show();
-    } else if(game === 'hsr') {
+    } else if (game === 'hsr') {
       $(".button[data-game='hsr']").show();
     }
   }
+
+  // Load the default game data (no game data)
+  function loadDefaultData() {
+    $(".filter").slideDown("1000"); // Show all items by default
+    updateFiltersForGame('nogame'); // Only show the "All" filter
+  }
+
+  // Call the default load function when the page loads
+  loadDefaultData();
+
+  // Handle dropdown selection
+  $(".dropdown-content a").click(function() {
+    let game = $(this).attr("href").replace("#", "");
+    currentGame = game;
+    if (game === 'nogame') {
+      loadDefaultData();
+    } else {
+      loadGameData(game);
+    }
+  });
 
   function applyFilters() {
     $(".filter").each(function() {
@@ -70,41 +90,50 @@ $(document).ready(function() {
    function loadGameData(game) {
     let dataFile;
     switch (game) {
-      case 'genshin':
-        dataFile = './data-gi.json';
-        break;
-      case 'hsr':
-        dataFile = './data-hsr.json';
-        break;
-      default:
-        dataFile = './data-lads.json';
-        break;
+        case 'genshin':
+            dataFile = './data-gi.json';
+            break;
+        case 'hsr':
+            dataFile = './data-hsr.json';
+            break;
+        case 'loveanddeepspace':
+            dataFile = './data-lads.json';
+            break;
+        default:
+            dataFile = null;
+            break;
     }
+
     $.get(dataFile, function(data) {
-      mArray = data;
-      let grid = $("#project-grid-items");
-      grid.empty(); // Clear existing items
-      mArray.forEach(item => {
-        grid.append(`
-          <div id="project-grid-item" class="box filter ${item.data} name col-lg-3 col-md-4 mb-12 mb-md-0">
-            <a href="#">
-              <img class="project-grid-item-img" src="${item.src}" alt="" id="${item.id}"/>
-            </a>
-            <div class="overlay">
-              <div class="overlay-text">
-                <button class="modal-btn btn btn-primary" data-target="#${item.modal}">${item.label}</button>
-              </div>
-            </div>
-          </div>
-        `);
-      });
-      generateModals();
-      applyFilters();
+        mArray = data;
+        let grid = $("#project-grid-items");
+        grid.empty(); // Clear previous items
+
+        // Clear previous modals before generating new ones
+        $(".modal").remove(); 
+
+        mArray.forEach(item => {
+            grid.append(`
+                <div id="project-grid-item" class="box filter ${item.data} name col-lg-3 col-md-4 mb-12 mb-md-0">
+                    <a href="#">
+                        <img class="project-grid-item-img" src="${item.src}" alt="" id="${item.id}"/>
+                    </a>
+                    <div class="overlay">
+                        <div class="overlay-text">
+                            <button class="modal-btn btn btn-primary" data-target="#${item.modal}">${item.label}</button>
+                        </div>
+                    </div>
+                </div>
+            `);
+        });
+
+        generateModals(); // Regenerate modals with new data
+        applyFilters(); // Apply filters to updated items
     });
 
-    // Update the filters for the selected game
     updateFiltersForGame(game);
-  }
+}
+
 
   $(".button").click(function() {
     let value = $(this).attr("data-filter");
@@ -188,56 +217,72 @@ function showPage() {
   document.getElementById("photos").style.display = "block";
 }
 
-$.get("./data.json", function(data) {
-  mArray = data;
-  let grid = $("#project-grid-items");
-  mArray.forEach(item => {
-    grid.append(`
-      <div id="project-grid-item" class="box filter ${item.data} name col-lg-3 col-md-4 mb-12 mb-md-0">
-        <a href="#">
-          <img class="project-grid-item-img" src="${item.src}" alt="" id="${item.id}"/>
-        </a>
-        <div class="overlay">
-          <div class="overlay-text">
-            <button class="modal-btn btn btn-primary" data-target="#${item.modal}">${item.label}</button>
-          </div>
-        </div>
-      </div>
-    `);
-  });
-  generateModals();
-});
+// let dataFile;
+// switch (currentGame) {
+//   case 'genshin':
+//     dataFile = './data-gi.json';
+//     break;
+//   case 'hsr':
+//     dataFile = './data-hsr.json';
+//     break;
+//   case 'loveanddeepspace':
+//   default:
+//     dataFile = './data-lads.json';
+//     break;
+// }
+
+// $.get("./data.json", function(data) {
+//   mArray = data;
+//   let grid = $("#project-grid-items");
+//   mArray.forEach(item => {
+//     grid.append(`
+//       <div id="project-grid-item" class="box filter ${item.data} name col-lg-3 col-md-4 mb-12 mb-md-0">
+//         <a href="#">
+//           <img class="project-grid-item-img" src="${item.src}" alt="" id="${item.id}"/>
+//         </a>
+//         <div class="overlay">
+//           <div class="overlay-text">
+//             <button class="modal-btn btn btn-primary" data-target="#${item.modal}">${item.label}</button>
+//           </div>
+//         </div>
+//       </div>
+//     `);
+//   });
+//   generateModals();
+// });
 
 function generateModals() {
+  $(".modal").remove(); // Remove existing modals before creating new ones
+
   mArray.forEach(item => {
-    const modal = document.createElement('div');
-    modal.classList.add('modal', 'fade');
-    modal.id = item.modal;
-    modal.setAttribute('tabindex', '-1');
-    modal.setAttribute('role', 'dialog');
+      const modal = document.createElement('div');
+      modal.classList.add('modal', 'fade');
+      modal.id = item.modal;
+      modal.setAttribute('tabindex', '-1');
+      modal.setAttribute('role', 'dialog');
 
-    modal.innerHTML = `
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title">${item.label}</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span>&times;</span>
-            </button>
+      modal.innerHTML = `
+          <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                  <div class="modal-header">
+                      <h5 class="modal-title">${item.label}</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span>&times;</span>
+                      </button>
+                  </div>
+                  <div class="modal-body">
+                      <img src="${item.src}" class="img-fluid" alt="${item.label}"/>
+                  </div>
+              </div>
           </div>
-          <div class="modal-body">
-            <img src="${item.src}" class="img-fluid"/>
-          </div>
-        </div>
-      </div>
-    `;
+      `;
 
-    document.body.appendChild(modal);
+      document.body.appendChild(modal);
   });
 }
 
+
 loadingLoader();
-//generateGridItems();
 
 
 // Modal functions
@@ -259,9 +304,8 @@ $(document).on("click", ".modal-btn", function (e) {
   console.log("Opening modal:", targetModal); // Debugging
   console.log("Modal button clicked, target:", targetModal);
   console.log("Checking if modal exists:", $(targetModal));
-  $(targetModal).modal("handleUpdate");
   $(targetModal).modal("show");
-});
+  });
 
 window.onclick = function(event) {
   if (event.target.classList.contains("modal")) {
@@ -272,3 +316,5 @@ window.onclick = function(event) {
     }
   }
 }
+
+loadGameData(currentGame);
