@@ -44,6 +44,59 @@ $(document).ready(function() {
     }
   });
 
+  // Function to load game data and update filters
+  function loadGameData(game) {
+    let dataFile;
+    switch (game) {
+      case 'genshin':
+        dataFile = './data-gi.json';
+        break;
+      case 'hsr':
+        dataFile = './data-hsr.json';
+        break;
+      case 'loveanddeepspace':
+        dataFile = './data-lads.json';
+        break;
+      default:
+        dataFile = null;
+        break;
+    }
+
+    if (dataFile) {
+      $.get(dataFile, function(data) {
+        mArray = data;
+        let grid = $("#project-grid-items");
+        grid.empty(); // Clear previous items
+
+        // Clear previous modals before generating new ones
+        $(".modal").remove();
+
+        mArray.forEach(item => {
+          grid.append(`
+            <div id="project-grid-item" class="box filter ${item.data} name col-lg-3 col-md-4 mb-12 mb-md-0">
+              <a href="#">
+                <img class="project-grid-item-img" src="${item.src}" alt="" id="${item.id}"/>
+              </a>
+              <div class="overlay">
+                <div class="overlay-text">
+                  <button class="modal-btn btn btn-primary" data-target="#${item.modal}">${item.label}</button>
+                </div>
+              </div>
+            </div>
+          `);
+        });
+
+        generateModals(); // Regenerate modals with new data
+        applyFilters(); // Apply filters to updated items
+      });
+    }
+
+    updateFiltersForGame(game);
+  }
+
+  // Call loadGameData for the default game when the page loads
+  loadGameData(currentGame);
+
   function applyFilters() {
     $(".filter").each(function() {
       let item = $(this);
