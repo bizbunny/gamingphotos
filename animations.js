@@ -1,4 +1,7 @@
 $(document).ready(function() {
+
+  console.log(gamesConfig); // Access the global gamesConfig object
+  
   let activeCharacterFilter = null;
   let activeTypeFilter = null;
   let activeCategoryFilter = null;
