@@ -78,7 +78,7 @@
     },
     {
       "id": "HSR12",
-      "src": "./static/honkaistarrail/hsrxiazhou.png",
+      "src": "./static/honkaistarrail/hsrxianzhou.png",
       "modal": "Yangqing and Yunli",
       "label": "War Dance Interaction",
       "data": "cs"
@@ -123,6 +123,48 @@
       "src": "./static/honkaistarrail/StarRail_Image_1704856586.png",
       "modal": "modal18",
       "label": "Rice cake kitties 2",
+      "data": "hsrscreenshot"
+    },
+    {
+      "id": "HSR19",
+      "src": "./static/honkaistarrail/StarRail_Image_1704928855.png",
+      "modal": "modal19",
+      "label": "Rice cake kitties 3",
+      "data": "hsrscreenshot"
+    },
+    {
+      "id": "HSR20",
+      "src": "./static/honkaistarrail/StarRail_Image_1705204490.png",
+      "modal": "modal20",
+      "label": "Rice cake kitties 4",
+      "data": "hsrscreenshot"
+    },
+    {
+      "id": "HSR21",
+      "src": "./static/honkaistarrail/StarRail_Image_1705204959.png",
+      "modal": "modal21",
+      "label": "Rice cake kitties 5",
+      "data": "hsrscreenshot"
+    },
+    {
+      "id": "HSR22",
+      "src": "./static/honkaistarrail/StarRail_Image_1705204965.png",
+      "modal": "modal22",
+      "label": "Rice cake kitties 6",
+      "data": "hsrscreenshot"
+    },
+    {
+      "id": "HSR23",
+      "src": "./static/honkaistarrail/StarRail_Image_1705205535.png",
+      "modal": "modal23",
+      "label": "Rice cake kitties 7",
+      "data": "hsrscreenshot"
+    },
+    {
+      "id": "HSR24",
+      "src": "./static/honkaistarrail/StarRail_Image_1705205680.png",
+      "modal": "modal24",
+      "label": "Rice cake kitties 8",
       "data": "hsrscreenshot"
     }
   ]
