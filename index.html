@@ -17,35 +17,79 @@
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <div class="dropdown">
+          <button onclick="gameSort()" class="dropbtn">Dropdown</button>
+          <div id="gameDropdown" class="dropdown-content">
+            <a href="#nogame" class="active">Home</a>
+            <a href="#genshin">Genshin Impact</a>
+            <a href="#hsr">Honkai Star Rail</a>
+            <a href="#loveanddeepspace">Love and DeepSpace</a>
+          </div>
+          </div>
+        </div>
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
           <ul class="button-list navbar-nav w-100">
             <li class="button active nav-item" data-filter="all"><div type="button" class="Btn" name="all" title="All"><a class="nav-link" aria-current="page" href="#">All</a></div></li>
           </ul></div>
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
           <ul class="button-list navbar-nav w-100">
-            <li class="button nav-item"><div type="button" class="filter-category">Characters:</div></li>
-            <li class="button nav-item" data-filter="zayne"><div type="button" class="Btn" name="zayne" title="Zayne"><a class="nav-link" aria-current="page" href="#">Zayne</a></div></li>
-            <li class="button nav-item" data-filter="xavier"><div type="button" class="Btn" name="xavier" title="Xavier"><a class="nav-link" aria-current="page" href="#">Xavier</a></div></li>
-            <li class="button nav-item" data-filter="rafayel"><div type="button" class="Btn" name="rafayel" title="Rafayel"><a class="nav-link" aria-current="page" href="#">Rafayel</a></div></li>
-            <li class="button nav-item" data-filter="sylus"><div type="button" class="Btn" name="sylus" title="Sylus"><a class="nav-link" aria-current="page" href="#">Sylus</a></div></li>
-            <li class="button nav-item" data-filter="caleb"><div type="button" class="Btn" name="caleb" title="Caleb"><a class="nav-link" aria-current="page" href="#">Caleb</a></div></li>
-            <li class="button nav-item" data-filter="mc"><div type="button" class="Btn" name="mc" title="MC"><a class="nav-link" aria-current="page" href="#">MC</a></div></li>
-            </ul></div><div class="collapse navbar-collapse" id="navbarNavDropdown"><ul class="button-list navbar-nav w-100">
-            <li class="button nav-item"><div type="button" class="filter-category">Photo Mode:</div></li>
-            <li class="button nav-item" data-filter="snapshot"><div type="button" class="Btn" name="snapshot" title="Snapshot"><a class="nav-link" aria-current="page" href="#">Snapshot</a></div></li>
-            <li class="button nav-item" data-filter="portrait"><div type="button" class="Btn" name="portrait" title="Portrait"><a class="nav-link" aria-current="page" href="#">Portrait</a></div></li>
-            <li class="button nav-item" data-filter="capture"><div type="button" class="Btn" name="capture" title="Capture"><a class="nav-link" aria-current="page" href="#">Capture</a></div></li>
-            <li class="button nav-item" data-filter="solo"><div type="button" class="Btn" name="solo" title="Solo"><a class="nav-link" aria-current="page" href="#">Solo</a></div></li>
-            <li class="button nav-item" data-filter="duo"><div type="button" class="Btn" name="duo" title="Duo"><a class="nav-link" aria-current="page" href="#">Duo</a></div></li>
-            <li class="button nav-item"><div type="button" class="filter-category">Miscellaneous:</div></li>
-            <li class="button nav-item" data-filter="collage"><div type="button" class="Btn" name="collage" title="Collage"><a class="nav-link" aria-current="page" href="#">Collage</a></div></li>
-            <li class="button nav-item dropdown" data-filter="cat">
+            <li class="button nav-item" data-game="loveanddeepspace"><div type="button" class="filter-category">Characters:</div></li>
+            <li class="button nav-item" data-game="loveanddeepspace" data-filter="zayne" data-game="loveanddeepspace"><div type="button" class="Btn" name="zayne" title="Zayne"><a class="nav-link" aria-current="page" href="#">Zayne</a></div></li>
+            <li class="button nav-item" data-game="loveanddeepspace" data-filter="xavier"><div type="button" class="Btn" name="xavier" title="Xavier"><a class="nav-link" aria-current="page" href="#">Xavier</a></div></li>
+            <li class="button nav-item" data-game="loveanddeepspace" data-filter="rafayel"><div type="button" class="Btn" name="rafayel" title="Rafayel"><a class="nav-link" aria-current="page" href="#">Rafayel</a></div></li>
+            <li class="button nav-item" data-game="loveanddeepspace" data-filter="sylus"><div type="button" class="Btn" name="sylus" title="Sylus"><a class="nav-link" aria-current="page" href="#">Sylus</a></div></li>
+            <li class="button nav-item" data-game="loveanddeepspace" data-filter="caleb"><div type="button" class="Btn" name="caleb" title="Caleb"><a class="nav-link" aria-current="page" href="#">Caleb</a></div></li>
+            <li class="button nav-item" data-game="loveanddeepspace" data-filter="mc"><div type="button" class="Btn" name="mc" title="MC"><a class="nav-link" aria-current="page" href="#">MC</a></div></li>
+          </ul>
+        </div>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="button-list navbar-nav w-100">
+            <li class="button nav-item" data-game="loveanddeepspace"><div type="button" class="filter-category">Photo Mode:</div></li>
+            <li class="button nav-item" data-game="loveanddeepspace" data-filter="snapshot"><div type="button" class="Btn" name="snapshot" title="Snapshot"><a class="nav-link" aria-current="page" href="#">Snapshot</a></div></li>
+            <li class="button nav-item" data-game="loveanddeepspace" data-filter="portrait"><div type="button" class="Btn" name="portrait" title="Portrait"><a class="nav-link" aria-current="page" href="#">Portrait</a></div></li>
+            <li class="button nav-item" data-game="loveanddeepspace" data-filter="capture"><div type="button" class="Btn" name="capture" title="Capture"><a class="nav-link" aria-current="page" href="#">Capture</a></div></li>
+            <li class="button nav-item" data-game="loveanddeepspace" data-filter="solo"><div type="button" class="Btn" name="solo" title="Solo"><a class="nav-link" aria-current="page" href="#">Solo</a></div></li>
+            <li class="button nav-item" data-game="loveanddeepspace" data-filter="duo"><div type="button" class="Btn" name="duo" title="Duo"><a class="nav-link" aria-current="page" href="#">Duo</a></div></li>
+            <li class="button nav-item" data-game="loveanddeepspace"><div type="button" class="filter-category">Miscellaneous:</div></li>
+            <li class="button nav-item" data-game="loveanddeepspace" data-filter="collage"><div type="button" class="Btn" name="collage" title="Collage"><a class="nav-link" aria-current="page" href="#">Collage</a></div></li>
+            <li class="button nav-item dropdown" data-game="loveanddeepspace" data-filter="cat">
               <div type="button" class="Btn" name="cat" title="Cat">
                 <a class="nav-link" aria-current="page" href="#">
                   Cats
                 </a>
               </div>
-        </li>   
-            <li class="button nav-item" data-filter="bg"><div type="button" class="Btn" name="bg" title="BG"><a class="nav-link" aria-current="page" href="#">Backgrounds</a></div></li>
+            </li>   
+            <li class="button nav-item" data-game="loveanddeepspace" data-filter="bg">
+              <div type="button" class="Btn" name="bg" title="BG"><a class="nav-link" aria-current="page" href="#">Backgrounds</a></div>
+            </li>
+          </ul>
+        </div>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="button-list navbar-nav w-100">
+            <li class="button nav-item" data-filter="sqe" data-game="genshin">
+              <div type="button" class="Btn" name="sqe" title="SQE">
+                <a class="nav-link" aria-current="page" href="#">Story Quest</a>
+              </div>
+            </li>
+            <li class="button nav-item" data-filter="giscreenshot" data-game="genshin">
+              <div type="button" class="Btn" name="giscreenshot" title="GI Screenshots">
+                <a class="nav-link" aria-current="page" href="#">Screenshots</a>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="button-list navbar-nav w-100">
+            <li class="button nav-item" data-filter="cs" data-game="hsr">
+              <div type="button" class="Btn" name="cs" title="cs">
+                <a class="nav-link" aria-current="page" href="#">Cutscene</a>
+              </div>
+            </li>
+            <li class="button nav-item" data-filter="hsrscreenshot" data-game="hsr">
+              <div type="button" class="Btn" name="hsrscreenshot" title="HSR Screenshots">
+                <a class="nav-link" aria-current="page" href="#">Screenshots</a>
+              </div>
+            </li>
           </ul>
         </div>
       </div>
@@ -70,8 +114,8 @@
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
   <script src="https://unpkg.com/@popperjs/core@2/dist/umd/popper.js"></script>
   <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
-
+  <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script> -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   <script src="./animations.js"></script>
 </body>
 </html>

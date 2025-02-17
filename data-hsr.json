@@ -1,0 +1,30 @@
+[
+    {
+      "id": "HSR1",
+      "src": "./static/honkaistarrail/hsrBootHill.png",
+      "modal": "modal1",
+      "label": "Boot Hill Cut Scene",
+      "data": "cs"
+    },
+    {
+      "id": "HSR2",
+      "src": "./static/honkaistarrail/hsrpenaony.png",
+      "modal": "modal2",
+      "label": "Discussion with Jade",
+      "data": "hsrscreenshot"
+    },
+    {
+      "id": "HSR3",
+      "src": "./static/honkaistarrail/hsrdrprimitivesins.png",
+      "modal": "modal3",
+      "label": "Dr. Primitive Sins",
+      "data": "cs"
+    },
+    {
+      "id": "HSR4",
+      "src": "./static/honkaistarrail/hsrNinjaCapital.png",
+      "modal": "modal4",
+      "label": "Ninja Capital",
+      "data": "cs"
+    }
+  ]
