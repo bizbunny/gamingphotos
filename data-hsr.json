@@ -166,5 +166,19 @@
       "modal": "modal24",
       "label": "Rice cake kitties 8",
       "data": "hsrscreenshot"
+    },
+    {
+      "id": "HSR25",
+      "src": "./static/honkaistarrail/StarRail_Image_1705206563.png",
+      "modal": "modal25",
+      "label": "Rice cake kitties 9",
+      "data": "hsrscreenshot"
+    },
+    {
+      "id": "HSR26",
+      "src": "./static/honkaistarrail/StarRail_Image_1705206568.png",
+      "modal": "modal26",
+      "label": "Rice cake kitties 10",
+      "data": "hsrscreenshot"
     }
   ]
