@@ -270,40 +270,6 @@ function showPage() {
   document.getElementById("photos").style.display = "block";
 }
 
-// let dataFile;
-// switch (currentGame) {
-//   case 'genshin':
-//     dataFile = './data-gi.json';
-//     break;
-//   case 'hsr':
-//     dataFile = './data-hsr.json';
-//     break;
-//   case 'loveanddeepspace':
-//   default:
-//     dataFile = './data-lads.json';
-//     break;
-// }
-
-// $.get("./data.json", function(data) {
-//   mArray = data;
-//   let grid = $("#project-grid-items");
-//   mArray.forEach(item => {
-//     grid.append(`
-//       <div id="project-grid-item" class="box filter ${item.data} name col-lg-3 col-md-4 mb-12 mb-md-0">
-//         <a href="#">
-//           <img class="project-grid-item-img" src="${item.src}" alt="" id="${item.id}"/>
-//         </a>
-//         <div class="overlay">
-//           <div class="overlay-text">
-//             <button class="modal-btn btn btn-primary" data-target="#${item.modal}">${item.label}</button>
-//           </div>
-//         </div>
-//       </div>
-//     `);
-//   });
-//   generateModals();
-// });
-
 function generateModals() {
   $(".modal").remove(); // Remove existing modals before creating new ones
 
