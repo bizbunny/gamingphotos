@@ -1,29 +1,42 @@
 $(document).ready(function() {
-
   console.log(gamesConfig); // Access the global gamesConfig object
-  
+
   let activeCharacterFilter = null;
   let activeTypeFilter = null;
   let activeCategoryFilter = null;
   let activeAdditionalFilters = [];
 
-  let currentGame = 'nogame'; // Default game is now 'nogame
+  let currentGame = 'nogame'; // Default game is now 'nogame'
 
   // Function to update filter visibility based on the selected game
   function updateFiltersForGame(game) {
-    // Hide all filters first
-    $(".button").hide();
-
+    // Hide all filters and labels first
+    $(".button, .filter-category").hide();
+  
     // Show the "All" filter (common for all games)
     $(".button[data-filter='all']").show();
-
+  
     // Show filters specific to the selected game
-    if (game === 'loveanddeepspace') {
-      $(".button[data-game='loveanddeepspace']").show();
-    } else if (game === 'genshin') {
-      $(".button[data-game='genshin']").show();
-    } else if (game === 'hsr') {
-      $(".button[data-game='hsr']").show();
+    if (gamesConfig[game]) {
+      const filters = gamesConfig[game].filters;
+  
+      if (game === 'loveanddeepspace') { //Love & Deepspace has filter types to consider * * *
+        // Handle labeled filters for Love & Deepspace
+        Object.keys(filters).forEach(category => {
+          // Show the category label
+          $(`.filter-category[data-category='${category}']`).show();
+  
+          // Show the filter buttons under the category
+          filters[category].forEach(filter => {
+            $(`.button[data-filter='${filter}']`).show();
+          });
+        });
+      } else {
+        // Handle unlabeled filters for other games
+        filters.forEach(filter => {
+          $(`.button[data-filter='${filter}']`).show();
+        });
+      }
     }
   }
 
@@ -49,21 +62,7 @@ $(document).ready(function() {
 
   // Function to load game data and update filters
   function loadGameData(game) {
-    let dataFile;
-    switch (game) {
-      case 'genshin':
-        dataFile = './data-gi.json';
-        break;
-      case 'hsr':
-        dataFile = './data-hsr.json';
-        break;
-      case 'loveanddeepspace':
-        dataFile = './data-lads.json';
-        break;
-      default:
-        dataFile = null;
-        break;
-    }
+    let dataFile = gamesConfig[game]?.dataFile;
 
     if (dataFile) {
       $.get(dataFile, function(data) {
@@ -104,14 +103,14 @@ $(document).ready(function() {
     $(".filter").each(function() {
       let item = $(this);
       let itemClasses = item.attr("class").split(" ");
-
-      //Love & Deepspace
+      //Love & Deepspace has filter types to consider * * *
+      // Love & Deepspace
       let characterMatch = !activeCharacterFilter || itemClasses.includes(activeCharacterFilter);
       let typeMatch = !activeTypeFilter || itemClasses.includes(activeTypeFilter);
       let categoryMatch = !activeCategoryFilter || itemClasses.includes(activeCategoryFilter);
       let additionalMatch = activeAdditionalFilters.length === 0 || activeAdditionalFilters.some(f => itemClasses.includes(f));
 
-      //Genshin Impact filters
+      // Genshin Impact filters
       let genshinMatch = true; // Default to true if no Genshin filters are active
       if (currentGame === 'genshin') {
         if (activeCharacterFilter === 'sqe' && !itemClasses.includes('sqe')) {
@@ -122,7 +121,7 @@ $(document).ready(function() {
         }
       }
 
-      //Honkai Star Rail filters
+      // Honkai Star Rail filters
       let hsrMatch = true;
       if (currentGame === 'hsr') {
         if (activeCharacterFilter === 'cs' && !itemClasses.includes('cs')) {
@@ -142,58 +141,9 @@ $(document).ready(function() {
     });
   }
 
-   // Function to load game data and update filters
-   function loadGameData(game) {
-    let dataFile;
-    switch (game) {
-        case 'genshin':
-            dataFile = './data-gi.json';
-            break;
-        case 'hsr':
-            dataFile = './data-hsr.json';
-            break;
-        case 'loveanddeepspace':
-            dataFile = './data-lads.json';
-            break;
-        default:
-            dataFile = null;
-            break;
-    }
-
-    $.get(dataFile, function(data) {
-        mArray = data;
-        let grid = $("#project-grid-items");
-        grid.empty(); // Clear previous items
-
-        // Clear previous modals before generating new ones
-        $(".modal").remove(); 
-
-        mArray.forEach(item => {
-            grid.append(`
-                <div id="project-grid-item" class="box filter ${item.data} name col-lg-3 col-md-4 mb-12 mb-md-0">
-                    <a href="#">
-                        <img class="project-grid-item-img" src="${item.src}" alt="" id="${item.id}"/>
-                    </a>
-                    <div class="overlay">
-                        <div class="overlay-text">
-                            <button class="modal-btn btn btn-primary" data-target="#${item.modal}">${item.label}</button>
-                        </div>
-                    </div>
-                </div>
-            `);
-        });
-
-        generateModals(); // Regenerate modals with new data
-        applyFilters(); // Apply filters to updated items
-    });
-
-    updateFiltersForGame(game);
-}
-
-
-  $(".button").click(function() {
+  $(".button").click(function() {//Love & Deepspace has filter types to consider * * *
     let value = $(this).attr("data-filter");
-  
+
     if (value === "all") {
       activeCharacterFilter = null;
       activeTypeFilter = null;
@@ -227,12 +177,12 @@ $(document).ready(function() {
       activeCharacterFilter = activeCharacterFilter === value ? null : value;
       $(".button[data-filter='sqe'], .button[data-filter='giscreenshot']").removeClass("active");
       if (activeCharacterFilter) $(this).addClass("active");
-    } else if(["cs", "hsrscreenshot"].includes(value)) {
+    } else if (["cs", "hsrscreenshot"].includes(value)) {
       activeCharacterFilter = activeCharacterFilter === value ? null : value;
       $(".button[data-filter='cs'], button[data-filter='hsrscreenshot']").removeClass("active");
       if (activeCharacterFilter) $(this).addClass("active");
     }
-  
+
     applyFilters();
   });
 
@@ -277,39 +227,36 @@ function generateModals() {
   $(".modal").remove(); // Remove existing modals before creating new ones
 
   mArray.forEach(item => {
-      const modal = document.createElement('div');
-      modal.classList.add('modal', 'fade');
-      modal.id = item.modal;
-      modal.setAttribute('tabindex', '-1');
-      modal.setAttribute('role', 'dialog');
+    const modal = document.createElement('div');
+    modal.classList.add('modal', 'fade');
+    modal.id = item.modal;
+    modal.setAttribute('tabindex', '-1');
+    modal.setAttribute('role', 'dialog');
 
-      modal.innerHTML = `
-          <div class="modal-dialog" role="document">
-              <div class="modal-content">
-                  <div class="modal-header">
-                      <h5 class="modal-title">${item.label}</h5>
-                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                          <span>&times;</span>
-                      </button>
-                  </div>
-                  <div class="modal-body">
-                      <img src="${item.src}" class="img-fluid" alt="${item.label}"/>
-                  </div>
-              </div>
+    modal.innerHTML = `
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">${item.label}</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span>&times;</span>
+            </button>
           </div>
-      `;
+          <div class="modal-body">
+            <img src="${item.src}" class="img-fluid" alt="${item.label}"/>
+          </div>
+        </div>
+      </div>
+    `;
 
-      document.body.appendChild(modal);
+    document.body.appendChild(modal);
   });
 }
 
-
 loadingLoader();
-
 
 // Modal functions
 var modals = document.querySelectorAll(".modal");
-//var modalbtn = document.querySelectorAll("button.modal-btn");
 var spans = document.getElementsByClassName("close");
 
 for (var i = 0; i < spans.length; i++) {
@@ -327,7 +274,7 @@ $(document).on("click", ".modal-btn", function (e) {
   console.log("Modal button clicked, target:", targetModal);
   console.log("Checking if modal exists:", $(targetModal));
   $(targetModal).modal("show");
-  });
+});
 
 window.onclick = function(event) {
   if (event.target.classList.contains("modal")) {

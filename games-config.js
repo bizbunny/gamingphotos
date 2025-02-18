@@ -13,7 +13,11 @@ const gamesConfig = {
       dataFile: './data-hsr.json',
     },
     loveanddeepspace: {
-      filters: ['all', 'zayne', 'xavier', 'rafayel', 'sylus', 'caleb', 'mc', 'snapshot', 'portrait', 'capture', 'solo', 'duo', 'collage', 'cat', 'bg'],
+      filters: {
+        characters: ['zayne', 'xavier', 'rafayel', 'sylus', 'caleb', 'mc'],
+        photoMode: ['snapshot', 'portrait', 'capture', 'solo', 'duo'],
+        miscellaneous: ['collage', 'cat', 'bg'],
+      },
       dataFile: './data-lads.json',
     },
     // Add new games here
