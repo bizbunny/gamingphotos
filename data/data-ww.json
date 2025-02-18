@@ -1,0 +1,23 @@
+[
+    {
+      "id": "Wuwa1",
+      "src": "./static/wutheringwaves/1951a049e1187-screenshotUrl.jpg",
+      "modal": "modal1",
+      "label": "Up against Sentinel Jué",
+      "data": "wwcs"
+    },
+    {
+      "id": "Wuwa2",
+      "src": "./static/wutheringwaves/1951a0852c882-screenshotUrl.jpg",
+      "modal": "modal2",
+      "label": "Lunar New Year 2025",
+      "data": "other"
+    },
+    {
+      "id": "Wuwa3",
+      "src": "./static/wutheringwaves/1951a04785b93-screenshotUrl.jpg",
+      "modal": "modal3",
+      "label": "Sentinel Jué",
+      "data": "wwcs"
+    }
+  ]

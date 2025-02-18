@@ -1,0 +1,23 @@
+[
+    {
+      "id": "ac pocket camp 1",
+      "src": "./static/animalcrossingpocketcamp/20240723135900.png",
+      "modal": "modal1",
+      "label": "Summer Mini Game",
+      "data": "acpcscreenshot"
+    },
+    {
+      "id": "ac pocket camp 2",
+      "src": "./static/animalcrossingpocketcamp/20240807215950.png",
+      "modal": "modal2",
+      "label": "Campsite photo 1",
+      "data": "accamera"
+    },
+    {
+      "id": "ac pocket camp 3",
+      "src": "./static/animalcrossingpocketcamp/20240807215950.png",
+      "modal": "modal3",
+      "label": "Campsite photo 2",
+      "data": "accamera"
+    }
+  ]

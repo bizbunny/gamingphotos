@@ -1,0 +1,44 @@
+[
+    {
+      "id": "Genshin1",
+      "src": "./static/genshinimpact/202366201018.png",
+      "modal": "modal1",
+      "label": "Genshin Story Quest Ending Thoma 1",
+      "data": "sqe"
+    },
+    {
+      "id": "Genshin2",
+      "src": "./static/genshinimpact/202371511538.png",
+      "modal": "modal2",
+      "label": "Genshin Story Quest Ending Barbara 1",
+      "data": "sqe"
+    },
+    {
+      "id": "Genshin3",
+      "src": "./static/genshinimpact/2023714184813.png",
+      "modal": "modal3",
+      "label": "Genshin Story Quest Ending Barbara 2",
+      "data": "sqe"
+    },
+    {
+      "id": "Genshin4",
+      "src": "./static/genshinimpact/20241102162034.png",
+      "modal": "modal4",
+      "label": "Genshin Screenshot 1",
+      "data": "giscreenshot"
+    },
+    {
+      "id": "Genshin5",
+      "src": "./static/genshinimpact/1951a0960986-screenshotUrl.jpg",
+      "modal": "modal5",
+      "label": "Genshin Screenshot 2",
+      "data": "giscreenshot"
+    },
+    {
+      "id": "Genshin6",
+      "src": "./static/genshinimpact/1951a091c2c22-screenshotUrl.jpg",
+      "modal": "modal6",
+      "label": "Genshin Screenshot 3",
+      "data": "giscreenshot"
+    }
+  ]

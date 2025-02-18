@@ -1,0 +1,44 @@
+[
+    {
+      "id": "IN1",
+      "src": "./static/infinitynikki/1951a0a05a442-screenshotUrl.jpg",
+      "modal": "modal1",
+      "label": "Hot air baloon ride",
+      "data": "camerashot"
+    },
+    {
+      "id": "IN2",
+      "src": "./static/infinitynikki/1951a08d40d79-screenshotUrl.jpg",
+      "modal": "modal2",
+      "label": "Photo on the White Jade",
+      "data": "camerashot"
+    },
+    {
+      "id": "IN3",
+      "src": "./static/infinitynikki/1951a052cf46-screenshotUrl.jpg",
+      "modal": "modal3",
+      "label": "Over Fireworks Isles",
+      "data": "inscreenshot"
+    },
+    {
+        "id": "IN4",
+        "src": "./static/infinitynikki/1951a0569d71-screenshotUrl.jpg",
+        "modal": "modal4",
+        "label": "Sovereign of Cool",
+        "data": "camerashot"
+      },
+      {
+        "id": "IN5",
+        "src": "./static/infinitynikki/1951a0597ba34-screenshotUrl.jpg",
+        "modal": "modal5",
+        "label": "Du Yubai and a crane",
+        "data": "inscreenshot"
+      },
+      {
+        "id": "IN6",
+        "src": "./static/infinitynikki/1951a05095e20-screenshotUrl.jpg",
+        "modal": "modal6",
+        "label": "Sunflower photo",
+        "data": "camerashot"
+      }
+  ]

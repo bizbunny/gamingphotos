@@ -1,10 +1,12 @@
 $(document).ready(function() {
   console.log(gamesConfig); // Access the global gamesConfig object
 
-  let activeCharacterFilter = null;
-  let activeTypeFilter = null;
-  let activeCategoryFilter = null;
-  let activeAdditionalFilters = [];
+  let activeFilters = {
+    character: null,
+    type: null,
+    category: null,
+    additional: [],
+  };
 
   let currentGame = 'nogame'; // Default game is now 'nogame'
 
@@ -12,20 +14,20 @@ $(document).ready(function() {
   function updateFiltersForGame(game) {
     // Hide all filters and labels first
     $(".button, .filter-category").hide();
-  
+
     // Show the "All" filter (common for all games)
     $(".button[data-filter='all']").show();
-  
+
     // Show filters specific to the selected game
     if (gamesConfig[game]) {
       const filters = gamesConfig[game].filters;
-  
-      if (game === 'loveanddeepspace') { //Love & Deepspace has filter types to consider * * *
+
+      if (typeof filters === 'object' && !Array.isArray(filters)) {
         // Handle labeled filters for Love & Deepspace
         Object.keys(filters).forEach(category => {
           // Show the category label
           $(`.filter-category[data-category='${category}']`).show();
-  
+
           // Show the filter buttons under the category
           filters[category].forEach(filter => {
             $(`.button[data-filter='${filter}']`).show();
@@ -42,8 +44,17 @@ $(document).ready(function() {
 
   // Load the default game data (no game data)
   function loadDefaultData() {
-    $(".filter").slideDown("1000"); // Show all items by default
-    updateFiltersForGame('nogame'); // Only show the "All" filter
+    // Clear the grid items
+    $("#project-grid-items").empty();
+
+    // Hide the photos section
+    $("#photos").hide();
+
+    // Show all items by default (if any)
+    $(".filter").slideDown("1000");
+
+    // Only show the "All" filter
+    updateFiltersForGame('nogame');
   }
 
   // Call the default load function when the page loads
@@ -90,6 +101,9 @@ $(document).ready(function() {
 
         generateModals(); // Regenerate modals with new data
         applyFilters(); // Apply filters to updated items
+
+        // Show the photos section
+        $("#photos").show();
       });
     }
 
@@ -103,37 +117,25 @@ $(document).ready(function() {
     $(".filter").each(function() {
       let item = $(this);
       let itemClasses = item.attr("class").split(" ");
-      //Love & Deepspace has filter types to consider * * *
-      // Love & Deepspace
-      let characterMatch = !activeCharacterFilter || itemClasses.includes(activeCharacterFilter);
-      let typeMatch = !activeTypeFilter || itemClasses.includes(activeTypeFilter);
-      let categoryMatch = !activeCategoryFilter || itemClasses.includes(activeCategoryFilter);
-      let additionalMatch = activeAdditionalFilters.length === 0 || activeAdditionalFilters.some(f => itemClasses.includes(f));
 
-      // Genshin Impact filters
-      let genshinMatch = true; // Default to true if no Genshin filters are active
-      if (currentGame === 'genshin') {
-        if (activeCharacterFilter === 'sqe' && !itemClasses.includes('sqe')) {
-          genshinMatch = false;
-        }
-        if (activeCharacterFilter === 'giscreenshot' && !itemClasses.includes('giscreenshot')) {
-          genshinMatch = false;
-        }
+      // Check if the item matches the active filters
+      let matches = true;
+
+      if (activeFilters.character && !itemClasses.includes(activeFilters.character)) {
+        matches = false;
+      }
+      if (activeFilters.type && !itemClasses.includes(activeFilters.type)) {
+        matches = false;
+      }
+      if (activeFilters.category && !itemClasses.includes(activeFilters.category)) {
+        matches = false;
+      }
+      if (activeFilters.additional.length > 0 && !activeFilters.additional.some(f => itemClasses.includes(f))) {
+        matches = false;
       }
 
-      // Honkai Star Rail filters
-      let hsrMatch = true;
-      if (currentGame === 'hsr') {
-        if (activeCharacterFilter === 'cs' && !itemClasses.includes('cs')) {
-          hsrMatch = false;
-        }
-        if (activeCharacterFilter === 'hsrscreenshot' && !itemClasses.includes('hsrscreenshot')) {
-          hsrMatch = false;
-        }
-      }
-
-      // Combine all conditions
-      if (characterMatch && typeMatch && categoryMatch && additionalMatch && genshinMatch) {
+      // Show or hide the item based on the match
+      if (matches) {
         item.slideDown("1000");
       } else {
         item.slideUp("1000");
@@ -141,50 +143,55 @@ $(document).ready(function() {
     });
   }
 
-  $(".button").click(function() {//Love & Deepspace has filter types to consider * * *
+  $(".button").click(function() {
     let value = $(this).attr("data-filter");
 
     if (value === "all") {
-      activeCharacterFilter = null;
-      activeTypeFilter = null;
-      activeCategoryFilter = null;
-      activeAdditionalFilters = [];
+      // Reset all filters
+      activeFilters = {
+        character: null,
+        type: null,
+        category: null,
+        additional: [],
+      };
       $(".filter").slideDown("1000");
       $(".button").removeClass("active");
       $(this).addClass("active");
-    } else if (["zayne", "xavier", "rafayel", "sylus", "caleb", "mc"].includes(value)) {
-      activeCharacterFilter = activeCharacterFilter === value ? null : value;
-      $(".button[data-filter='zayne'], .button[data-filter='xavier'], .button[data-filter='rafayel'], .button[data-filter='sylus'], .button[data-filter='caleb'], .button[data-filter='mc']").removeClass("active");
-      if (activeCharacterFilter) $(this).addClass("active");
-    } else if (["solo", "duo"].includes(value)) {
-      activeTypeFilter = activeTypeFilter === value ? null : value;
-      $(".button[data-filter='solo'], .button[data-filter='duo']").removeClass("active");
-      if (activeTypeFilter) $(this).addClass("active");
-    } else if (["portrait", "snapshot", "capture"].includes(value)) {
-      activeCategoryFilter = activeCategoryFilter === value ? null : value;
-      $(".button[data-filter='portrait'], .button[data-filter='snapshot'], .button[data-filter='capture']").removeClass("active");
-      if (activeCategoryFilter) $(this).addClass("active");
-    } else if (["cat", "bg", "collage"].includes(value)) {
-      if (activeAdditionalFilters.includes(value)) {
-        activeAdditionalFilters = activeAdditionalFilters.filter(f => f !== value);
-        $(this).removeClass("active");
+    } else {
+      // Update active filters based on the button clicked
+      const filterType = getFilterType(value);
+      if (filterType === 'additional') {
+        if (activeFilters.additional.includes(value)) {
+          activeFilters.additional = activeFilters.additional.filter(f => f !== value);
+          $(this).removeClass("active");
+        } else {
+          activeFilters.additional.push(value);
+          $(this).addClass("active");
+        }
       } else {
-        activeAdditionalFilters.push(value);
-        $(this).addClass("active");
+        activeFilters[filterType] = activeFilters[filterType] === value ? null : value;
+        $(`.button[data-filter='${value}']`).removeClass("active");
+        if (activeFilters[filterType]) $(this).addClass("active");
       }
-    } else if (["sqe", "giscreenshot"].includes(value)) {
-      // Handle Genshin Impact filters
-      activeCharacterFilter = activeCharacterFilter === value ? null : value;
-      $(".button[data-filter='sqe'], .button[data-filter='giscreenshot']").removeClass("active");
-      if (activeCharacterFilter) $(this).addClass("active");
-    } else if (["cs", "hsrscreenshot"].includes(value)) {
-      activeCharacterFilter = activeCharacterFilter === value ? null : value;
-      $(".button[data-filter='cs'], button[data-filter='hsrscreenshot']").removeClass("active");
-      if (activeCharacterFilter) $(this).addClass("active");
     }
 
     applyFilters();
   });
+
+  // Helper function to determine the filter type
+  function getFilterType(filter) {
+    if (["zayne", "xavier", "rafayel", "sylus", "caleb", "mc"].includes(filter)) {
+      return 'character';
+    } else if (["solo", "duo"].includes(filter)) {
+      return 'type';
+    } else if (["portrait", "snapshot", "capture"].includes(filter)) {
+      return 'category';
+    } else if (["cat", "bg", "collage"].includes(filter)) {
+      return 'additional';
+    } else {
+      return 'character'; // Default to character for other games
+    }
+  }
 
   // Handle dropdown selection
   $(".dropdown-content a").click(function() {

@@ -6,11 +6,19 @@ const gamesConfig = {
     },
     genshin: {
       filters: ['all', 'sqe', 'giscreenshot'],
-      dataFile: './data-gi.json',
+      dataFile: './data/data-gi.json',
     },
     hsr: {
       filters: ['all', 'cs', 'hsrscreenshot'],
-      dataFile: './data-hsr.json',
+      dataFile: './data/data-hsr.json',
+    },
+    wuwa: {
+      filters: ['all', 'wwcs', 'other'],
+      dataFile: './data/data-ww.json',
+    },
+    in: {
+      filters: ['all', 'camerashot', 'inscreenshot'],
+      dataFile: './data/data-in.json',
     },
     loveanddeepspace: {
       filters: {
@@ -18,7 +26,10 @@ const gamesConfig = {
         photoMode: ['snapshot', 'portrait', 'capture', 'solo', 'duo'],
         miscellaneous: ['collage', 'cat', 'bg'],
       },
-      dataFile: './data-lads.json',
+      dataFile: './data/data-lads.json',
     },
-    // Add new games here
+    acpc: {
+      filters: ['all', 'accamera', 'acpcscreenshot'],
+      dataFile: './data/data-acpc.json',
+    },
   };
