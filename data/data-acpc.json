@@ -12,5 +12,12 @@
       "modal": "modal2",
       "label": "Campsite photo 1",
       "data": "accamera"
+    },
+    {
+      "id": "ac pocket camp 3",
+      "src": "./static/animalcrossingpocketcamp/20240807220011.png",
+      "modal": "modal3",
+      "label": "Campsite photo 2",
+      "data": "accamera"
     }
   ]

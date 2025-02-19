@@ -42,7 +42,7 @@ $(document).ready(function() {
     }
   }
 
-  // Load the default game data (no game data)
+  // Load the default game data (no game data to back to Home)
   function loadDefaultData() {
     // Clear the grid items
     $("#project-grid-items").empty();
@@ -61,12 +61,18 @@ $(document).ready(function() {
   loadDefaultData();
 
   // Handle dropdown selection
-  $(document).on("click", "#gameDropdown .dropdown-item", function (e) {
-    e.preventDefault();
-    let game = $(this).attr("href").replace("#", "");
-    currentGame = game;
-    loadGameData(game);
-  });
+  // Handle dropdown selection
+$(document).on("click", "#gameDropdown .dropdown-item", function (e) {
+  e.preventDefault();
+  let game = $(this).attr("href").replace("#", "");
+  currentGame = game;
+
+  if (game === 'nogame') {
+    loadDefaultData(); // Call loadDefaultData for Home
+  } else {
+    loadGameData(game); // Call loadGameData for other games
+  }
+});
 
   // Function to load game data and update filters
   function loadGameData(game) {
