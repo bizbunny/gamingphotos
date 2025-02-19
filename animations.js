@@ -61,19 +61,18 @@ $(document).ready(function() {
   loadDefaultData();
 
   // Handle dropdown selection
-  $(".dropdown-content a").click(function() {
+  $(document).on("click", "#gameDropdown .dropdown-item", function (e) {
+    e.preventDefault();
     let game = $(this).attr("href").replace("#", "");
     currentGame = game;
-    if (game === 'nogame') {
-      loadDefaultData();
-    } else {
-      loadGameData(game);
-    }
+    loadGameData(game);
   });
 
   // Function to load game data and update filters
   function loadGameData(game) {
     let dataFile = gamesConfig[game]?.dataFile;
+
+    console.log(`Loading data from: ${dataFile}`); // Debugging: Log the data file being loaded
 
     if (dataFile) {
       $.get(dataFile, function(data) {
@@ -104,6 +103,10 @@ $(document).ready(function() {
 
         // Show the photos section
         $("#photos").show();
+
+        console.log("Data received:", data); // Debugging: Log the received data
+      }).fail(function(jqXHR, textStatus, errorThrown) {
+        console.error("Error loading data:", textStatus, errorThrown); // Debugging: Log any errors
       });
     }
 
@@ -192,31 +195,7 @@ $(document).ready(function() {
       return 'character'; // Default to character for other games
     }
   }
-
-  // Handle dropdown selection
-  $(".dropdown-content a").click(function() {
-    let game = $(this).attr("href").replace("#", "");
-    currentGame = game;
-    loadGameData(game);
-  });
 });
-
-function gameSort() {
-  document.getElementById("gameDropdown").classList.toggle("show");
-}
-
-window.onclick = function(event) {
-  if (!event.target.matches('.dropbtn')) {
-    var dropdowns = document.getElementsByClassName("dropdown-content");
-    var i;
-    for (i = 0; i < dropdowns.length; i++) {
-      var openDropdown = dropdowns[i];
-      if (openDropdown.classList.contains('show')) {
-        openDropdown.classList.remove('show');
-      }
-    }
-  }
-}
 
 let mArray = [];
 
