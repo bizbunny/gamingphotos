@@ -114,7 +114,7 @@ $(document).ready(function() {
   }
 
   // Call loadGameData for the default game when the page loads
-  loadGameData(currentGame);
+  loadGameData(currentGame); // Moved inside $(document).ready()
 
   function applyFilters() {
     $(".filter").each(function() {
@@ -204,10 +204,26 @@ function loadingLoader() {
 }
 
 function showPage() {
-  document.getElementById("loader").style.display = "none";
-  document.getElementById("mainContent").style.display = "block";
-  document.getElementById("photos").style.display = "block";
+  const loader = document.getElementById("loader");
+  const photos = document.getElementById("photos");
+
+  if (loader) { // Check if the element exists
+      loader.style.display = "none";
+  } else {
+      console.error("Loader element not found!");
+  }
+
+  if (photos) { // Check if the element exists
+      photos.style.display = "block";
+  } else {
+      console.error("Photos element not found!");
+  }
 }
+
+// Call showPage inside DOMContentLoaded
+document.addEventListener("DOMContentLoaded", function() {
+  showPage(); // Call showPage once the DOM is ready
+});
 
 function generateModals() {
   $(".modal").remove(); // Remove existing modals before creating new ones
@@ -271,5 +287,3 @@ window.onclick = function(event) {
     }
   }
 }
-
-loadGameData(currentGame);
