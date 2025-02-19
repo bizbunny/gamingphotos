@@ -42,7 +42,7 @@ $(document).ready(function() {
     }
   }
 
-  // Load the default game data (no game data)
+  // Load the default game data (no game data to back to Home)
   function loadDefaultData() {
     // Clear the grid items
     $("#project-grid-items").empty();
@@ -61,19 +61,24 @@ $(document).ready(function() {
   loadDefaultData();
 
   // Handle dropdown selection
-  $(".dropdown-content a").click(function() {
-    let game = $(this).attr("href").replace("#", "");
-    currentGame = game;
-    if (game === 'nogame') {
-      loadDefaultData();
-    } else {
-      loadGameData(game);
-    }
-  });
+  // Handle dropdown selection
+$(document).on("click", "#gameDropdown .dropdown-item", function (e) {
+  e.preventDefault();
+  let game = $(this).attr("href").replace("#", "");
+  currentGame = game;
+
+  if (game === 'nogame') {
+    loadDefaultData(); // Call loadDefaultData for Home
+  } else {
+    loadGameData(game); // Call loadGameData for other games
+  }
+});
 
   // Function to load game data and update filters
   function loadGameData(game) {
     let dataFile = gamesConfig[game]?.dataFile;
+
+    console.log(`Loading data from: ${dataFile}`); // Debugging: Log the data file being loaded
 
     if (dataFile) {
       $.get(dataFile, function(data) {
@@ -104,6 +109,10 @@ $(document).ready(function() {
 
         // Show the photos section
         $("#photos").show();
+
+        console.log("Data received:", data); // Debugging: Log the received data
+      }).fail(function(jqXHR, textStatus, errorThrown) {
+        console.error("Error loading data:", textStatus, errorThrown); // Debugging: Log any errors
       });
     }
 
@@ -111,7 +120,7 @@ $(document).ready(function() {
   }
 
   // Call loadGameData for the default game when the page loads
-  loadGameData(currentGame);
+  loadGameData(currentGame); // Moved inside $(document).ready()
 
   function applyFilters() {
     $(".filter").each(function() {
@@ -192,31 +201,7 @@ $(document).ready(function() {
       return 'character'; // Default to character for other games
     }
   }
-
-  // Handle dropdown selection
-  $(".dropdown-content a").click(function() {
-    let game = $(this).attr("href").replace("#", "");
-    currentGame = game;
-    loadGameData(game);
-  });
 });
-
-function gameSort() {
-  document.getElementById("gameDropdown").classList.toggle("show");
-}
-
-window.onclick = function(event) {
-  if (!event.target.matches('.dropbtn')) {
-    var dropdowns = document.getElementsByClassName("dropdown-content");
-    var i;
-    for (i = 0; i < dropdowns.length; i++) {
-      var openDropdown = dropdowns[i];
-      if (openDropdown.classList.contains('show')) {
-        openDropdown.classList.remove('show');
-      }
-    }
-  }
-}
 
 let mArray = [];
 
@@ -225,10 +210,26 @@ function loadingLoader() {
 }
 
 function showPage() {
-  document.getElementById("loader").style.display = "none";
-  document.getElementById("mainContent").style.display = "block";
-  document.getElementById("photos").style.display = "block";
+  const loader = document.getElementById("loader");
+  const photos = document.getElementById("photos");
+
+  if (loader) { // Check if the element exists
+      loader.style.display = "none";
+  } else {
+      console.error("Loader element not found!");
+  }
+
+  if (photos) { // Check if the element exists
+      photos.style.display = "block";
+  } else {
+      console.error("Photos element not found!");
+  }
 }
+
+// Call showPage inside DOMContentLoaded
+document.addEventListener("DOMContentLoaded", function() {
+  showPage(); // Call showPage once the DOM is ready
+});
 
 function generateModals() {
   $(".modal").remove(); // Remove existing modals before creating new ones
@@ -292,5 +293,3 @@ window.onclick = function(event) {
     }
   }
 }
-
-loadGameData(currentGame);

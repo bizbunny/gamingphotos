@@ -79,7 +79,7 @@
     {
       "id": "HSR12",
       "src": "./static/honkaistarrail/hsrxianzhou.png",
-      "modal": "Yangqing and Yunli",
+      "modal": "modal12",
       "label": "War Dance Interaction",
       "data": "cs"
     },

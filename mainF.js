@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function() {
     const dropdownContent = document.getElementById("gameDropdown");
     const filterButtons = document.getElementById("filter-buttons");
-
+  
     // Mapping for display names (dropdown menu)
     const displayNames = {
       nogame: "Home",
@@ -12,19 +12,20 @@ document.addEventListener("DOMContentLoaded", function() {
       loveanddeepspace: "Love & Deepspace",
       wuwa: "Wuthering Waves",
     };
-
+  
     // Generate dropdown items
     for (const game in gamesConfig) {
       const link = document.createElement("a");
       link.href = `#${game}`;
       link.textContent = displayNames[game] || game; // Use display name if available, otherwise fallback to the game key
+      link.className = "dropdown-item"; // Add Bootstrap's dropdown-item class
       dropdownContent.appendChild(link);
     }
-
+  
     // Generate filter buttons and labels
     for (const game in gamesConfig) {
       const filters = gamesConfig[game].filters;
-
+  
       if (typeof filters === 'object' && !Array.isArray(filters)) {
         // Handle labeled filters for Love & Deepspace
         Object.keys(filters).forEach(category => {
@@ -34,7 +35,7 @@ document.addEventListener("DOMContentLoaded", function() {
           categoryLabel.setAttribute("data-category", category);
           categoryLabel.innerHTML = `<div type="button">${category.charAt(0).toUpperCase() + category.slice(1)}:</div>`;
           filterButtons.appendChild(categoryLabel);
-
+  
           // Add filter buttons under the category
           filters[category].forEach(filter => {
             const li = document.createElement("li");
