@@ -32,4 +32,12 @@ const gamesConfig = {
       filters: ['all', 'accamera', 'acpcscreenshot'],
       dataFile: './data/data-acpc.json',
     },
+    am: {
+      filters: ['all'],
+      dataFile: './data/data-am.json',
+    },
+    hv: {
+      filters: ['all', 'hvbg', 'hvdialogue'],
+      dataFile: './data/data-hv.json',
+    },
   };

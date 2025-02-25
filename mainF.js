@@ -6,8 +6,10 @@ document.addEventListener("DOMContentLoaded", function() {
     const displayNames = {
       nogame: "Home",
       acpc: "Animal Crossing Pocket Camp",
+      am: "Anno Mutationem",
       genshin: "Genshin Impact",
       hsr: "Honkai Star Rail",
+      hv: "Harvestella",
       in: "Infinity Nikki",
       loveanddeepspace: "Love & Deepspace",
       wuwa: "Wuthering Waves",
