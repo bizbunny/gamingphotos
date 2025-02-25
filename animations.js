@@ -74,11 +74,18 @@ $(document).on("click", "#gameDropdown .dropdown-item", function (e) {
   }
 });
 
+//debug * * *
+
+//debug * * *
   // Function to load game data and update filters
   function loadGameData(game) {
-    let dataFile = gamesConfig[game]?.dataFile;
+    if (!gamesConfig[game]) {
+      console.error(`Game "${game}" not found in gamesConfig.`);
+      return;
+    }
 
-    console.log(`Loading data from: ${dataFile}`); // Debugging: Log the data file being loaded
+    let dataFile = gamesConfig[game].dataFile;
+    console.log(`Loading data from: ${dataFile}`);
 
     if (dataFile) {
       $.get(dataFile, function(data) {
