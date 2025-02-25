@@ -1,91 +1,91 @@
 [
   {
     "id": "HSR1",
-    "src": "./static/honkaistarrail/hsrBootHill.png",
+    "src": "./static/honkaistarrail/hsrBootHill.PNG",
     "modal": "modal1",
     "label": "Boot Hill Cut Scene",
     "data": "cs"
   },
   {
     "id": "HSR2",
-    "src": "./static/honkaistarrail/hsrpenaony.png",
+    "src": "./static/honkaistarrail/hsrpenaony.PNG",
     "modal": "modal2",
     "label": "Discussion with Jade",
     "data": "hsrscreenshot"
   },
   {
     "id": "HSR3",
-    "src": "./static/honkaistarrail/hsrpenaony2.png",
+    "src": "./static/honkaistarrail/hsrpenaony2.PNG",
     "modal": "modal3",
     "label": "Discussion with Jade 2",
     "data": "hsrscreenshot"
   },
   {
     "id": "HSR4",
-    "src": "./static/honkaistarrail/hsrdrprimitivesins.png",
+    "src": "./static/honkaistarrail/hsrdrprimitivesins.PNG",
     "modal": "modal4",
     "label": "Dr. Primitive Sins",
     "data": "cs"
   },
   {
     "id": "HSR5",
-    "src": "./static/honkaistarrail/hsrNinjaCapital.png",
+    "src": "./static/honkaistarrail/hsrNinjaCapital.PNG",
     "modal": "modal5",
     "label": "Ninja Capital",
     "data": "cs"
   },
   {
     "id": "HSR6",
-    "src": "./static/honkaistarrail/hsrpenaconygraffiti.png",
+    "src": "./static/honkaistarrail/hsrpenaconygraffiti.PNG",
     "modal": "modal6",
     "label": "Penacony School Graffiti",
     "data": "hsrscreenshot"
   },
   {
     "id": "HSR7",
-    "src": "./static/honkaistarrail/hsrpenaony3.png",
+    "src": "./static/honkaistarrail/hsrpenaony3.PNG",
     "modal": "modal7",
     "label": "Sparkle Doll",
     "data": "hsrscreenshot"
   },
   {
     "id": "HSR8",
-    "src": "./static/honkaistarrail/hsrRappa.png",
+    "src": "./static/honkaistarrail/hsrRappa.PNG",
     "modal": "modal8",
     "label": "Rappa receives Ninja Scroll",
     "data": "cs"
   },
   {
     "id": "HSR9",
-    "src": "./static/honkaistarrail/hsrrappa2.png",
+    "src": "./static/honkaistarrail/hsrrappa2.PNG",
     "modal": "modal9",
     "label": "Rappa's past",
     "data": "cs"
   },
   {
     "id": "HSR10",
-    "src": "./static/honkaistarrail/hsrWarDance.png",
+    "src": "./static/honkaistarrail/hsrWarDance.PNG",
     "modal": "modal10",
     "label": "War Dance Flashback",
     "data": "cs"
   },
   {
     "id": "HSR11",
-    "src": "./static/honkaistarrail/hsrWarDance2.png",
+    "src": "./static/honkaistarrail/hsrWarDance2.PNG",
     "modal": "modal11",
     "label": "War Dance Flashback 2",
     "data": "cs"
   },
   {
     "id": "HSR12",
-    "src": "./static/honkaistarrail/hsrxianzhou.png",
+    "src": "./static/honkaistarrail/hsrxianzhou.PNG",
     "modal": "modal12",
     "label": "War Dance Interaction",
     "data": "cs"
   },
   {
     "id": "HSR13",
-    "src": "./static/honkaistarrail/newCharactersIwant.png",
+    "src": "./static/honkaistarrail/newCharactersIwant.PNG",
     "modal": "modal13",
     "label": "Jiaoqiu and Moze",
     "data": "hsrscreenshot"
