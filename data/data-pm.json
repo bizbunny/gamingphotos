@@ -1,0 +1,30 @@
+[
+    {
+      "id": "Scene1",
+      "src": "./static/paradisemarsh/2022102320582900-2CA6D8D9BDBBFDFAF91897F777F96A03.jpg",
+      "modal": "modal1",
+      "label": "Forest at Night",
+      "data": "pmbg"
+    },
+    {
+      "id": "Scene2",
+      "src": "./static/paradisemarsh/2022111516015000-2CA6D8D9BDBBFDFAF91897F777F96A03.jpg",
+      "modal": "modal2",
+      "label": "Bird 1",
+      "data": "pmwtxt"
+    },
+    {
+      "id": "Scene3",
+      "src": "./static/paradisemarsh/2022111516015400-2CA6D8D9BDBBFDFAF91897F777F96A03.jpg",
+      "modal": "modal3",
+      "label": "Bird 2",
+      "data": "pmwtxt"
+    },
+    {
+        "id": "dialogue1",
+        "src": "./static/paradisemarsh/2022111516022200-2CA6D8D9BDBBFDFAF91897F777F96A03.jpg",
+        "modal": "modal4",
+        "label": "Text 1",
+        "data": "pmwtxt"
+    }
+]
