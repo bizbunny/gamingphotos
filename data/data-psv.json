@@ -112,18 +112,18 @@
         "data": "psvScreenshot"
     },
     {
-        "id": "",
-        "src": "./static/PokemonScarletandViolet/.jpg",
+        "id": "Pig1",
+        "src": "./static/PokemonScarletandViolet/pig.jpg",
         "modal": "modal17",
-        "label": "",
-        "data": ""
+        "label": "Pig 1",
+        "data": "psvScreenshot"
     },
     {
-        "id": "",
-        "src": "./static/PokemonScarletandViolet/.jpg",
+        "id": "Pig2",
+        "src": "./static/PokemonScarletandViolet/pig2.jpg",
         "modal": "modal18",
-        "label": "",
-        "data": ""
+        "label": "Pig 2",
+        "data": "psvScreenshot"
     },
     {
         "id": "",
