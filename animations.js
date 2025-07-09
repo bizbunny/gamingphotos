@@ -202,7 +202,7 @@ $(document).on("click", "#gameDropdown .dropdown-item", function (e) {
       return 'type';
     } else if (["portrait", "snapshot", "capture"].includes(filter)) {
       return 'category';
-    } else if (["cat", "bg", "collage"].includes(filter)) {
+    } else if (["cat", "bg", "collage","screenshot"].includes(filter)) {
       return 'additional';
     } else {
       return 'character'; // Default to character for other games

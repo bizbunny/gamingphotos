@@ -30,7 +30,7 @@ const gamesConfig = {
     filters: {
       characters: ['zayne', 'xavier', 'rafayel', 'sylus', 'caleb', 'mc'],
       photoMode: ['snapshot', 'portrait', 'capture', 'solo', 'duo'],
-      miscellaneous: ['collage', 'cat', 'bg'],
+      miscellaneous: ['collage', 'cat', 'bg','screenshot'],
     },
     dataFile: './data/data-lads.json',
   },
