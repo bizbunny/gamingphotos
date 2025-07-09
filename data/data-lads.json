@@ -1782,5 +1782,110 @@
         "modal": "modal256",
         "label": "Caleb in his apartment",
         "data": "caleb solo capture"
+    },
+    {
+        "id": "SylusLore", 
+        "src": "./static/loveanddeepspace/Screenshot_20250519-214348.png",
+        "modal": "modal257",
+        "label": "Lore Event Sylus",
+        "data": "sylus screenshot"
+    },
+    {
+        "id": "ZayneLore", 
+        "src": "./static/loveanddeepspace/Screenshot_20250519-214455.png",
+        "modal": "modal258",
+        "label": "Lore Event Zayne",
+        "data": "zayne screenshot"
+    },
+    {
+        "id": "ZayneLore2", 
+        "src": "./static/loveanddeepspace/Screenshot_20250519-214505.png",
+        "modal": "modal259",
+        "label": "Lore Event Zayne 2",
+        "data": "zayne screenshot"
+    },
+    {
+        "id": "SylusLore2", 
+        "src": "./static/loveanddeepspace/Screenshot_20250519-214527.png",
+        "modal": "modal260",
+        "label": "Lore Event Sylus 2",
+        "data": "sylus screenshot"
+    },
+    {
+        "id": "ZayneLore3", 
+        "src": "./static/loveanddeepspace/Screenshot_20250520-214941.png",
+        "modal": "modal261",
+        "label": "Lore Event Zayne 3",
+        "data": "zayne screenshot"
+    },
+    {
+        "id": "SylusLore3", 
+        "src": "./static/loveanddeepspace/Screenshot_20250520-215033.png",
+        "modal": "modal262",
+        "label": "Lore Event Sylus 3",
+        "data": "sylus screenshot"
+    },
+    {
+        "id": "SylusLore4", 
+        "src": "./static/loveanddeepspace/Screenshot_20250520-215051.png",
+        "modal": "modal263",
+        "label": "Lore Event Sylus 4",
+        "data": "sylus screenshot"
+    },
+    {
+        "id": "ZayneLore4", 
+        "src": "./static/loveanddeepspace/Screenshot_20250520-215118.png",
+        "modal": "modal264",
+        "label": "Lore Event Zayne 4",
+        "data": "zayne screenshot"
+    },
+    {
+        "id": "ZayneLore5", 
+        "src": "./static/loveanddeepspace/Screenshot_20250523-150124.png",
+        "modal": "modal265",
+        "label": "Lore Event Zayne 5",
+        "data": "zayne screenshot"
+    },
+    {
+        "id": "SylusLore5", 
+        "src": "./static/loveanddeepspace/Screenshot_20250523-150228.png",
+        "modal": "modal266",
+        "label": "Lore Event Sylus 5",
+        "data": "sylus screenshot"
+    },
+    {
+        "id": "SylusLore6", 
+        "src": "./static/loveanddeepspace/Screenshot_20250525-083116.png",
+        "modal": "modal267",
+        "label": "Lore Event Sylus 6",
+        "data": "sylus screenshot"
+    },
+    {
+        "id": "SylusLore7", 
+        "src": "./static/loveanddeepspace/Screenshot_20250526-082309.png",
+        "modal": "modal268",
+        "label": "Lore Event Sylus 7",
+        "data": "sylus screenshot"
+    },
+    {
+        "id": "ZayneLore6", 
+        "src": "./static/loveanddeepspace/Screenshot_20250526-082159.png",
+        "modal": "modal269",
+        "label": "Lore Event Zayne 6",
+        "data": "zayne screenshot"
+    },
+    {
+        "id": "ZayneLore7", 
+        "src": "./static/loveanddeepspace/Screenshot_20250526-082121.png",
+        "modal": "modal270",
+        "label": "Lore Event Zayne 7",
+        "data": "zayne screenshot"
+    },
+    {
+        "id": "ZayneLore8", 
+        "src": "./static/loveanddeepspace/Screenshot_20250525-083156.png",
+        "modal": "modal271",
+        "label": "Lore Event Zayne 8",
+        "data": "zayne screenshot"
     }
 ]
