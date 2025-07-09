@@ -1,0 +1,226 @@
+[
+    {
+        "id": "coffee",
+        "src": "./static/PokemonScarletandViolet/coffee.jpg",
+        "modal": "modal1",
+        "label": "Coffee",
+        "data": "food"
+    },
+    {
+        "id": "crepe",
+        "src": "./static/PokemonScarletandViolet/crepe.jpg",
+        "modal": "modal2",
+        "label": "Crepe",
+        "data": "food"
+    },
+    {
+        "id": "defeat1",
+        "src": "./static/PokemonScarletandViolet/defeat1.jpg",
+        "modal": "modal3",
+        "label": "Meloco Defeat",
+        "data": "psvPhoto"
+    },
+    {
+        "id": "eating",
+        "src": "./static/PokemonScarletandViolet/eating.jpg",
+        "modal": "modal4",
+        "label": "Eating",
+        "data": "psvScreenshot"
+    },
+    {
+        "id": "Feast1",
+        "src": "./static/PokemonScarletandViolet/Feast1.jpg",
+        "modal": "modal5",
+        "label": "Feast 1",
+        "data": "psvPhoto"
+    },
+    {
+        "id": "Feast2",
+        "src": "./static/PokemonScarletandViolet/Feast2.jpg",
+        "modal": "modal6",
+        "label": "Feast 2",
+        "data": "psvScreenshot"
+    },
+    {
+        "id": "Feast3",
+        "src": "./static/PokemonScarletandViolet/Feast3.jpg",
+        "modal": "modal7",
+        "label": "Feast 3",
+        "data": "psvPhoto"
+    },
+    {
+        "id": "Feast4",
+        "src": "./static/PokemonScarletandViolet/Feast4.jpg",
+        "modal": "modal8",
+        "label": "Feast 4",
+        "data": "psvScreenshot"
+    },
+    {
+        "id": "Feast5",
+        "src": "./static/PokemonScarletandViolet/Feast5.jpg",
+        "modal": "modal9",
+        "label": "Feast 5",
+        "data": "psvPhoto"
+    },
+    {
+        "id": "Grape",
+        "src": "./static/PokemonScarletandViolet/grapeacademy.jpg",
+        "modal": "modal10",
+        "label": "Grape Academy Logo",
+        "data": "psvScreenshot"
+    },
+    {
+        "id": "Ice Cream",
+        "src": "./static/PokemonScarletandViolet/icecream.jpg",
+        "modal": "modal11",
+        "label": "Ice Cream",
+        "data": "food"
+    },
+    {
+        "id": "Larry",
+        "src": "./static/PokemonScarletandViolet/Larry1.jpg",
+        "modal": "modal12",
+        "label": "Larry",
+        "data": "psvPhoto"
+    },
+    {
+        "id": "Meloco",
+        "src": "./static/PokemonScarletandViolet/meloco.jpg",
+        "modal": "modal13",
+        "label": "Meloco",
+        "data": "psvScreenshot"
+    },
+    {
+        "id": "NPC",
+        "src": "./static/PokemonScarletandViolet/npc.jpg",
+        "modal": "modal14",
+        "label": "NPC",
+        "data": "psvScreenshot"
+    },
+    {
+        "id": "OldDog",
+        "src": "./static/PokemonScarletandViolet/olddog.jpg",
+        "modal": "modal15",
+        "label": "Old Dog",
+        "data": "psvScreenshot"
+    },
+    {
+        "id": "OutsideTown",
+        "src": "./static/PokemonScarletandViolet/outsidetown.jpg",
+        "modal": "modal16",
+        "label": "Outside Of Town",
+        "data": "psvScreenshot"
+    },
+    {
+        "id": "Pig1",
+        "src": "./static/PokemonScarletandViolet/pig.jpg",
+        "modal": "modal17",
+        "label": "Pig 1",
+        "data": "psvScreenshot"
+    },
+    {
+        "id": "Pig2",
+        "src": "./static/PokemonScarletandViolet/pig2.jpg",
+        "modal": "modal18",
+        "label": "Pig 2",
+        "data": "psvScreenshot"
+    },
+    {
+        "id": "",
+        "src": "./static/PokemonScarletandViolet/.jpg",
+        "modal": "modal19",
+        "label": "",
+        "data": ""
+    },
+    {
+        "id": "",
+        "src": "./static/PokemonScarletandViolet/.jpg",
+        "modal": "modal20",
+        "label": "",
+        "data": ""
+    },
+    {
+        "id": "",
+        "src": "./static/PokemonScarletandViolet/.jpg",
+        "modal": "modal21",
+        "label": "",
+        "data": ""
+    },
+    {
+        "id": "",
+        "src": "./static/PokemonScarletandViolet/.jpg",
+        "modal": "modal22",
+        "label": "",
+        "data": ""
+    },
+    {
+        "id": "",
+        "src": "./static/PokemonScarletandViolet/.jpg",
+        "modal": "modal23",
+        "label": "",
+        "data": ""
+    },
+    {
+        "id": "",
+        "src": "./static/PokemonScarletandViolet/.jpg",
+        "modal": "modal24",
+        "label": "",
+        "data": ""
+    },
+    {
+        "id": "",
+        "src": "./static/PokemonScarletandViolet/.jpg",
+        "modal": "modal25",
+        "label": "",
+        "data": ""
+    },
+    {
+        "id": "",
+        "src": "./static/PokemonScarletandViolet/.jpg",
+        "modal": "modal26",
+        "label": "",
+        "data": ""
+    },
+    {
+        "id": "",
+        "src": "./static/PokemonScarletandViolet/.jpg",
+        "modal": "modal27",
+        "label": "",
+        "data": ""
+    },
+    {
+        "id": "",
+        "src": "./static/PokemonScarletandViolet/.jpg",
+        "modal": "modal28",
+        "label": "",
+        "data": ""
+    },
+    {
+        "id": "",
+        "src": "./static/PokemonScarletandViolet/.jpg",
+        "modal": "modal29",
+        "label": "",
+        "data": ""
+    },
+    {
+        "id": "",
+        "src": "./static/PokemonScarletandViolet/.jpg",
+        "modal": "modal30",
+        "label": "",
+        "data": ""
+    },
+    {
+        "id": "",
+        "src": "./static/PokemonScarletandViolet/.jpg",
+        "modal": "modal31",
+        "label": "",
+        "data": ""
+    },
+    {
+        "id": "",
+        "src": "./static/PokemonScarletandViolet/.jpg",
+        "modal": "modal32",
+        "label": "",
+        "data": ""
+    }
+]

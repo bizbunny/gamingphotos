@@ -1,126 +1,300 @@
-//sorting animations----------------------------------------------------------------------------
-$(document).ready(function(){
-  $(".button").click(function(){
-      var value = $(this).attr("data-filter");
-      if (value == "all")
-      {
-          $(".filter").slideDown("1000");//).show("1000") other option
+$(document).ready(function() {
+  console.log(gamesConfig); // Access the global gamesConfig object
+
+  let activeFilters = {
+    character: null,
+    type: null,
+    category: null,
+    additional: [],
+  };
+
+  let currentGame = 'nogame'; // Default game is now 'nogame'
+
+  // Function to update filter visibility based on the selected game
+  function updateFiltersForGame(game) {
+    // Hide all filters and labels first
+    $(".button, .filter-category").hide();
+
+    // Show the "All" filter (common for all games)
+    $(".button[data-filter='all']").show();
+
+    // Show filters specific to the selected game
+    if (gamesConfig[game]) {
+      const filters = gamesConfig[game].filters;
+
+      if (typeof filters === 'object' && !Array.isArray(filters)) {
+        // Handle labeled filters for Love & Deepspace
+        Object.keys(filters).forEach(category => {
+          // Show the category label
+          $(`.filter-category[data-category='${category}']`).show();
+
+          // Show the filter buttons under the category
+          filters[category].forEach(filter => {
+            $(`.button[data-filter='${filter}']`).show();
+          });
+        });
+      } else {
+        // Handle unlabeled filters for other games
+        filters.forEach(filter => {
+          $(`.button[data-filter='${filter}']`).show();
+        });
       }
-      else
-      {
-          $(".filter").not("."+value).slideUp("1000");//).hide("1000") other option
-          $(".filter").filter("."+value).slideDown("1000");//).show("1000") other option
+    }
+  }
+
+  // Load the default game data (no game data to back to Home)
+  function loadDefaultData() {
+    // Clear the grid items
+    $("#project-grid-items").empty();
+
+    // Hide the photos section
+    $("#photos").hide();
+
+    // Show all items by default (if any)
+    $(".filter").slideDown("1000");
+
+    // Only show the "All" filter
+    updateFiltersForGame('nogame');
+  }
+
+  // Call the default load function when the page loads
+  loadDefaultData();
+
+  // Handle dropdown selection
+  // Handle dropdown selection
+$(document).on("click", "#gameDropdown .dropdown-item", function (e) {
+  e.preventDefault();
+  let game = $(this).attr("href").replace("#", "");
+  currentGame = game;
+
+  if (game === 'nogame') {
+    loadDefaultData(); // Call loadDefaultData for Home
+  } else {
+    loadGameData(game); // Call loadGameData for other games
+  }
+});
+
+//debug * * *
+
+//debug * * *
+  // Function to load game data and update filters
+  function loadGameData(game) {
+    if (!gamesConfig[game]) {
+      console.error(`Game "${game}" not found in gamesConfig.`);
+      return;
+    }
+
+    let dataFile = gamesConfig[game].dataFile;
+    console.log(`Loading data from: ${dataFile}`);
+
+    if (dataFile) {
+      $.get(dataFile, function(data) {
+        mArray = data;
+        let grid = $("#project-grid-items");
+        grid.empty(); // Clear previous items
+
+        // Clear previous modals before generating new ones
+        $(".modal").remove();
+
+        mArray.forEach(item => {
+          grid.append(`
+            <div id="project-grid-item" class="box filter ${item.data} name col-lg-3 col-md-4 mb-12 mb-md-0">
+              <a href="#">
+                <img class="project-grid-item-img" src="${item.src}" alt="" id="${item.id}"/>
+              </a>
+              <div class="overlay">
+                <div class="overlay-text">
+                  <button class="modal-btn btn btn-primary" data-target="#${item.modal}">${item.label}</button>
+                </div>
+              </div>
+            </div>
+          `);
+        });
+
+        generateModals(); // Regenerate modals with new data
+        applyFilters(); // Apply filters to updated items
+
+        // Show the photos section
+        $("#photos").show();
+
+        console.log("Data received:", data); // Debugging: Log the received data
+      }).fail(function(jqXHR, textStatus, errorThrown) {
+        console.error("Error loading data:", textStatus, errorThrown); // Debugging: Log any errors
+      });
+    }
+
+    updateFiltersForGame(game);
+  }
+
+  // Call loadGameData for the default game when the page loads
+  loadGameData(currentGame); // Moved inside $(document).ready()
+
+  function applyFilters() {
+    $(".filter").each(function() {
+      let item = $(this);
+      let itemClasses = item.attr("class").split(" ");
+
+      // Check if the item matches the active filters
+      let matches = true;
+
+      if (activeFilters.character && !itemClasses.includes(activeFilters.character)) {
+        matches = false;
       }
-      $("ul .button").click(function(){
-          $(this).addClass('active')
-      })
-  })
-})
-//CSS----------------------------------------------------------------------------
-(
-)();
-//Loader & modal images----------------------------------------------------------------------------
-var Loader;
-let mArray = {//modal data
-  m1: ["modal1", "./static/loveanddeepspace/Paper17288440731.png", "Zayne Collage"],
-  m2: ["modal2", "./static/loveanddeepspace/Paper17292167252.png", "Rafayel Strawberry Head"],
-  m3: ["modal3", "./static/loveanddeepspace/Paper17292167773.png", "Rafayel Wand"],
-  m4: ["modal4", "./static/loveanddeepspace/Paper17292168134.png", "Rafayel Glasses"],
-  m5: ["modal5", "./static/loveanddeepspace/Paper17292181731.png", "Zayne Thinking"],
-  m6: ["modal6", "./static/loveanddeepspace/Paper17292181832.png", "MC Wand"],
-  m7: ["modal7", "./static/loveanddeepspace/Paper17292181953.png", "Zayne Posing"],
-  m8: ["modal8", "./static/loveanddeepspace/Paper17292182044.png", "Zayne Collage 2"],
-  m9: ["modal9", "./static/loveanddeepspace/Paper17311247121.png", "Rafayel Costume"],
-  m10: ["modal10", "./static/loveanddeepspace/Paper17311248072.png", "MC Glasses with Dog Face Sticker"],
-  m11: ["modal11", "./static/loveanddeepspace/Paper17311249413.png", "Rafayel Meme"],
-  m12: ["modal12", "./static/loveanddeepspace/Paper17311251665.png", "Sylus Collage"],
-  m13: ["modal13", "./static/loveanddeepspace/Paper17311254646.png", "MC Wand"],
-  m14: ["modal14", "./static/loveanddeepspace/Paper17311256267.png", "Sylus Pose & Point"],
-  m15: ["modal15", "./static/loveanddeepspace/Paper17311257548.png", "Sylus Pose & Smirk"],
-  m16: ["modal16", "./static/loveanddeepspace/Paper17312828791.png", "Zayne Working"],
-  m17: ["modal17", "./static/loveanddeepspace/Paper17312828943.png", "Zayne Standing Pose with Snowglobe"],
-  m18: ["modal18", "./static/loveanddeepspace/Paper17312828984.png", "Zayne Standing Pose Glasses"],
-  m19: ["modal19", "./static/loveanddeepspace/Paper17312830256.png", "Sylus Standing Pose"],
-  m20: ["modal20", "./static/loveanddeepspace/Paper17312830677.png", "Zayne Standing Pose Umbrella"],
-  m21: ["modal21", "./static/loveanddeepspace/Paper17312830768.png", "Zayne Closer"],
-  m22: ["modal22", "./static/loveanddeepspace/Paper17312830869.png", "Sylus Come Closer"],
-  m23: ["modal23", "./static/loveanddeepspace/Paper173128310410.png", "Sylus Wand"],
-  m24: ["modal24", "./static/loveanddeepspace/Paper173128312511.png", "Zayne Standing Pose Glasses & Flowers"],
-  m25: ["modal25", "./static/loveanddeepspace/Paper173128314612.png", "Sylus Pose"],
-  m26: ["modal26", "./static/loveanddeepspace/Paper173128365413.png", "Sylus Collage 2"],
-  m27: ["modal27", "./static/loveanddeepspace/Paper173128368714.png", "Sylus Pose Music Album"],
-  m28: ["modal28", "./static/loveanddeepspace/Paper173128382915.png", "MC Glasses with Food Stickers"],
-  m29: ["modal29", "./static/loveanddeepspace/Paper173128396416.png", "Sylus Pose with Hands"],
-  m30: ["modal30", "./static/loveanddeepspace/Paper173128404517.png", "Sylus Pose Side to Side"],
-  m31: ["modal31", "./static/loveanddeepspace/Paper17313856361.png", "Xavier Bunny 1"],
-  m32: ["modal32", "./static/loveanddeepspace/Paper17313857243.png", "Xavier Bunny 2"],
-  m33: ["modal33", "./static/loveanddeepspace/Paper17313857885.png", "Xavier Bunny 3"],
-  m34: ["modal34", "./static/loveanddeepspace/Paper17313860127.png", "Xavier Standing Pose"],
-  m35: ["modal35", "./static/loveanddeepspace/Paper17313860389.png", "Xavier Hmpf Pose"],
-  m36: ["modal36", "./static/loveanddeepspace/Paper173138604310.png", "MC Glasses"],
-  m37: ["modal37", "./static/loveanddeepspace/Paper173138604911.png", "Xavier Rectangle Pose"],
-  m38: ["modal38", "./static/loveanddeepspace/Paper173138605312.png", "Xavier Collage"],
-  m39: ["modal39", "./static/loveanddeepspace/Paper173138605713.png", "Zayne Background Photo Pose"],
-  m40: ["modal40", "./static/loveanddeepspace/Paper173138605914.png", "Zayne Megaphone"],
-  m41: ["modal41", "./static/loveanddeepspace/Paper173138606215.png", "MC Megaphone"],
-  m42: ["modal42", "./static/loveanddeepspace/Paper173138606717.png", "Xavier in Café"],
-  m43: ["modal43", "./static/loveanddeepspace/Paper173138683718.png", "Xavier Collage 2"],
-  m44: ["modal44", "./static/loveanddeepspace/Paper173138705720.png", "MC megaphone with Bear Ears"], 
-  m45: ["modal45", "./static/loveanddeepspace/Paper173138690519.png", "Xavier megaphone"], 
-  m46: ["modal46", "./static/loveanddeepspace/Paper173138716121.png", "Xavier Photo Pose with Dog Ear Stickers"], 
-  m47: ["modal47", "./static/loveanddeepspace/Paper173138722222.png","Xavier with Close up MC Pose"],
-  m48: ["modal48", "./static/loveanddeepspace/Paper17314694021.png", "Cat Zayne 1"],
-  m49: ["modal49", "./static/loveanddeepspace/Paper17314694249.png", "Cat Xavier 1"],
-  m50: ["modal50", "./static/loveanddeepspace/Paper173154100512.png", "MC Newspaper"]
-};
-let modalT= '';
-let modalL= '';
+      if (activeFilters.type && !itemClasses.includes(activeFilters.type)) {
+        matches = false;
+      }
+      if (activeFilters.category && !itemClasses.includes(activeFilters.category)) {
+        matches = false;
+      }
+      if (activeFilters.additional.length > 0 && !activeFilters.additional.some(f => itemClasses.includes(f))) {
+        matches = false;
+      }
+
+      // Show or hide the item based on the match
+      if (matches) {
+        item.slideDown("1000");
+      } else {
+        item.slideUp("1000");
+      }
+    });
+  }
+
+  $(".button").click(function() {
+    let value = $(this).attr("data-filter");
+
+    if (value === "all") {
+      // Reset all filters
+      activeFilters = {
+        character: null,
+        type: null,
+        category: null,
+        additional: [],
+      };
+      $(".filter").slideDown("1000");
+      $(".button").removeClass("active");
+      $(this).addClass("active");
+    } else {
+      // Update active filters based on the button clicked
+      const filterType = getFilterType(value);
+      if (filterType === 'additional') {
+        if (activeFilters.additional.includes(value)) {
+          activeFilters.additional = activeFilters.additional.filter(f => f !== value);
+          $(this).removeClass("active");
+        } else {
+          activeFilters.additional.push(value);
+          $(this).addClass("active");
+        }
+      } else {
+        activeFilters[filterType] = activeFilters[filterType] === value ? null : value;
+        $(`.button[data-filter='${value}']`).removeClass("active");
+        if (activeFilters[filterType]) $(this).addClass("active");
+      }
+    }
+
+    applyFilters();
+  });
+
+  // Helper function to determine the filter type
+  function getFilterType(filter) {
+    if (["zayne", "xavier", "rafayel", "sylus", "caleb", "mc"].includes(filter)) {
+      return 'character';
+    } else if (["solo", "duo"].includes(filter)) {
+      return 'type';
+    } else if (["portrait", "snapshot", "capture"].includes(filter)) {
+      return 'category';
+    } else if (["cat", "bg", "collage"].includes(filter)) {
+      return 'additional';
+    } else {
+      return 'character'; // Default to character for other games
+    }
+  }
+});
+
+let mArray = [];
+
 function loadingLoader() {
   Loader = setTimeout(showPage, 3000);
 }
+
 function showPage() {
-  document.getElementById("loader").style.display = "none";
-  document.getElementById("mainContent").style.display = "block";
-  document.getElementById("photos").style.display = "block";
-}
-for ( let key in mArray){//creates all the modals
-  if(key=='m50'){
-    modalT = mArray[key][2];
+  const loader = document.getElementById("loader");
+  const photos = document.getElementById("photos");
+
+  if (loader) { // Check if the element exists
+      loader.style.display = "none";
+  } else {
+      console.error("Loader element not found!");
   }
-  modalL+='<div class="modal" id="'+mArray[key][0]+'"><div class="modal-content"><div class="modal-body"><figure class="mbc_container"><img src="'+mArray[key][1]+'" /></figure></div></div></div>';
+
+  if (photos) { // Check if the element exists
+      photos.style.display = "block";
+  } else {
+      console.error("Photos element not found!");
+  }
 }
-console.log(modalT);
-document.getElementById("modalL").innerHTML=modalL;//displays the modals
-//--------------------------------------------------------------- MODAL FUNCTIONS --------------------------------------------------------------------------------------------//
+
+// Call showPage inside DOMContentLoaded
+document.addEventListener("DOMContentLoaded", function() {
+  showPage(); // Call showPage once the DOM is ready
+});
+
+function generateModals() {
+  $(".modal").remove(); // Remove existing modals before creating new ones
+
+  mArray.forEach(item => {
+    const modal = document.createElement('div');
+    modal.classList.add('modal', 'fade');
+    modal.id = item.modal;
+    modal.setAttribute('tabindex', '-1');
+    modal.setAttribute('role', 'dialog');
+
+    modal.innerHTML = `
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">${item.label}</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span>&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <img src="${item.src}" class="img-fluid" alt="${item.label}"/>
+          </div>
+        </div>
+      </div>
+    `;
+
+    document.body.appendChild(modal);
+  });
+}
+
+loadingLoader();
+
+// Modal functions
 var modals = document.querySelectorAll(".modal");
-var modalbtn = document.querySelectorAll("button.modal-btn");
 var spans = document.getElementsByClassName("close");
 
-//user clicks project card, open modal
-for(var i = 0;i <modalbtn.length ;i++){
-  modalbtn[i].onclick = function(e){
-    e.preventDefault();
-    var modal = document.querySelector(e.target.getAttribute("href"));
-    modal.style.display = "block";
+for (var i = 0; i < spans.length; i++) {
+  spans[i].onclick = function() {
+    for (var index = 0; index < modals.length; index++) {
+      modals[index].style.display = "none";
+    }
   }
 }
 
-//user clicks close to close modal
-for(vari=0;i<spans.length;i++){
-  spans[i].onclick = function(){
-    for(var index in modals){
-      if(typeof modals[index].style !== "undefined"){
-        modals[index].style.display = "none";
-      }
-    }//end of for loop
-  }//end of anon func
-}//end of outer loop
+$(document).on("click", ".modal-btn", function (e) {
+  e.preventDefault();
+  var targetModal = $(this).data("target");
+  console.log("Opening modal:", targetModal); // Debugging
+  console.log("Modal button clicked, target:", targetModal);
+  console.log("Checking if modal exists:", $(targetModal));
+  $(targetModal).modal("show");
+});
 
-//user clicks outside modal, close too
-window.onclick = function(event){
-  if(event.target.classList.contains("modal")){
-    for(var index in modals){
-      if(typeof modals[index].style !== "undefined"){
+window.onclick = function(event) {
+  if (event.target.classList.contains("modal")) {
+    for (var index in modals) {
+      if (typeof modals[index].style !== "undefined") {
         modals[index].style.display = "none";
       }
     }
