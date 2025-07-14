@@ -1887,5 +1887,89 @@
         "modal": "modal271",
         "label": "Lore Event Zayne 8",
         "data": "zayne screenshot"
+    },
+    {
+        "id": "Sylus48",
+        "src": "./static/loveanddeepspace/Paper17522033446.png",
+        "modal": "modal272",
+        "label": "Sylus Collage 1",
+        "data": "sylus solo collage capture"
+    },
+    {
+        "id": "Sylus49",
+        "src": "./static/loveanddeepspace/Paper17522033477.png",
+        "modal": "modal273",
+        "label": "Sylus Collage 2",
+        "data": "sylus solo collage capture"
+    },
+    {
+        "id": "Zayne33",
+        "src": "./static/loveanddeepspace/Paper17522033498.png",
+        "modal": "modal274",
+        "label": "Zayne Collage 3",
+        "data": "zayne solo collage capture"
+    },
+    {
+        "id": "Collage",
+        "src": "./static/loveanddeepspace/Paper17522033529.png",
+        "modal": "modal275",
+        "label": "Collage of Zayne, Caleb, Sylus, & Rafayel",
+        "data": "collage solo capture"
+    },
+    {
+        "id": "CatWeddingCollage",
+        "src": "./static/loveanddeepspace/Paper17525019911.png",
+        "modal": "modal276",
+        "label": "Zayne collage with cat ears & a wedding theme",
+        "data": "zayne cat duo collage snapshot"
+    },
+    {
+        "id": "Zayne34",
+        "src": "./static/loveanddeepspace/Paper17525020292.png",
+        "modal": "modal277",
+        "label": "Zayne with cat ears & a wedding theme",
+        "data": "zayne cat solo snapshot"
+    },
+    {
+        "id": "MC18",
+        "src": "./static/loveanddeepspace/Paper17525021903.png",
+        "modal": "modal278",
+        "label": "MC with cat ears & a wedding theme",
+        "data": "mc cat solo snapshot"
+    },
+    {
+        "id": "Zayne35",
+        "src": "./static/loveanddeepspace/Paper17525022404.png",
+        "modal": "modal279",
+        "label": "Zayne & MC with cat ears & a wedding theme",
+        "data": "zayne cat duo snapshot"
+    },
+    {
+        "id": "Zayne36",
+        "src": "./static/loveanddeepspace/Paper17525022845.png",
+        "modal": "modal279",
+        "label": "Zayne & MC with cat ears & a wedding theme 2",
+        "data": "zayne cat duo snapshot"
+    },
+    {
+        "id": "Sylus50", 
+        "src": "./static/loveanddeepspace/Screenshot_20250711-222344.png",
+        "modal": "modal280",
+        "label": "Sylus Sleeping",
+        "data": "sylus solo screenshot"
+    },
+    {
+        "id": "Sylus51", 
+        "src": "./static/loveanddeepspace/Screenshot_20250711-222353.png",
+        "modal": "modal281",
+        "label": "Sylus Sleeping 2",
+        "data": "sylus solo screenshot"
+    },
+    {
+        "id": "Sylus52", 
+        "src": "./static/loveanddeepspace/Screenshot_20250711-223300.png",
+        "modal": "modal282",
+        "label": "Sylus Sleeping 3",
+        "data": "sylus solo screenshot"
     }
 ]
