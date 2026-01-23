@@ -619,7 +619,7 @@
         "id": "Sylus27", 
         "src": "./static/loveanddeepspace/Paper17336106851.png", 
         "modal": "modal89", 
-        "label": "Sylus Collage 2", 
+        "label": "Sylus Collage 3", 
         "data": "sylus collage snapshot"
     },
     { 
@@ -1046,7 +1046,7 @@
         "id": "Sylus36", 
         "src": "./static/loveanddeepspace/Paper173818863112.png",
         "modal": "modal150",
-        "label": "Sylus Collage 3",
+        "label": "Sylus Collage 4",
         "data": "sylus collage snapshot"
     },
     {
@@ -1892,14 +1892,14 @@
         "id": "Sylus48",
         "src": "./static/loveanddeepspace/Paper17522033446.png",
         "modal": "modal272",
-        "label": "Sylus Collage 1",
+        "label": "Sylus Collage 5",
         "data": "sylus solo collage capture"
     },
     {
         "id": "Sylus49",
         "src": "./static/loveanddeepspace/Paper17522033477.png",
         "modal": "modal273",
-        "label": "Sylus Collage 2",
+        "label": "Sylus Collage 6",
         "data": "sylus solo collage capture"
     },
     {
@@ -1917,7 +1917,7 @@
         "data": "collage solo capture"
     },
     {
-        "id": "CatWeddingCollage",
+        "id": "CatCollage",
         "src": "./static/loveanddeepspace/Paper17525019911.png",
         "modal": "modal276",
         "label": "Zayne collage with cat ears & a wedding theme",
@@ -1971,5 +1971,117 @@
         "modal": "modal282",
         "label": "Sylus Sleeping 3",
         "data": "sylus solo screenshot"
+    },
+    {
+        "id":"Collage",
+        "src":"./static/loveanddeepspace/Paper17618779141.png",
+        "modal":"modal283",
+        "label":"Collage of Zayne, Caleb, Sylus, & Rafayel 2",
+        "data":"collage solo capture"
+    },
+    {
+        "id":"Caleb57",
+        "src":"./static/loveanddeepspace/Paper17620540411.png",
+        "modal":"modal284",
+        "label":"Caleb Out at Night",
+        "data":"caleb solo capture"
+    },
+    {
+        "id":"Sylus53",
+        "src":"./static/loveanddeepspace/Paper17620541733.png",
+        "modal":"modal285",
+        "label":"Sylus Driving",
+        "data":"sylus solo capture"
+    },
+    {
+        "id":"Sylus54",
+        "src":"./static/loveanddeepspace/Paper17648160101.png",
+        "modal":"modal286",
+        "label":"Sylus Film Collage Past and Present",
+        "data":"sylus collage solo capture"
+    },
+    {
+        "id":"Sylus55",
+        "src":"./static/loveanddeepspace/Paper17648177352.png",
+        "modal":"modal287",
+        "label":"Sylus Collage 7",
+        "data":"sylus collage snapshot"
+    },
+    {
+        "id":"Sylus56",
+        "src":"./static/loveanddeepspace/Paper17648178123.png",
+        "modal":"modal288",
+        "label":"Sylus in funny hat",
+        "data":"sylus solo snapshot"
+    },
+    {
+        "id":"MC19",
+        "src":"./static/loveanddeepspace/Paper17648179014.png",
+        "modal":"modal289",
+        "label":"MC with a 2D Crown",
+        "data":"mc solo snapshot"
+    },
+    {
+        "id":"Sylus57",
+        "src":"./static/loveanddeepspace/Paper17648180205.png",
+        "modal":"modal290",
+        "label":"Sylus Squeezes MC's Face",
+        "data":"sylus duo snapshot"
+    },
+    {
+        "id":"Sylus58",
+        "src":"./static/loveanddeepspace/Paper17648181886.png",
+        "modal":"modal291",
+        "label":"Sylus and MC looking married",
+        "data":"sylus duo snapshot"
+    },
+    {
+        "id":"EmpressChamber",
+        "src":"./static/loveanddeepspace/Paper17672140721.png",
+        "modal":"modal292",
+        "label":"Empress's Chamber",
+        "data":"bg capture"
+    },
+    {
+        "id":"Garden",
+        "src":"./static/loveanddeepspace/Paper17672140833.png",
+        "modal":"modal293",
+        "label":"Romantic Garden",
+        "data":"bg capture"
+    },
+    {
+        "id":"Church",
+        "src":"./static/loveanddeepspace/Paper17672140884.png",
+        "modal":"modal294",
+        "label":"Church at Night",
+        "data":"bg capture"
+    },
+    {
+        "id":"Cliff",
+        "src":"./static/loveanddeepspace/Paper17672140915.png",
+        "modal":"modal295",
+        "label":"Cliff at Night",
+        "data":"bg capture"
+    },
+    {
+        "id":"Sylus59",
+        "src":"./static/loveanddeepspace/Paper17672141508.png",
+        "modal":"modal296",
+        "label":"Sylus in baby bonnet",
+        "data":"bg capture"
+    },
+    {
+        "id":"Village",
+        "src":"./static/loveanddeepspace/Paper176721418210.png",
+        "modal":"modal297",
+        "label":"Oldy-Woldy Village at Night",
+        "data":"bg capture"
+    },
+    {
+        "id":"Zayne37",
+        "src":"./static/loveanddeepspace/Paper176721418811.png",
+        "modal":"modal298",
+        "label":"Zayne with a snowglobe",
+        "data":"zayne solo portrait"
     }
 ]
