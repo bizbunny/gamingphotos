@@ -2083,5 +2083,33 @@
         "modal":"modal298",
         "label":"Zayne with a snowglobe",
         "data":"zayne solo portrait"
+    },
+    {
+        "id":"Xavier36",
+        "src":"./static/loveanddeepspace/Paper17468485771.png",
+        "modal":"modal299",
+        "label":"Xavier in the Forest",
+        "data":"xavier solo capture"
+    },
+    {
+        "id":"",
+        "src":"./static/loveanddeepspace/.png",
+        "modal":"modal300",
+        "label":"",
+        "data":""
+    },
+    {
+        "id":"",
+        "src":"./static/loveanddeepspace/.png",
+        "modal":"modal301",
+        "label":"",
+        "data":""
+    },
+    {
+        "id":"",
+        "src":"./static/loveanddeepspace/.png",
+        "modal":"modal302",
+        "label":"",
+        "data":""
     }
 ]
